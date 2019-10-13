@@ -27,6 +27,7 @@ Partial Class Form1
         Me.AddNewProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExploreProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ViewRoomsInProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OpenProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -41,7 +42,7 @@ Partial Class Form1
         '
         'ProjectToolStripMenuItem
         '
-        Me.ProjectToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddNewProjectToolStripMenuItem, Me.ExploreProjectToolStripMenuItem})
+        Me.ProjectToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddNewProjectToolStripMenuItem, Me.OpenProjectToolStripMenuItem, Me.ExploreProjectToolStripMenuItem})
         Me.ProjectToolStripMenuItem.Name = "ProjectToolStripMenuItem"
         Me.ProjectToolStripMenuItem.Size = New System.Drawing.Size(56, 20)
         Me.ProjectToolStripMenuItem.Text = "Project"
@@ -65,6 +66,12 @@ Partial Class Form1
         Me.ViewRoomsInProjectToolStripMenuItem.Size = New System.Drawing.Size(192, 22)
         Me.ViewRoomsInProjectToolStripMenuItem.Text = "View Rooms in Project"
         '
+        'OpenProjectToolStripMenuItem
+        '
+        Me.OpenProjectToolStripMenuItem.Name = "OpenProjectToolStripMenuItem"
+        Me.OpenProjectToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.OpenProjectToolStripMenuItem.Text = "Open project"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -86,4 +93,5 @@ Partial Class Form1
     Friend WithEvents AddNewProjectToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExploreProjectToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ViewRoomsInProjectToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents OpenProjectToolStripMenuItem As ToolStripMenuItem
 End Class

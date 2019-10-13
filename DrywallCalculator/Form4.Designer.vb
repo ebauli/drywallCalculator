@@ -23,9 +23,9 @@ Partial Class Form4
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cbxProjectName = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtProjectDescription = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'Label1
@@ -37,13 +37,13 @@ Partial Class Form4
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Project Name"
         '
-        'ComboBox1
+        'cbxProjectName
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(234, 99)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(268, 21)
-        Me.ComboBox1.TabIndex = 1
+        Me.cbxProjectName.FormattingEnabled = True
+        Me.cbxProjectName.Location = New System.Drawing.Point(234, 99)
+        Me.cbxProjectName.Name = "cbxProjectName"
+        Me.cbxProjectName.Size = New System.Drawing.Size(268, 21)
+        Me.cbxProjectName.TabIndex = 1
         '
         'Label2
         '
@@ -55,21 +55,21 @@ Partial Class Form4
         Me.Label2.Text = "Project Description"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'TextBox1
+        'txtProjectDescription
         '
-        Me.TextBox1.Location = New System.Drawing.Point(234, 159)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(365, 20)
-        Me.TextBox1.TabIndex = 3
+        Me.txtProjectDescription.Location = New System.Drawing.Point(234, 159)
+        Me.txtProjectDescription.Name = "txtProjectDescription"
+        Me.txtProjectDescription.Size = New System.Drawing.Size(365, 20)
+        Me.txtProjectDescription.TabIndex = 3
         '
         'Form4
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtProjectDescription)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.cbxProjectName)
         Me.Controls.Add(Me.Label1)
         Me.Name = "Form4"
         Me.Text = "Form4"
@@ -79,7 +79,7 @@ Partial Class Form4
     End Sub
 
     Friend WithEvents Label1 As Label
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cbxProjectName As ComboBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtProjectDescription As TextBox
 End Class

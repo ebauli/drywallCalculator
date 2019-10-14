@@ -57,9 +57,7 @@ Public Class SQLControl
         Dim newParam As New MySqlParameter(name, value)
         params.Add(newParam)
 
-
     End Sub
-
 
 
 End Class

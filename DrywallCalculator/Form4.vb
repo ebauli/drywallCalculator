@@ -51,4 +51,8 @@ Public Class Form4
     Private Sub cbxProjectName_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxProjectName.SelectedIndexChanged
         getprojectDescription(cbxProjectName.Text)
     End Sub
+
+    Private Sub btnOpen_Click(sender As Object, e As EventArgs) Handles btnOpen.Click
+        Form3.Show(Form4)
+    End Sub
 End Class

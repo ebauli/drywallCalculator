@@ -26,6 +26,7 @@ Partial Class Form4
         Me.cbxProjectName = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtProjectDescription = New System.Windows.Forms.TextBox()
+        Me.btnOpen = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -62,11 +63,21 @@ Partial Class Form4
         Me.txtProjectDescription.Size = New System.Drawing.Size(365, 20)
         Me.txtProjectDescription.TabIndex = 3
         '
+        'btnOpen
+        '
+        Me.btnOpen.Location = New System.Drawing.Point(234, 276)
+        Me.btnOpen.Name = "btnOpen"
+        Me.btnOpen.Size = New System.Drawing.Size(92, 23)
+        Me.btnOpen.TabIndex = 4
+        Me.btnOpen.Text = "Open"
+        Me.btnOpen.UseVisualStyleBackColor = True
+        '
         'Form4
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.btnOpen)
         Me.Controls.Add(Me.txtProjectDescription)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.cbxProjectName)
@@ -82,4 +93,5 @@ Partial Class Form4
     Friend WithEvents cbxProjectName As ComboBox
     Friend WithEvents Label2 As Label
     Friend WithEvents txtProjectDescription As TextBox
+    Friend WithEvents btnOpen As Button
 End Class

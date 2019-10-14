@@ -8,4 +8,8 @@
 
 
     End Sub
+
+    Private Sub AddNewProjectToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddNewProjectToolStripMenuItem.Click
+        Form2.Show()
+    End Sub
 End Class

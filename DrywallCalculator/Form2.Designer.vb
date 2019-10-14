@@ -22,26 +22,26 @@ Partial Class Form2
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.txtProjectName = New System.Windows.Forms.TextBox()
+        Me.txtProjectDescription = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
-        'TextBox1
+        'txtProjectName
         '
-        Me.TextBox1.Location = New System.Drawing.Point(272, 96)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(185, 20)
-        Me.TextBox1.TabIndex = 0
+        Me.txtProjectName.Location = New System.Drawing.Point(272, 96)
+        Me.txtProjectName.Name = "txtProjectName"
+        Me.txtProjectName.Size = New System.Drawing.Size(185, 20)
+        Me.txtProjectName.TabIndex = 0
         '
-        'TextBox2
+        'txtProjectDescription
         '
-        Me.TextBox2.Location = New System.Drawing.Point(272, 131)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(257, 20)
-        Me.TextBox2.TabIndex = 2
+        Me.txtProjectDescription.Location = New System.Drawing.Point(272, 131)
+        Me.txtProjectDescription.Name = "txtProjectDescription"
+        Me.txtProjectDescription.Size = New System.Drawing.Size(257, 20)
+        Me.txtProjectDescription.TabIndex = 2
         '
         'Label1
         '
@@ -78,8 +78,8 @@ Partial Class Form2
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtProjectDescription)
+        Me.Controls.Add(Me.txtProjectName)
         Me.Name = "Form2"
         Me.Text = "Form2"
         Me.ResumeLayout(False)
@@ -87,8 +87,8 @@ Partial Class Form2
 
     End Sub
 
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents txtProjectName As TextBox
+    Friend WithEvents txtProjectDescription As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Button1 As Button

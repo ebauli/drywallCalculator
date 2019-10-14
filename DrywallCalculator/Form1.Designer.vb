@@ -25,9 +25,9 @@ Partial Class Form1
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.ProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AddNewProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OpenProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExploreProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ViewRoomsInProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.OpenProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -53,6 +53,12 @@ Partial Class Form1
         Me.AddNewProjectToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.AddNewProjectToolStripMenuItem.Text = "Add New Project"
         '
+        'OpenProjectToolStripMenuItem
+        '
+        Me.OpenProjectToolStripMenuItem.Name = "OpenProjectToolStripMenuItem"
+        Me.OpenProjectToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.OpenProjectToolStripMenuItem.Text = "Open project"
+        '
         'ExploreProjectToolStripMenuItem
         '
         Me.ExploreProjectToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ViewRoomsInProjectToolStripMenuItem})
@@ -65,12 +71,6 @@ Partial Class Form1
         Me.ViewRoomsInProjectToolStripMenuItem.Name = "ViewRoomsInProjectToolStripMenuItem"
         Me.ViewRoomsInProjectToolStripMenuItem.Size = New System.Drawing.Size(192, 22)
         Me.ViewRoomsInProjectToolStripMenuItem.Text = "View Rooms in Project"
-        '
-        'OpenProjectToolStripMenuItem
-        '
-        Me.OpenProjectToolStripMenuItem.Name = "OpenProjectToolStripMenuItem"
-        Me.OpenProjectToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.OpenProjectToolStripMenuItem.Text = "Open project"
         '
         'Form1
         '

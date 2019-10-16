@@ -19,6 +19,25 @@ Public Class SQLControl
     'Query Statistics
     Public recordcount As Integer
     Public exception As String
+    Public tableId As Integer
+
+
+    Public Sub ExecCommand()
+        Try
+            sqlCon.Open()
+
+            'Create SQL Commands
+            sqlCmd = New MySqlCommand()
+            tableId = sqlCmd.ExecuteScalar()
+
+
+        Catch ex As Exception
+
+        End Try
+
+
+    End Sub
+
 
     Public Sub ExecQuery(query As String)
         Try
@@ -36,11 +55,11 @@ Public Class SQLControl
             'execute command
 
 
-            sqlCon.Close()
+
             sqlDA = New MySqlDataAdapter(sqlCmd)
             sqlDS = New DataSet
             recordcount = sqlDA.Fill(sqlDS)
-
+            sqlCon.Close()
 
         Catch ex As Exception
 

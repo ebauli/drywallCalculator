@@ -4,6 +4,7 @@ Imports MySql.Data.MySqlClient
 
 
 Public Class SQLControl
+    Private tableIdentity As Integer
 
     'SQL Connection
     Private sqlCon As New MySqlConnection("server=localhost;user id=root;password=EDUARDO;database=drywall;persistsecurityinfo=True ")
@@ -20,6 +21,8 @@ Public Class SQLControl
     Public recordcount As Integer
     Public exception As String
 
+
+
     Public Sub ExecQuery(query As String)
         Try
             sqlCon.Open()
@@ -35,12 +38,11 @@ Public Class SQLControl
 
             'execute command
 
-
-            sqlCon.Close()
             sqlDA = New MySqlDataAdapter(sqlCmd)
             sqlDS = New DataSet
             recordcount = sqlDA.Fill(sqlDS)
 
+            sqlCon.Close()
 
         Catch ex As Exception
 
@@ -58,6 +60,15 @@ Public Class SQLControl
         params.Add(newParam)
 
     End Sub
+
+    Public Property identity() As Integer
+        Get
+            Return tableIdentity
+        End Get
+        Set(ByVal value As Integer)
+            tableIdentity = value
+        End Set
+    End Property
 
 
 End Class

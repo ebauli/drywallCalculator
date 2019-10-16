@@ -53,6 +53,6 @@ Public Class Form4
     End Sub
 
     Private Sub btnOpen_Click(sender As Object, e As EventArgs) Handles btnOpen.Click
-        Form3.Show(Form4)
+        Form3.Show()
     End Sub
 End Class

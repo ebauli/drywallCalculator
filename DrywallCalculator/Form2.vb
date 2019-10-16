@@ -19,6 +19,7 @@
         sql.addParam("@projectName", txtProjectName.Text)
         sql.addParam("@projectDescription", txtProjectDescription.Text)
         sql.ExecQuery("INSERT INTO PROJECT (project_name , project_description) values (@projectName,@projectDescription)")
+
     End Sub
 
 

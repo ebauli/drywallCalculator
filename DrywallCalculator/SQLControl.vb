@@ -4,7 +4,6 @@ Imports MySql.Data.MySqlClient
 
 
 Public Class SQLControl
-    Private tableIdentity As Integer
 
     'SQL Connection
     Private sqlCon As New MySqlConnection("server=localhost;user id=root;password=EDUARDO;database=drywall;persistsecurityinfo=True ")
@@ -20,7 +19,24 @@ Public Class SQLControl
     'Query Statistics
     Public recordcount As Integer
     Public exception As String
+    Public tableId As Integer
 
+
+    Public Sub ExecCommand()
+        Try
+            sqlCon.Open()
+
+            'Create SQL Commands
+            sqlCmd = New MySqlCommand()
+            tableId = sqlCmd.ExecuteScalar()
+
+
+        Catch ex As Exception
+
+        End Try
+
+
+    End Sub
 
 
     Public Sub ExecQuery(query As String)
@@ -38,10 +54,11 @@ Public Class SQLControl
 
             'execute command
 
+
+
             sqlDA = New MySqlDataAdapter(sqlCmd)
             sqlDS = New DataSet
             recordcount = sqlDA.Fill(sqlDS)
-
             sqlCon.Close()
 
         Catch ex As Exception
@@ -60,15 +77,6 @@ Public Class SQLControl
         params.Add(newParam)
 
     End Sub
-
-    Public Property identity() As Integer
-        Get
-            Return tableIdentity
-        End Get
-        Set(ByVal value As Integer)
-            tableIdentity = value
-        End Set
-    End Property
 
 
 End Class

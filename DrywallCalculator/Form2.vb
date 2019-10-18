@@ -3,7 +3,7 @@
 
     Dim projectId As Integer
     Private sql As New SQLControl
-    Private tableId
+    Private tableId As Integer
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles Me.Load
 

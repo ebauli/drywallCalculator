@@ -114,6 +114,12 @@
     <Compile Include="Form4.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmRooms.Designer.vb">
+      <DependentUpon>frmRooms.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRooms.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MDIParent1.Designer.vb">
       <DependentUpon>MDIParent1.vb</DependentUpon>
     </Compile>

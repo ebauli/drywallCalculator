@@ -27,7 +27,7 @@
         sql.addParam("@roomDescription", txtRoomDescription.Text)
         sql.addParam("@project_id", projectId)
         sql.ExecQuery("INSERT INTO ROOMS (room_name , room_description , project_id) values (@projectName,@projectDescription,@projectName )")
-
+        projectId = sql.tableId
 
     End Sub
 

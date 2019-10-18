@@ -8,7 +8,7 @@ Public Class SQLControl
     'SQL Connection
     Private sqlCon As New MySqlConnection("server=localhost;user id=root;password=EDUARDO;database=drywall;persistsecurityinfo=True ")
     Private sqlCmd As MySqlCommand
-
+    Private sqlTableIDcmd As MySqlCommand
     'SQL Data
     Public sqlDA As MySqlDataAdapter
     Public sqlDS As DataSet
@@ -41,6 +41,7 @@ Public Class SQLControl
 
     Public Sub ExecQuery(query As String)
         Try
+            query.Append("select @@identity")
             sqlCon.Open()
 
             'Create SQL Commands
@@ -59,6 +60,8 @@ Public Class SQLControl
             sqlDA = New MySqlDataAdapter(sqlCmd)
             sqlDS = New DataSet
             recordcount = sqlDA.Fill(sqlDS)
+            tableId = sqlCmd.ExecuteScalar()
+            MsgBox(tableId)
             sqlCon.Close()
 
         Catch ex As Exception

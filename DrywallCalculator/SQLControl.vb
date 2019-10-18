@@ -19,7 +19,19 @@ Public Class SQLControl
     'Query Statistics
     Public recordcount As Integer
     Public exception As String
-    Public tableId As Integer
+    Public tableID As Integer
+
+    Public Property TableIDProperty As Integer
+        Get
+            Return tableID
+        End Get
+        Set(value As Integer)
+
+        End Set
+
+    End Property
+
+
 
 
     Public Sub ExecCommand()
@@ -28,7 +40,7 @@ Public Class SQLControl
 
             'Create SQL Commands
             sqlCmd = New MySqlCommand()
-            tableId = sqlCmd.ExecuteScalar()
+
 
 
         Catch ex As Exception
@@ -59,6 +71,8 @@ Public Class SQLControl
             sqlDA = New MySqlDataAdapter(sqlCmd)
             sqlDS = New DataSet
             recordcount = sqlDA.Fill(sqlDS)
+            tableId = sqlCmd.LastInsertedId()
+            MsgBox(tableId)
             sqlCon.Close()
 
         Catch ex As Exception

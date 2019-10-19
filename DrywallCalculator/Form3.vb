@@ -54,5 +54,14 @@
         DataGridView1.Rows(0).Selected = True
 
 
+
+
+    End Sub
+
+    Private Sub BtnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
+        sql.sqlDA.UpdateCommand = New MySql.Data.MySqlClient.MySqlCommandBuilder(sql.sqlDA).GetUpdateCommand
+        sql.sqlDA.Update(sql.sqlDS)
+        loadGrid()
+
     End Sub
 End Class

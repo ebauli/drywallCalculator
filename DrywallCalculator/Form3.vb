@@ -48,12 +48,15 @@
     End Sub
 
     Private Sub loadGrid()
-
-        sql.ExecQuery("select * from rooms")
+        MsgBox("testing the value passed")
+        MsgBox(Label3.Text)
+        sql.addParam("@project_id", Label3.Text)
+        sql.ExecQuery("select * from rooms where project_ID = @project_id ")
+        If sql.recordcount > 0 Then
+            DataGridView1.DataSource = sql.sqlDS.Tables(0)
+            DataGridView1.Rows(0).Selected = True
+        End If
         DataGridView1.DataSource = sql.sqlDS.Tables(0)
-        DataGridView1.Rows(0).Selected = True
-
-
 
 
     End Sub
@@ -62,6 +65,15 @@
         sql.sqlDA.UpdateCommand = New MySql.Data.MySqlClient.MySqlCommandBuilder(sql.sqlDA).GetUpdateCommand
         sql.sqlDA.Update(sql.sqlDS)
         loadGrid()
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+
+        Dim frmRoomsN As New frmRooms()
+        frmRoomsN.roomID = tableId
+        frmRoomsN.Show()
 
     End Sub
 End Class

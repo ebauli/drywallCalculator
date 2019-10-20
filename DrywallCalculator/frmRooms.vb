@@ -8,7 +8,8 @@
     Private Sub FrmRooms_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Label3.Text = projectID
         sql.addParam("@projectID", projectID)
-        sql.ExecQuery("select room_name from rooms where project_Id = @projectID")
+        sql.ExecQuery("select * from rooms where project_Id = @projectID")
+
         For Each r As DataRow In sql.sqlDS.Tables(0).Rows
             cbxRooms.Items.Add(r("room_name"))
         Next
@@ -18,7 +19,7 @@
         sql.addParam("@ls_distance", txtLsDistance.Text)
         sql.addParam("@rs_distance", txtRsDistance.Text)
         sql.addParam("@height_ff", txtHeightFF.Text)
-        sql.addParam("@projectID", projectId)
+        sql.addParam("@projectID", projectID)
         sql.addParam("@roomID", roomID)
 
         sql.ExecQuery("INSERT INTO CORNERS (corner_name , corner_description , ls_distance , rs_distance , height_ff , project_id , room_id) values (@cornerName,@cornerDescription,@ls_distance,@rs_distance,@projectID,@roomID )")
@@ -32,7 +33,8 @@
     Private Sub loadGrid()
 
         sql.addParam("@projectID", projectID)
-        sql.ExecQuery("select * from corners where projectID = @projectID ")
+        sql.addParam("@roomID", roomID)
+        sql.ExecQuery("select * from corners where projectID = @projectID and room_id = @roomID ")
         If sql.recordcount > 0 Then
             DataGridView1.DataSource = sql.sqlDS.Tables(0)
             DataGridView1.Rows(0).Selected = True
@@ -57,6 +59,27 @@
 
         MsgBox(roomID)
         loadGrid()
+
+
+    End Sub
+
+    Private Sub cbxRooms_TextChanged(sender As Object, e As EventArgs) Handles cbxRooms.TextChanged
+
+
+
+
+
+    End Sub
+
+    Private Sub cbxRooms_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbxRooms.SelectedValueChanged
+        roomID = 1
+
+
+        sql.addParam("@roomID", roomID)
+        sql.addParam("@projectID", projectID)
+
+        sql.ExecQuery("select * from rooms where project_Id = @projectID and room_id = @roomID")
+        DataGridView1.DataSource = sql.sqlDS.Tables(0)
 
 
     End Sub

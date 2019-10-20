@@ -51,6 +51,8 @@
         MsgBox("testing the value passed")
         MsgBox(Label3.Text)
         sql.addParam("@project_id", Label3.Text)
+        sql.ExecQuery("select PROJECT_NAME from PROJECT where project_ID = @project_id ")
+        sql.addParam("@project_id", Label3.Text)
         sql.ExecQuery("select * from rooms where project_ID = @project_id ")
         If sql.recordcount > 0 Then
             DataGridView1.DataSource = sql.sqlDS.Tables(0)
@@ -72,7 +74,7 @@
 
 
         Dim frmRoomsN As New frmRooms()
-        frmRoomsN.roomID = tableId
+        frmRoomsN.projectID = projectId
         frmRoomsN.Show()
 
     End Sub

@@ -82,7 +82,7 @@ Public Class SQLControl
         End Try
 
         If sqlCon.State = ConnectionState.Open Then sqlCon.Close()
-
+        recordcount = 0
     End Sub
 
     Public Sub addParam(name As String, value As Object)

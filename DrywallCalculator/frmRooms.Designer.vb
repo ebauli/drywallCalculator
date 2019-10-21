@@ -83,7 +83,7 @@ Partial Class frmRooms
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(372, 29)
+        Me.Label3.Location = New System.Drawing.Point(321, 29)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(74, 13)
         Me.Label3.TabIndex = 4
@@ -181,7 +181,7 @@ Partial Class frmRooms
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(0, 0)
+        Me.Label9.Location = New System.Drawing.Point(454, 29)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(39, 13)
         Me.Label9.TabIndex = 17
@@ -190,7 +190,7 @@ Partial Class frmRooms
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(481, 29)
+        Me.Label10.Location = New System.Drawing.Point(509, 29)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(45, 13)
         Me.Label10.TabIndex = 18

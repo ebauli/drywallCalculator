@@ -69,36 +69,33 @@
 
     End Sub
 
-    Private Sub cbxRooms_TextChanged(sender As Object, e As EventArgs) Handles cbxRooms.TextChanged
+    Private Sub getRoomName(roomName As String)
 
 
-
-
-
-    End Sub
-
-    Private Sub cbxRooms_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbxRooms.SelectedValueChanged
-
-
-        Dim roomName As String
-        roomName = cbxRooms.Text
+        MsgBox(roomName)
+        MsgBox(projectID)
         sql.addParam("@roomName", roomName)
         sql.addParam("@projectID", projectID)
 
-        sql.ExecQuery("select * from corners where project_Id = @projectID and room_name = @roomName")
+        sql.ExecQuery("select * from rooms where project_id = @projectID and room_name = @roomName")
         If sql.recordcount > 0 Then
-            DataGridView1.DataSource = sql.sqlDS.Tables(0)
-            roomID = 68
-            MsgBox(roomID)
-            Dim r As DataRow
-            For Each r In sql.sqlDS.Tables(0).Rows
-                MsgBox(r("room_id").ToString())
-            Next
 
+            Label9.Text = sql.sqlDS.Tables(0).Rows(0).Item("room_id)")
+            Label10.Text = sql.sqlDS.Tables(0).Rows(0).Item("room_name)")
+            MsgBox("here")
 
-        Else
-            MsgBox("please poulate corner")
         End If
 
+        MsgBox("not here")
     End Sub
+
+
+
+
+
+    Private Sub cbxRooms_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxRooms.SelectedIndexChanged
+        getRoomName(cbxRooms.Text)
+    End Sub
+
+
 End Class

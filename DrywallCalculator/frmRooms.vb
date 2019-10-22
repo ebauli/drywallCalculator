@@ -76,13 +76,13 @@
         MsgBox(projectID)
         sql.addParam("@roomName", roomName)
         sql.addParam("@projectID", projectID)
-
-        sql.ExecQuery("select * from rooms where project_id = @projectID and room_name = @roomName")
+        MsgBox("here 1111111")
+        sql.ExecQuery("SELECT * FROM ROOMS WHERE project_id = @projectID and room_name like @roomName;")
         If sql.recordcount > 0 Then
 
-            Label9.Text = sql.sqlDS.Tables(0).Rows(0).Item("room_id)")
-            Label10.Text = sql.sqlDS.Tables(0).Rows(0).Item("room_name)")
-            MsgBox("here")
+            Label9.Text = sql.sqlDS.Tables(0).Rows(0).Item("room_id")
+            Label10.Text = sql.sqlDS.Tables(0).Rows(0).Item("room_name")
+
 
         End If
 

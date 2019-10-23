@@ -20,17 +20,17 @@
 
         Next
 
-        sql.addParam("@cornerName", txtCornerName.Text)
-        sql.addParam("@cornerDescription", txtCornerDesc.Text)
-        sql.addParam("@ls_distance", txtLsDistance.Text)
-        sql.addParam("@rs_distance", txtRsDistance.Text)
-        sql.addParam("@height_ff", txtHeightFF.Text)
-        sql.addParam("@projectID", projectID)
-        sql.addParam("@roomID", roomID)
+        '  sql.addParam("@cornerName", txtCornerName.Text)
+        '  sql.addParam("@cornerDescription", txtCornerDesc.Text)
+        '   sql.addParam("@ls_distance", txtLsDistance.Text)
+        '   sql.addParam("@rs_distance", txtRsDistance.Text)
+        '  sql.addParam("@height_ff", txtHeightFF.Text)
+        '  sql.addParam("@projectID", projectID)
+        '  sql.addParam("@roomID", roomID)
 
-        sql.ExecQuery("INSERT INTO CORNERS (corner_name , corner_description , ls_distance , rs_distance , height_ff , project_id , room_id) values (@cornerName,@cornerDescription,@ls_distance,@rs_distance,@projectID,@roomID )")
+        ' sql.ExecQuery("INSERT INTO CORNERS (corner_name , corner_description , ls_distance , rs_distance , height_ff , project_id , room_id) values (@cornerName,@cornerDescription,@ls_distance,@rs_distance,@projectID,@roomID )")
 
-        MsgBox(roomID)
+        '  MsgBox(roomID)
 
         'loadGrid()
     End Sub

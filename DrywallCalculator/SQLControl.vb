@@ -67,12 +67,11 @@ Public Class SQLControl
             'execute command
 
 
-
-            sqlDA = New MySqlDataAdapter(sqlCmd)
             sqlDS = New DataSet
+            sqlDA = New MySqlDataAdapter(sqlCmd)
             recordcount = sqlDA.Fill(sqlDS)
             tableID = sqlCmd.LastInsertedId()
-            MsgBox(tableID)
+            MsgBox(recordcount)
             sqlCon.Close()
 
         Catch ex As Exception
@@ -82,7 +81,7 @@ Public Class SQLControl
         End Try
 
         If sqlCon.State = ConnectionState.Open Then sqlCon.Close()
-        recordcount = 0
+
     End Sub
 
     Public Sub addParam(name As String, value As Object)

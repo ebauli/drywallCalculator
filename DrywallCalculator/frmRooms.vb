@@ -16,6 +16,7 @@
             cbxRooms.Items.Add(r("room_name"))
             Label9.Text = r("room_id")
             Label10.Text = r("room_name")
+            roomID = Label9.Text
 
         Next
 
@@ -31,7 +32,7 @@
 
         MsgBox(roomID)
 
-        loadGrid()
+        'loadGrid()
     End Sub
 
 
@@ -77,7 +78,10 @@
         sql.addParam("@roomName", roomName)
         sql.addParam("@projectID", projectID)
         MsgBox("here 1111111")
-        sql.ExecQuery("SELECT * FROM ROOMS WHERE project_id = @projectID and room_name like @roomName;")
+        Dim queque As String
+        queque = "SELECT * FROM rooms WHERE project_id = @projectID and room_name like '@roomName'"
+        MsgBox(queque)
+        sql.ExecQuery("SELECT * FROM rooms WHERE project_id = @projectID and room_name = @roomName")
         If sql.recordcount > 0 Then
 
             Label9.Text = sql.sqlDS.Tables(0).Rows(0).Item("room_id")

@@ -39,8 +39,8 @@
     Private Sub loadGrid()
 
         sql.addParam("@projectID", projectID)
-        sql.addParam("@roomID", roomID)
-        sql.ExecQuery("select * from corners where projectID = @projectID and room_id = @roomID ")
+        sql.addParam("@roomID", Label9.Text)
+        sql.ExecQuery("select * from corners where project_ID = @projectID and room_id = @roomID ")
         If sql.recordcount > 0 Then
             DataGridView1.DataSource = sql.sqlDS.Tables(0)
             DataGridView1.Rows(0).Selected = True
@@ -58,10 +58,10 @@
         sql.addParam("@rs_distance", txtRsDistance.Text)
         sql.addParam("@height_ff", txtHeightFF.Text)
         sql.addParam("@projectID", projectID)
-        sql.addParam("@roomID", roomID)
+        sql.addParam("@roomID", Label9.Text)
 
 
-        sql.ExecQuery("INSERT INTO CORNERS (corner_name , corner_description , ls_distance , rs_distance , height_ff , project_id , room_id) values (@cornerName,@cornerDescription,@ls_distance,@rs_distance,@projectID,@roomID )")
+        sql.ExecQuery("INSERT INTO CORNERS (corner_name , corner_description , ls_distance , rs_distance , height_ff , project_id , room_id) values (@cornerName,@cornerDescription,@ls_distance,@rs_distance,@height_ff,@projectID,@roomID )")
         roomID = sql.tableID
 
         MsgBox(roomID)
@@ -99,6 +99,8 @@
 
     Private Sub cbxRooms_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxRooms.SelectedIndexChanged
         getRoomName(cbxRooms.Text)
+        loadGrid()
+
     End Sub
 
 

@@ -1,6 +1,8 @@
 ﻿Public Class Form3
     Private sql As New SQLControl
     Public Property projectId As Integer
+    Public Property projectName As String
+
     Private tableId As Integer
     Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles txtRoomDescription.TextChanged
 
@@ -23,7 +25,7 @@
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles Me.Load
 
         Label3.Text = projectId
-
+        Label5.Text = projectName
 
     End Sub
 

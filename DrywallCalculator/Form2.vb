@@ -14,6 +14,7 @@
         setUpdateProject()
         Dim form3N As New Form3()
         form3N.projectId = tableId
+        form3N.projectName = txtProjectName.Text
         form3N.Show()
 
 

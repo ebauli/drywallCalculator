@@ -40,6 +40,8 @@ Partial Class frmRooms
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -171,11 +173,11 @@ Partial Class frmRooms
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(137, 366)
+        Me.Button1.Location = New System.Drawing.Point(129, 347)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.Size = New System.Drawing.Size(184, 23)
         Me.Button1.TabIndex = 16
-        Me.Button1.Text = "Add Corner"
+        Me.Button1.Text = "Add Corner / Modify corner"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Label9
@@ -196,11 +198,31 @@ Partial Class frmRooms
         Me.Label10.TabIndex = 18
         Me.Label10.Text = "Label10"
         '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(585, 29)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(69, 13)
+        Me.Label11.TabIndex = 19
+        Me.Label11.Text = "Corner Name"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(681, 28)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(78, 13)
+        Me.Label12.TabIndex = 20
+        Me.Label12.Text = "None Selected"
+        '
         'frmRooms
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1041, 606)
+        Me.Controls.Add(Me.Label12)
+        Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Button1)
@@ -245,4 +267,6 @@ Partial Class frmRooms
     Friend WithEvents Button1 As Button
     Friend WithEvents Label9 As Label
     Friend WithEvents Label10 As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Label12 As Label
 End Class

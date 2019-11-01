@@ -9,6 +9,7 @@
     Private tableId As Integer
 
     Private Sub FrmRooms_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'just testing
         Label3.Text = projectID
         Button1.Enabled = False
 
@@ -50,6 +51,7 @@
 
         Else
             DataGridView1.DataSource = ""
+
             MsgBox("Need to build corner")
 
         End If
@@ -66,12 +68,13 @@
         sql.addParam("@rs_distance", txtRsDistance.Text)
         sql.addParam("@height_ff", txtHeightFF.Text)
         sql.addParam("@cornerID", cornerIDSelected)
+        MsgBox(cornerIDSelected)
 
-        If Not (txtCornerName.Text = String.Empty And txtCornerDesc.Text = String.Empty And txtLsDistance.Text = String.Empty And txtRsDistance.Text = String.Empty) Then
+        ' If Not (txtCornerName.Text = String.Empty And txtCornerDesc.Text = String.Empty And txtLsDistance.Text = String.Empty And txtRsDistance.Text = String.Empty) Then
 
-            sql.ExecQuery("UPDATE CORNERS SET (corner_name , corner_description , ls_distance , rs_distance , height_ff ) values (@cornerName,@cornerDescription,@ls_distance,@rs_distance,@height_ff ) where @cornerID")
+        sql.ExecQuery("UPDATE CORNERS SET corner_name = @cornerName, corner_description = @cornerDescription, ls_distance = @ls_distance , rs_distance = @rs_distance , height_ff = @height_ff  where corner_id=  @cornerID")
 
-        End If
+        ' End If
 
 
 
@@ -107,12 +110,8 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
-        If Label12.Text = "None Selected" Then
-            CreateCorner()
-        Else
-            Modifycorner()
-        End If
 
+        CreateCorner()
 
     End Sub
 
@@ -133,25 +132,24 @@
             Label9.Text = sql.sqlDS.Tables(0).Rows(0).Item("room_id")
             roomID = sql.sqlDS.Tables(0).Rows(0).Item("room_id")
             Label10.Text = sql.sqlDS.Tables(0).Rows(0).Item("room_name")
-        Else
+
 
         End If
 
         loadGrid(projectID, roomID)
         MsgBox("not here")
     End Sub
+    Private Sub DeleteCorner()
 
+
+    End Sub
 
 
 
 
     Private Sub cbxRooms_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxRooms.SelectedIndexChanged
         getRoomName(cbxRooms.Text)
-        txtCornerName.Text = ""
-        txtCornerDesc.Text = ""
-        txtLsDistance.Text = ""
-        txtRsDistance.Text = ""
-        txtHeightFF.Text = ""
+
 
         If (txtCornerName.Text = String.Empty And txtCornerDesc.Text = String.Empty And txtLsDistance.Text = String.Empty And txtRsDistance.Text = String.Empty) Then
 
@@ -159,6 +157,10 @@
         Else
             Button1.Enabled = True
         End If
+
+        MsgBox(projectID)
+        MsgBox(Label9.Text)
+        loadGrid(projectID, Label9.Text)
 
 
 
@@ -215,5 +217,13 @@
 
     Private Sub txtHeightFF_LostFocus(sender As Object, e As EventArgs) Handles txtHeightFF.LostFocus
         validateTextboxes()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Modifycorner()
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        DeleteCorner()
     End Sub
 End Class

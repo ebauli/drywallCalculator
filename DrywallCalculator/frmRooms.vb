@@ -49,6 +49,7 @@
             DataGridView1.Rows(0).Selected = True
 
         Else
+            DataGridView1.DataSource = ""
             MsgBox("Need to build corner")
 
         End If
@@ -132,7 +133,7 @@
             Label9.Text = sql.sqlDS.Tables(0).Rows(0).Item("room_id")
             roomID = sql.sqlDS.Tables(0).Rows(0).Item("room_id")
             Label10.Text = sql.sqlDS.Tables(0).Rows(0).Item("room_name")
-
+        Else
 
         End If
 

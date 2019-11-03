@@ -35,7 +35,6 @@
         sql.addParam("@project_id", projectId)
         sql.ExecQuery("INSERT INTO ROOMS (room_name , room_description , project_id) values (@roomName,@roomDescription,@project_id )")
         tableId = sql.tableID
-        MsgBox(tableId)
         loadGrid()
 
 
@@ -50,8 +49,6 @@
     End Sub
 
     Private Sub loadGrid()
-        MsgBox("testing the value passed")
-        MsgBox(Label3.Text)
         sql.addParam("@project_id", Label3.Text)
         sql.ExecQuery("select PROJECT_NAME from PROJECT where project_ID = @project_id ")
         sql.addParam("@project_id", Label3.Text)

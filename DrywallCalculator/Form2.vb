@@ -26,7 +26,6 @@
         sql.addParam("@projectDescription", txtProjectDescription.Text)
         sql.ExecQuery("INSERT INTO PROJECT (project_name , project_description) values (@projectName,@projectDescription)")
         tableId = sql.tableID
-        MsgBox(tableId)
     End Sub
 
 

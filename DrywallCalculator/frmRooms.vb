@@ -7,12 +7,14 @@
     Public Property cornerIDSelected As Integer
     Private sql As New SQLControl
     Private tableId As Integer
+    Dim comboSource As New Dictionary(Of String, String)()
+
 
     Private Sub FrmRooms_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'just testing
+        comboSource.Add("0", "NO")
+        comboSource.Add("1", "YES")
         Label3.Text = projectID
-        Button1.Enabled = False
-
         sql.addParam("@projectID", projectID)
         sql.ExecQuery("select * from rooms where project_Id = @projectID")
 
@@ -68,12 +70,12 @@
         sql.addParam("@rs_distance", txtRsDistance.Text)
         sql.addParam("@height_ff", txtHeightFF.Text)
         sql.addParam("@cornerID", cornerIDSelected)
-        MsgBox(cornerIDSelected)
+
 
         ' If Not (txtCornerName.Text = String.Empty And txtCornerDesc.Text = String.Empty And txtLsDistance.Text = String.Empty And txtRsDistance.Text = String.Empty) Then
 
         sql.ExecQuery("UPDATE CORNERS SET corner_name = @cornerName, corner_description = @cornerDescription, ls_distance = @ls_distance , rs_distance = @rs_distance , height_ff = @height_ff  where corner_id=  @cornerID")
-
+        loadGrid(projectID, roomID)
         ' End If
 
 
@@ -95,12 +97,35 @@
         sql.addParam("@height_ff", txtHeightFF.Text)
         sql.addParam("@projectID", projectID)
         sql.addParam("@roomID", roomID)
+        MsgBox(roomID)
+        If (txtCornerName.Text = String.Empty Or txtCornerDesc.Text = String.Empty Or txtLsDistance.Text = String.Empty Or txtRsDistance.Text = String.Empty) Then
+            MsgBox("All Fields should be filled")
+            sql.clearParams()
 
-        If Not (txtCornerName.Text = String.Empty And txtCornerDesc.Text = String.Empty And txtLsDistance.Text = String.Empty And txtRsDistance.Text = String.Empty) Then
+        Else
 
 
-            sql.ExecQuery("INSERT INTO CORNERS (corner_name , corner_description , ls_distance , rs_distance , height_ff , project_id , room_id) values (@cornerName,@cornerDescription,@ls_distance,@rs_distance,@height_ff,@projectID,@roomID )")
+            Try
+
+                sql.ExecQuery("INSERT INTO CORNERS (corner_name , corner_description , ls_distance , rs_distance , height_ff , project_id , room_id) values (@cornerName,@cornerDescription,@ls_distance,@rs_distance,@height_ff,@projectID,@roomID )")
+
+
+            Catch ex As Exception
+
+            End Try
+
+
+
+
         End If
+        MsgBox(txtCornerName.Text)
+        MsgBox(txtCornerDesc.Text)
+        MsgBox(txtLsDistance.Text)
+        MsgBox(txtRsDistance.Text)
+        MsgBox(txtHeightFF.Text)
+        MsgBox(projectID)
+        MsgBox(roomID)
+
 
         MsgBox(roomID)
         loadGrid(projectID, roomID)
@@ -117,16 +142,16 @@
 
     Private Sub getRoomName(roomName As String)
 
-
-        MsgBox(roomName)
-        MsgBox(projectID)
         sql.addParam("@roomName", roomName)
         sql.addParam("@projectID", projectID)
-        MsgBox("here 1111111")
-        Dim queque As String
-        queque = "Select * FROM rooms WHERE project_id = @projectID and room_name like '@roomName'"
-        MsgBox(queque)
-        sql.ExecQuery("SELECT * FROM rooms WHERE project_id = @projectID and room_name = @roomName")
+
+        Try
+            sql.ExecQuery("SELECT * FROM rooms WHERE project_id = @projectID and room_name = @roomName")
+        Catch ex As Exception
+
+        End Try
+
+
         If sql.recordcount > 0 Then
 
             Label9.Text = sql.sqlDS.Tables(0).Rows(0).Item("room_id")
@@ -137,7 +162,7 @@
         End If
 
         loadGrid(projectID, roomID)
-        MsgBox("not here")
+
     End Sub
     Private Sub DeleteCorner()
 
@@ -150,16 +175,6 @@
     Private Sub cbxRooms_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxRooms.SelectedIndexChanged
         getRoomName(cbxRooms.Text)
 
-
-        If (txtCornerName.Text = String.Empty And txtCornerDesc.Text = String.Empty And txtLsDistance.Text = String.Empty And txtRsDistance.Text = String.Empty) Then
-
-            Button1.Enabled = False
-        Else
-            Button1.Enabled = True
-        End If
-
-        MsgBox(projectID)
-        MsgBox(Label9.Text)
         loadGrid(projectID, Label9.Text)
 
 
@@ -170,12 +185,12 @@
     End Sub
 
     Private Sub validateTextboxes()
-        If (txtCornerName.Text = String.Empty Or txtCornerDesc.Text = String.Empty Or txtLsDistance.Text = String.Empty Or txtRsDistance.Text = String.Empty Or txtHeightFF.Text = String.Empty) Then
+        '    If (txtCornerName.Text = String.Empty Or txtCornerDesc.Text = String.Empty Or txtLsDistance.Text = String.Empty Or txtRsDistance.Text = String.Empty Or txtHeightFF.Text = String.Empty) Then
 
-            Button1.Enabled = False
-        Else
-            Button1.Enabled = True
-        End If
+        '  Button1.Enabled = False
+        '   Else
+        '  Button1.Enabled = True
+        '   End If
 
 
 
@@ -226,4 +241,9 @@
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         DeleteCorner()
     End Sub
+
+    Private Sub Label13_Click(sender As Object, e As EventArgs) Handles Label13.Click
+
+    End Sub
+
 End Class

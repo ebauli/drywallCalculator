@@ -90,6 +90,10 @@ Public Class SQLControl
         params.Add(newParam)
 
     End Sub
+    Public Sub clearParams()
+        params.Clear()
+
+    End Sub
 
 
 End Class

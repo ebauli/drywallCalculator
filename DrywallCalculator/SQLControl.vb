@@ -71,7 +71,7 @@ Public Class SQLControl
             sqlDA = New MySqlDataAdapter(sqlCmd)
             recordcount = sqlDA.Fill(sqlDS)
             tableID = sqlCmd.LastInsertedId()
-            MsgBox(recordcount)
+            ' MsgBox(recordcount)
             sqlCon.Close()
 
         Catch ex As Exception

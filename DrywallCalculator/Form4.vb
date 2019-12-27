@@ -3,56 +3,49 @@
 Public Class Form4
 
     Private sql As New SQLControl
+    Private tableId As Integer
 
     Private Sub Form4_Load(sender As Object, e As EventArgs) Handles Me.Load
-        getProjectName()
-    End Sub
+        loadgrid()
 
-    Private Sub getProjectName()
-
-        sql.ExecQuery("SELECT project_name FROM project")
-        cbxProjectName.Items.Clear()
-
-        'if records are found add them to combo box
-
-        If sql.recordcount > 0 Then
-            For Each r As DataRow In sql.sqlDS.Tables(0).Rows
-                cbxProjectName.Items.Add(r("project_name"))
-
-            Next
-            cbxProjectName.SelectedIndex = 0
-
-
-        ElseIf sql.exception <> " " Then
-            'report errors
-            MsgBox(sql.exception)
-
-        End If
-
-
-    End Sub
-
-    Private Sub getprojectDescription(projectName As String)
-
-        sql.addParam("@projectName", projectName)
-        'run Query
-
-        sql.ExecQuery("Select project_description from project where project_name = @projectName")
-
-        'if projects are found send them to the textbox
-        If sql.recordcount > 0 Then
-            txtProjectDescription.Text = sql.sqlDS.Tables(0).Rows(0).Item("project_description")
-        End If
-
-
-
-    End Sub
-
-    Private Sub cbxProjectName_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxProjectName.SelectedIndexChanged
-        getprojectDescription(cbxProjectName.Text)
     End Sub
 
     Private Sub btnOpen_Click(sender As Object, e As EventArgs) Handles btnOpen.Click
-        ' Form3.Show()
+
+        Dim form3N As New Form3()
+        form3N.projectId = txtProjectID.Text
+        form3N.Show()
+
+
+    End Sub
+
+    Private Sub loadGrid()
+
+
+        sql.ExecQuery("select * from PROJECT ")
+
+        If sql.recordcount > 0 Then
+            DataGridView1.DataSource = sql.sqlDS.Tables(0)
+            DataGridView1.Rows(0).Selected = True
+        End If
+        DataGridView1.DataSource = sql.sqlDS.Tables(0)
+
+
+    End Sub
+
+
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
+        Dim index As Integer
+        index = e.RowIndex
+        Dim selectedRow As DataGridViewRow
+        selectedRow = DataGridView1.Rows(index)
+
+
+        txtProjectID.Text = selectedRow.Cells(0).Value.ToString
+        txtProjectName.Text = selectedRow.Cells(1).Value.ToString
+        txtProjectDescription.Text = selectedRow.Cells(2).Value.ToString
+
+
+
     End Sub
 End Class

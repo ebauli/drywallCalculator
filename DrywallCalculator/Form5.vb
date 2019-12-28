@@ -315,7 +315,8 @@
                 h2 = 16
                 Dim drywallPiece1 As New DrywallPieces(projectid, Room.get_name, corner.get_Name, corner.get_cornerType, "C3", Room.get_RoomDrywallThickness, w1, w2, h1, h2)
                 DrywallPieceList.Add(drywallPiece1)
-
+                Dim drywallPiece2 As New DrywallPieces(projectid, Room.get_name, corner.get_Name, corner.get_cornerType, "SE_Corner", Room.get_RoomDrywallThickness, w1, w2, 8, h2)
+                DrywallPieceList.Add(drywallPiece2)
 
             Next
 
@@ -345,7 +346,6 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
 
-
         'create empty string
         Dim thecsvfile As String = String.Empty
         'get the column headers
@@ -368,8 +368,12 @@
             thecsvfile = thecsvfile & vbCr & vbLf
         Next
         'write the file
-        My.Computer.FileSystem.WriteAllText("export.csv", thecsvfile, False)
 
+        SaveFileDialog1.ShowDialog()
+        Dim location As String
+        location = SaveFileDialog1.FileName
+        My.Computer.FileSystem.WriteAllText(location & ".csv", thecsvfile, False)
+        '"export.csv"
 
     End Sub
 End Class

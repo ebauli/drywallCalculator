@@ -40,8 +40,6 @@ Partial Class frmRooms
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
@@ -71,6 +69,10 @@ Partial Class frmRooms
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.btnCalculate = New System.Windows.Forms.Button()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupCorner.SuspendLayout()
@@ -90,40 +92,43 @@ Partial Class frmRooms
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(481, 98)
+        Me.DataGridView1.Location = New System.Drawing.Point(445, 108)
         Me.DataGridView1.MultiSelect = False
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(521, 212)
+        Me.DataGridView1.Size = New System.Drawing.Size(747, 177)
         Me.DataGridView1.TabIndex = 1
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(126, 46)
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(113, 37)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(151, 13)
+        Me.Label1.Size = New System.Drawing.Size(190, 16)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Seelect room to view or modify"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(619, 51)
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(715, 75)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(125, 13)
+        Me.Label2.Size = New System.Drawing.Size(208, 16)
         Me.Label2.TabIndex = 3
-        Me.Label2.Text = "Modify Values inside Grid"
+        Me.Label2.Text = "Corner Details for Room Selected"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(321, 29)
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(548, 24)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(74, 13)
+        Me.Label3.Size = New System.Drawing.Size(62, 16)
         Me.Label3.TabIndex = 4
-        Me.Label3.Text = "Project Name "
+        Me.Label3.Text = "projectID"
         '
         'txtCornerName
         '
@@ -217,7 +222,7 @@ Partial Class frmRooms
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(454, 29)
+        Me.Label9.Location = New System.Drawing.Point(1037, 28)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(39, 13)
         Me.Label9.TabIndex = 17
@@ -226,29 +231,11 @@ Partial Class frmRooms
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(509, 29)
+        Me.Label10.Location = New System.Drawing.Point(1082, 28)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(45, 13)
         Me.Label10.TabIndex = 18
         Me.Label10.Text = "Label10"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(585, 29)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(69, 13)
-        Me.Label11.TabIndex = 19
-        Me.Label11.Text = "Corner Name"
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(681, 28)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(78, 13)
-        Me.Label12.TabIndex = 20
-        Me.Label12.Text = "None Selected"
         '
         'Button2
         '
@@ -271,9 +258,10 @@ Partial Class frmRooms
         'DataGridView2
         '
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(481, 424)
+        Me.DataGridView2.Location = New System.Drawing.Point(445, 392)
         Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.Size = New System.Drawing.Size(521, 177)
+        Me.DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridView2.Size = New System.Drawing.Size(747, 177)
         Me.DataGridView2.TabIndex = 23
         '
         'txtWallName
@@ -501,18 +489,63 @@ Partial Class frmRooms
         '
         'btnCalculate
         '
-        Me.btnCalculate.Location = New System.Drawing.Point(689, 641)
+        Me.btnCalculate.AutoSize = True
+        Me.btnCalculate.Location = New System.Drawing.Point(737, 624)
         Me.btnCalculate.Name = "btnCalculate"
-        Me.btnCalculate.Size = New System.Drawing.Size(75, 23)
+        Me.btnCalculate.Size = New System.Drawing.Size(147, 23)
         Me.btnCalculate.TabIndex = 45
-        Me.btnCalculate.Text = "Calculate"
+        Me.btnCalculate.Text = "Calculate Pieces for Project"
         Me.btnCalculate.UseVisualStyleBackColor = True
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.Location = New System.Drawing.Point(728, 363)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(195, 16)
+        Me.Label23.TabIndex = 46
+        Me.Label23.Text = "Wall Details for Room Selected"
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label24.Location = New System.Drawing.Point(473, 24)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(69, 16)
+        Me.Label24.TabIndex = 47
+        Me.Label24.Text = "Project ID:"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(692, 24)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(93, 16)
+        Me.Label11.TabIndex = 48
+        Me.Label11.Text = "Project Name:"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(791, 24)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(56, 16)
+        Me.Label12.TabIndex = 49
+        Me.Label12.Text = "Label12"
         '
         'frmRooms
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1141, 760)
+        Me.ClientSize = New System.Drawing.Size(1264, 761)
+        Me.Controls.Add(Me.Label12)
+        Me.Controls.Add(Me.Label11)
+        Me.Controls.Add(Me.Label24)
+        Me.Controls.Add(Me.Label23)
         Me.Controls.Add(Me.btnCalculate)
         Me.Controls.Add(Me.cmbHasReveal)
         Me.Controls.Add(Me.txtSE_StripHeight)
@@ -533,8 +566,6 @@ Partial Class frmRooms
         Me.Controls.Add(Me.txtWallDesc)
         Me.Controls.Add(Me.txtWallName)
         Me.Controls.Add(Me.DataGridView2)
-        Me.Controls.Add(Me.Label12)
-        Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label5)
@@ -578,8 +609,6 @@ Partial Class frmRooms
     Friend WithEvents Button1 As Button
     Friend WithEvents Label9 As Label
     Friend WithEvents Label10 As Label
-    Friend WithEvents Label11 As Label
-    Friend WithEvents Label12 As Label
     Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
     Friend WithEvents DataGridView2 As DataGridView
@@ -609,4 +638,8 @@ Partial Class frmRooms
     Friend WithEvents btnCalculate As Button
     Friend WithEvents Label22 As Label
     Friend WithEvents cbxCornerType As ComboBox
+    Friend WithEvents Label23 As Label
+    Friend WithEvents Label24 As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Label12 As Label
 End Class

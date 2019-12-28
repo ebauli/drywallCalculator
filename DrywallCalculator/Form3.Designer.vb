@@ -35,13 +35,17 @@ Partial Class Form3
         Me.Label5 = New System.Windows.Forms.Label()
         Me.cbxDrywallThickness = New System.Windows.Forms.ComboBox()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(69, 121)
+        Me.Label1.Location = New System.Drawing.Point(15, 114)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(66, 13)
         Me.Label1.TabIndex = 0
@@ -50,7 +54,7 @@ Partial Class Form3
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(69, 158)
+        Me.Label2.Location = New System.Drawing.Point(15, 151)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(91, 13)
         Me.Label2.TabIndex = 1
@@ -58,21 +62,21 @@ Partial Class Form3
         '
         'txtRoomName
         '
-        Me.txtRoomName.Location = New System.Drawing.Point(181, 113)
+        Me.txtRoomName.Location = New System.Drawing.Point(127, 106)
         Me.txtRoomName.Name = "txtRoomName"
         Me.txtRoomName.Size = New System.Drawing.Size(142, 20)
         Me.txtRoomName.TabIndex = 2
         '
         'txtRoomDescription
         '
-        Me.txtRoomDescription.Location = New System.Drawing.Point(181, 151)
+        Me.txtRoomDescription.Location = New System.Drawing.Point(127, 144)
         Me.txtRoomDescription.Name = "txtRoomDescription"
         Me.txtRoomDescription.Size = New System.Drawing.Size(244, 20)
         Me.txtRoomDescription.TabIndex = 3
         '
         'btnCreateRoom
         '
-        Me.btnCreateRoom.Location = New System.Drawing.Point(181, 279)
+        Me.btnCreateRoom.Location = New System.Drawing.Point(127, 272)
         Me.btnCreateRoom.Name = "btnCreateRoom"
         Me.btnCreateRoom.Size = New System.Drawing.Size(113, 23)
         Me.btnCreateRoom.TabIndex = 7
@@ -81,20 +85,22 @@ Partial Class Form3
         '
         'DataGridView1
         '
+        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(459, 97)
+        Me.DataGridView1.Location = New System.Drawing.Point(473, 154)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(344, 150)
+        Me.DataGridView1.Size = New System.Drawing.Size(600, 150)
         Me.DataGridView1.TabIndex = 8
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(263, 41)
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(645, 39)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(71, 13)
+        Me.Label3.Size = New System.Drawing.Size(104, 20)
         Me.Label3.TabIndex = 9
         Me.Label3.Text = "Project Name"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -102,24 +108,26 @@ Partial Class Form3
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(494, 279)
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(697, 124)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(127, 13)
+        Me.Label4.Size = New System.Drawing.Size(161, 16)
         Me.Label4.TabIndex = 10
         Me.Label4.Text = "Created Rooms in Project"
         '
         'btnUpdate
         '
-        Me.btnUpdate.Location = New System.Drawing.Point(663, 279)
+        Me.btnUpdate.Location = New System.Drawing.Point(978, 394)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(95, 23)
         Me.btnUpdate.TabIndex = 11
         Me.btnUpdate.Text = "Update"
         Me.btnUpdate.UseVisualStyleBackColor = True
+        Me.btnUpdate.Visible = False
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(389, 347)
+        Me.Button1.Location = New System.Drawing.Point(738, 360)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 12
@@ -129,9 +137,10 @@ Partial Class Form3
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(402, 41)
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(919, 39)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(39, 13)
+        Me.Label5.Size = New System.Drawing.Size(57, 20)
         Me.Label5.TabIndex = 13
         Me.Label5.Text = "Label5"
         '
@@ -139,7 +148,7 @@ Partial Class Form3
         '
         Me.cbxDrywallThickness.FormattingEnabled = True
         Me.cbxDrywallThickness.Items.AddRange(New Object() {".5", ".625"})
-        Me.cbxDrywallThickness.Location = New System.Drawing.Point(181, 192)
+        Me.cbxDrywallThickness.Location = New System.Drawing.Point(127, 185)
         Me.cbxDrywallThickness.Name = "cbxDrywallThickness"
         Me.cbxDrywallThickness.Size = New System.Drawing.Size(121, 21)
         Me.cbxDrywallThickness.TabIndex = 14
@@ -147,33 +156,67 @@ Partial Class Form3
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(69, 200)
+        Me.Label6.Location = New System.Drawing.Point(15, 193)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(93, 13)
         Me.Label6.TabIndex = 15
         Me.Label6.Text = "Drywall Thickness"
         '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(556, 39)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(83, 20)
+        Me.Label7.TabIndex = 16
+        Me.Label7.Text = "Project ID:"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(805, 39)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(108, 20)
+        Me.Label8.TabIndex = 17
+        Me.Label8.Text = "Project Name:"
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.btnCreateRoom)
+        Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.Controls.Add(Me.Label6)
+        Me.GroupBox1.Controls.Add(Me.Label2)
+        Me.GroupBox1.Controls.Add(Me.cbxDrywallThickness)
+        Me.GroupBox1.Controls.Add(Me.txtRoomName)
+        Me.GroupBox1.Controls.Add(Me.txtRoomDescription)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 64)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(395, 353)
+        Me.GroupBox1.TabIndex = 18
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "New Room Information"
+        '
         'Form3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(867, 600)
-        Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.cbxDrywallThickness)
+        Me.ClientSize = New System.Drawing.Size(1264, 761)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btnUpdate)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.btnCreateRoom)
-        Me.Controls.Add(Me.txtRoomDescription)
-        Me.Controls.Add(Me.txtRoomName)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Name = "Form3"
         Me.Text = "Form3"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -192,4 +235,7 @@ Partial Class Form3
     Friend WithEvents Label5 As Label
     Friend WithEvents cbxDrywallThickness As ComboBox
     Friend WithEvents Label6 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents GroupBox1 As GroupBox
 End Class

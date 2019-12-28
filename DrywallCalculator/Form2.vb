@@ -13,6 +13,7 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         setUpdateProject()
         Dim form3N As New Form3()
+        form3N.MdiParent = frmParent
         form3N.projectId = tableId
         form3N.projectName = txtProjectName.Text
         form3N.Show()

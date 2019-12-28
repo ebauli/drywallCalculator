@@ -33,6 +33,15 @@
         End Set
     End Property
 
+    Public Property get_cornerType() As String
+        Get
+            Return CornerType
+        End Get
+        Set(value As String)
+            CornerType = value
+        End Set
+    End Property
+
     Public Property get_cornerDescription() As String
         Get
             Return CornerDescription

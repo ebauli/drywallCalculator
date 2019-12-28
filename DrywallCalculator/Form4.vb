@@ -12,11 +12,15 @@ Public Class Form4
 
     Private Sub btnOpen_Click(sender As Object, e As EventArgs) Handles btnOpen.Click
 
-        Dim form3N As New Form3()
-        form3N.projectId = txtProjectID.Text
-        form3N.Show()
+        Try
+            Dim form3N As New Form3()
+            form3N.projectId = txtProjectID.Text
+            form3N.projectName = txtProjectName.Text
+            form3N.Show()
 
-
+        Catch
+            MsgBox("Select a Project to Open")
+        End Try
     End Sub
 
     Private Sub loadGrid()

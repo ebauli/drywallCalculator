@@ -32,7 +32,7 @@
 
         sql.ExecQuery("select * from rooms where (project_ID = @projectID) ")
         Maxrow = sql.sqlDS.Tables(0).Rows.Count
-        MsgBox(Maxrow)
+
         If sql.recordcount > 0 Then
             Dim RoomID As Integer
             Dim RoomName As String
@@ -84,7 +84,7 @@
 
         sql.ExecQuery("select * from corners where (project_ID = @projectID) ")
         Maxrow = sql.sqlDS.Tables(0).Rows.Count
-        MsgBox(Maxrow)
+
         If sql.recordcount > 0 Then
             Dim cornerID As Integer
             Dim roomID As Integer
@@ -126,17 +126,15 @@
 
             For Each room In myRoomList
 
-                MsgBox("sssssssssssssssssss")
-                MsgBox(room.get_RoomID)
+
 
 
                 Dim result = From e In CornerList Where e.get_RoomID.Equals(room.get_RoomID) Order By e.get_HeightFF Ascending
-                MsgBox("sssssssssssssssssss")
-                MsgBox(room.get_RoomID)
+
 
                 If result.Count > 0 Then
                     Console.WriteLine(result.First.get_HeightFF)
-                    MsgBox(result.First.get_HeightFF)
+
                     Console.WriteLine(room.get_RoomID)
                     Console.WriteLine(room.get_name)
                     Console.WriteLine(room.get_Description)
@@ -168,10 +166,10 @@
 
         sql.ExecQuery("select * from walls where (project_ID = @projectID) ")
         Maxrow = sql.sqlDS.Tables(0).Rows.Count
-        MsgBox("unoooooooooo")
+
         If sql.recordcount > 0 Then
 
-            MsgBox("dooooooooooos")
+
             Dim RevealHeight As Double
             Dim wallID As Integer
             Dim wallName As String
@@ -201,8 +199,7 @@
                 Dim mywall1 As New Wall(wallName, wallDescription, leftCorner, rightcorner, wallWidth, HasReveal, RevealHeight, bbHeight, strip_size, roomID, projectid)
 
                 WallList.Add(mywall1)
-                MsgBox(mywall1.get_name)
-                MsgBox(mywall1.get_WallWidth)
+
             Next
             MyWallList = WallList
 
@@ -254,25 +251,69 @@
 
 
             Dim result = From e In MyWallList Where e.get_roomID.Equals(Room.get_RoomID)
-
+            Dim numberFullPieces As Integer
+            Dim RemainderPieceInches As Double
+            Dim numberRevealFullPieces As Integer
+            Dim RemainderRevealPieceInches As Double
             For Each wall In result
                 w1 = wall.get_fillWidth
+                numberFullPieces = w1 \ 48
+                RemainderPieceInches = w1 Mod 48
                 w2 = 0
-                h1 = Room.get_RoomHeight - wall.get_SE_stripHeight - wall.get_RevealHeight - wall.get_BaseBoardHeight - Room.get_RoomDrywallThickness
+                ' if the wall has reveal you will substract the height of the reveal assembly to the height of the wall
+                If wall.get_HasReveal = "1" Then
+                    h1 = Room.get_RoomHeight - wall.get_SE_stripHeight - wall.get_RevealHeight - wall.get_BaseBoardHeight - Room.get_RoomDrywallThickness
+                Else
+                    h1 = Room.get_RoomHeight - Room.get_RoomDrywallThickness
+
+                End If
+
                 h2 = 16
-                Dim drywallPiece1 As New DrywallPieces(projectid, Room.get_name, wall.get_name, "N/A", "C2_Flap", Room.get_RoomDrywallThickness, w1, w2, h1, h2)
-                DrywallPieceList.Add(drywallPiece1)
+                Dim drywallPiece1 As New DrywallPieces(projectid, Room.get_name, wall.get_name, "N/A", "C2_Flap", Room.get_RoomDrywallThickness, 48, w2, h1, h2)
+                Dim drywallPieceReveal As New DrywallPieces(projectid, Room.get_name, wall.get_name, "N/A", "SE_Strip", Room.get_RoomDrywallThickness, 96, w2, wall.get_SE_stripHeight, h2)
+
+                For i = 1 To numberFullPieces
+                    DrywallPieceList.Add(drywallPiece1)
+                Next
+
+                If RemainderPieceInches > 0 Then
+                    drywallPiece1 = New DrywallPieces(projectid, Room.get_name, wall.get_name, "N/A", "C2_Flap", Room.get_RoomDrywallThickness, RemainderPieceInches, w2, h1, h2)
+                    DrywallPieceList.Add(drywallPiece1)
+                End If
+
+
+                numberRevealFullPieces = w1 \ 96
+                RemainderRevealPieceInches = w1 Mod 96
+
+                For i = 1 To numberRevealFullPieces
+                    DrywallPieceList.Add(drywallPieceReveal)
+                Next
+                If RemainderRevealPieceInches > 0 Then
+                    drywallPieceReveal = New DrywallPieces(projectid, Room.get_name, wall.get_name, "N/A", "SE_Strip", Room.get_RoomDrywallThickness, RemainderRevealPieceInches, w2, wall.get_SE_stripHeight, h2)
+                    DrywallPieceList.Add(drywallPieceReveal)
+                End If
+
+
             Next
 
-            Dim result1 = From ee In MyCornerList Where ee.get_RoomID.Equals(Room.get_RoomID)
+                Dim result1 = From ee In MyCornerList Where ee.get_RoomID.Equals(Room.get_RoomID)
 
             For Each corner In result1
-                w1 = corner.get_LeftStudDistance - Room.get_RoomDrywallThickness
-                w2 = corner.get_RightStudDistance - Room.get_RoomDrywallThickness
+
+
+                If corner.get_cornerType = "Interior Corner" Then
+                    w1 = corner.get_LeftStudDistance - Room.get_RoomDrywallThickness
+                    w2 = corner.get_RightStudDistance - Room.get_RoomDrywallThickness
+                Else
+                    w1 = corner.get_LeftStudDistance + Room.get_RoomDrywallThickness
+                    w2 = corner.get_RightStudDistance + Room.get_RoomDrywallThickness
+                End If
+
+
                 h1 = Room.get_RoomHeight - 11.625 - Room.get_RoomDrywallThickness
                 'h1 = Room.get_RoomHeight - Wall.get_SE_stripHeight - Wall.get_RevealHeight - Wall.get_BaseBoardHeight - Room.get_RoomDrywallThickness
                 h2 = 16
-                Dim drywallPiece1 As New DrywallPieces(projectid, Room.get_name, corner.get_Name, "N/A", "C3", Room.get_RoomDrywallThickness, w1, w2, h1, h2)
+                Dim drywallPiece1 As New DrywallPieces(projectid, Room.get_name, corner.get_Name, corner.get_cornerType, "C3", Room.get_RoomDrywallThickness, w1, w2, h1, h2)
                 DrywallPieceList.Add(drywallPiece1)
 
 

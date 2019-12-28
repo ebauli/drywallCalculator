@@ -14,11 +14,12 @@
 
     Private Sub FrmRooms_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'just testing
-
+        Me.MdiParent = frmParent
         comboSource.Add("0", "NO")
         comboSource.Add("1", "YES")
         cmbHasReveal.Items.Add(comboSource)
         Label3.Text = projectID
+        Label12.Text = projectName
         sql.addParam("@projectID", projectID)
         sql.ExecQuery("select * from rooms where project_Id = @projectID")
 
@@ -58,7 +59,7 @@
         Else
             DataGridView1.DataSource = ""
 
-            MsgBox("Need to build corner")
+
 
         End If
 
@@ -76,7 +77,7 @@
         Else
             DataGridView2.DataSource = ""
 
-            MsgBox("Need to build corner")
+
 
         End If
 
@@ -119,11 +120,12 @@
         sql.addParam("@rs_distance", txtRsDistance.Text)
         sql.addParam("@height_ff", txtHeightFF.Text)
         sql.addParam("@cornerID", cornerIDSelected)
+        sql.addParam("@cornerType", cbxCornerType.Text)
 
 
         ' If Not (txtCornerName.Text = String.Empty And txtCornerDesc.Text = String.Empty And txtLsDistance.Text = String.Empty And txtRsDistance.Text = String.Empty) Then
 
-        sql.ExecQuery("UPDATE CORNERS SET corner_name = @cornerName, corner_description = @cornerDescription, ls_distance = @ls_distance , rs_distance = @rs_distance , height_ff = @height_ff  where corner_id=  @cornerID")
+        sql.ExecQuery("UPDATE CORNERS SET corner_name = @cornerName, corner_description = @cornerDescription, corner_type = @cornerType, ls_distance = @ls_distance , rs_distance = @rs_distance , height_ff = @height_ff  where corner_id=  @cornerID")
         loadGrid(projectID, roomID)
         ' End If
 
@@ -140,7 +142,7 @@
         sql.addParam("@height_ff", txtHeightFF.Text)
         sql.addParam("@projectID", projectID)
         sql.addParam("@roomID", roomID)
-        MsgBox(roomID)
+
         If (txtCornerName.Text = String.Empty Or txtCornerDesc.Text = String.Empty Or txtLsDistance.Text = String.Empty Or txtRsDistance.Text = String.Empty) Then
             MsgBox("All Fields should be filled")
             sql.clearParams()
@@ -325,7 +327,7 @@
 
     Private Sub txtLeftCorner_MouseDown(sender As Object, e As MouseEventArgs) Handles txtLeftCorner.MouseDown
         senderCorner = "left"
-        MsgBox("Click on the corner from Top gridview")
+        ' MsgBox("Click on the corner from Top gridview")
 
 
     End Sub
@@ -338,7 +340,7 @@
 
     Private Sub txtRightCorner_MouseDown(sender As Object, e As MouseEventArgs) Handles txtRightCorner.MouseDown
         senderCorner = "right"
-        MsgBox("Click on the corner from Top gridview")
+        '  MsgBox("Click on the corner from Top gridview")
     End Sub
 
     Private Sub btnCalculate_Click(sender As Object, e As EventArgs) Handles btnCalculate.Click

@@ -20,7 +20,7 @@
     End Sub
 
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles Me.Load
-
+        Me.MdiParent = frmParent
         Label3.Text = projectId
         Label5.Text = projectName
         loadGrid()
@@ -73,6 +73,7 @@
 
         Dim frmRoomsN As New frmRooms()
         frmRoomsN.projectID = projectId
+        frmRoomsN.projectName = projectName
         frmRoomsN.Show()
 
     End Sub
@@ -84,4 +85,5 @@
     Private Sub ComboBox1_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles cbxDrywallThickness.SelectedIndexChanged
 
     End Sub
+
 End Class

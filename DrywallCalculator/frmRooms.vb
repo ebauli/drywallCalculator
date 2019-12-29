@@ -65,6 +65,20 @@
 
     End Sub
 
+
+    Private Sub DeleteWall()
+
+        sql.addParam("@wallID", wallIDSelected)
+
+        Try
+
+            sql.ExecQuery("DELETE FROM Walls WHERE wall_id = @wallID")
+        Catch ex As Exception
+
+        End Try
+        loadGrid2(projectID, Label9.Text)
+    End Sub
+
     Private Sub loadGrid2(pID As Integer, rId As Integer)
 
         sql.addParam("@projectID", pID)
@@ -199,7 +213,15 @@
     End Sub
     Private Sub DeleteCorner()
 
+        sql.addParam("@cornerID", cornerIDSelected)
 
+        Try
+
+            sql.ExecQuery("DELETE FROM corners WHERE corner_id = @cornerID")
+        Catch ex As Exception
+
+        End Try
+        loadGrid(projectID, Label9.Text)
     End Sub
 
 
@@ -380,5 +402,9 @@
 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
 
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        DeleteWall()
     End Sub
 End Class

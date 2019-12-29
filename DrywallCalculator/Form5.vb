@@ -327,8 +327,26 @@
     Private Sub showPieces()
         ' in the form load we will cretae all the objeects needed to cvlculate the puieces.
 
+        Dim columnNumber, i As Integer
+
+
+
         DataGridView1.DataSource = myDrywallPiecesList
 
+        columnNumber = DataGridView1.DisplayedColumnCount(True)
+        For i = 0 To columnNumber - 1
+            DataGridView1.Columns(i).HeaderCell.Style.Font = New Font("SanSerif", 10, FontStyle.Bold)
+        Next
+        DataGridView1.Columns(0).HeaderText = "Project ID"
+        DataGridView1.Columns(1).HeaderText = "Wall"
+        DataGridView1.Columns(2).HeaderText = "Room"
+        DataGridView1.Columns(3).HeaderText = "Corner Type"
+        DataGridView1.Columns(4).HeaderText = "Piece Type"
+        DataGridView1.Columns(5).HeaderText = "Thickness"
+        DataGridView1.Columns(6).HeaderText = "W1"
+        DataGridView1.Columns(7).HeaderText = "W2"
+        DataGridView1.Columns(8).HeaderText = "H1"
+        DataGridView1.Columns(9).HeaderText = "H2"
 
 
 

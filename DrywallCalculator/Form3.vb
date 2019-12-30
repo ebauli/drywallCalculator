@@ -32,7 +32,27 @@
         sql.addParam("@roomDescription", txtRoomDescription.Text)
         sql.addParam("@project_id", projectId)
         sql.addParam("@drywallThickness", cbxDrywallThickness.Text)
-        sql.ExecQuery("INSERT INTO ROOMS (room_name , room_description , project_id, room_Drywall_Thickness) values (@roomName,@roomDescription,@project_id, @drywallThickness )")
+
+        If CheckBox1.CheckState = 1 Then
+            sql.addParam("@hasReveal", "TRUE")
+            sql.addParam("@bbHeight", txtBB_height.Text)
+            sql.addParam("@revealHeight", txtRevealHeight.Text)
+            sql.addParam("@SE_stripHeight", txtSE_height.Text)
+
+        Else
+            sql.addParam("@hasReveal", "FALSE")
+            sql.addParam("@bbHeight", "0")
+            sql.addParam("@revealHeight", "0")
+            sql.addParam("@SE_stripHeight", "0")
+
+        End If
+
+
+
+
+
+
+        sql.ExecQuery("INSERT INTO ROOMS (room_name , room_description , project_id, room_Drywall_Thickness, room_has_reveal, room_bb_height, room_reveal_height, room_strip_size) values (@roomName,@roomDescription,@project_id, @drywallThickness, @hasReveal, @bbHeight, @revealHeight, @SE_stripHeight )")
         tableId = sql.tableID
         loadGrid()
 
@@ -86,4 +106,25 @@
 
     End Sub
 
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
+
+        If CheckBox1.CheckState = 1 Then
+            txtSE_height.Enabled = True
+            txtRevealHeight.Enabled = True
+            txtBB_height.Enabled = True
+            Label9.Enabled = True
+            Label10.Enabled = True
+            Label11.Enabled = True
+        Else
+            txtSE_height.Enabled = False
+            txtRevealHeight.Enabled = False
+            txtBB_height.Enabled = False
+            Label9.Enabled = False
+            Label10.Enabled = False
+            Label11.Enabled = False
+        End If
+
+
+
+    End Sub
 End Class

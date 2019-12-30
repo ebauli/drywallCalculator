@@ -38,6 +38,13 @@ Partial Class Form3
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.txtBB_height = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.txtRevealHeight = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.txtSE_height = New System.Windows.Forms.TextBox()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -45,7 +52,7 @@ Partial Class Form3
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(15, 114)
+        Me.Label1.Location = New System.Drawing.Point(29, 89)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(66, 13)
         Me.Label1.TabIndex = 0
@@ -54,7 +61,7 @@ Partial Class Form3
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(15, 151)
+        Me.Label2.Location = New System.Drawing.Point(29, 126)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(91, 13)
         Me.Label2.TabIndex = 1
@@ -62,21 +69,21 @@ Partial Class Form3
         '
         'txtRoomName
         '
-        Me.txtRoomName.Location = New System.Drawing.Point(127, 106)
+        Me.txtRoomName.Location = New System.Drawing.Point(141, 81)
         Me.txtRoomName.Name = "txtRoomName"
         Me.txtRoomName.Size = New System.Drawing.Size(142, 20)
         Me.txtRoomName.TabIndex = 2
         '
         'txtRoomDescription
         '
-        Me.txtRoomDescription.Location = New System.Drawing.Point(127, 144)
+        Me.txtRoomDescription.Location = New System.Drawing.Point(141, 119)
         Me.txtRoomDescription.Name = "txtRoomDescription"
         Me.txtRoomDescription.Size = New System.Drawing.Size(244, 20)
         Me.txtRoomDescription.TabIndex = 3
         '
         'btnCreateRoom
         '
-        Me.btnCreateRoom.Location = New System.Drawing.Point(127, 272)
+        Me.btnCreateRoom.Location = New System.Drawing.Point(141, 364)
         Me.btnCreateRoom.Name = "btnCreateRoom"
         Me.btnCreateRoom.Size = New System.Drawing.Size(113, 23)
         Me.btnCreateRoom.TabIndex = 7
@@ -91,7 +98,7 @@ Partial Class Form3
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(600, 150)
+        Me.DataGridView1.Size = New System.Drawing.Size(744, 150)
         Me.DataGridView1.TabIndex = 8
         '
         'Label3
@@ -109,7 +116,7 @@ Partial Class Form3
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(697, 124)
+        Me.Label4.Location = New System.Drawing.Point(752, 118)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(161, 16)
         Me.Label4.TabIndex = 10
@@ -127,7 +134,7 @@ Partial Class Form3
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(738, 360)
+        Me.Button1.Location = New System.Drawing.Point(789, 372)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 12
@@ -148,7 +155,7 @@ Partial Class Form3
         '
         Me.cbxDrywallThickness.FormattingEnabled = True
         Me.cbxDrywallThickness.Items.AddRange(New Object() {".5", ".625"})
-        Me.cbxDrywallThickness.Location = New System.Drawing.Point(127, 185)
+        Me.cbxDrywallThickness.Location = New System.Drawing.Point(141, 160)
         Me.cbxDrywallThickness.Name = "cbxDrywallThickness"
         Me.cbxDrywallThickness.Size = New System.Drawing.Size(121, 21)
         Me.cbxDrywallThickness.TabIndex = 14
@@ -156,7 +163,7 @@ Partial Class Form3
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(15, 193)
+        Me.Label6.Location = New System.Drawing.Point(29, 168)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(93, 13)
         Me.Label6.TabIndex = 15
@@ -184,6 +191,13 @@ Partial Class Form3
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.CheckBox1)
+        Me.GroupBox1.Controls.Add(Me.txtSE_height)
+        Me.GroupBox1.Controls.Add(Me.Label11)
+        Me.GroupBox1.Controls.Add(Me.txtRevealHeight)
+        Me.GroupBox1.Controls.Add(Me.Label10)
+        Me.GroupBox1.Controls.Add(Me.txtBB_height)
+        Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.btnCreateRoom)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.Label6)
@@ -191,12 +205,76 @@ Partial Class Form3
         Me.GroupBox1.Controls.Add(Me.cbxDrywallThickness)
         Me.GroupBox1.Controls.Add(Me.txtRoomName)
         Me.GroupBox1.Controls.Add(Me.txtRoomDescription)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 64)
+        Me.GroupBox1.Location = New System.Drawing.Point(23, 55)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(395, 353)
+        Me.GroupBox1.Size = New System.Drawing.Size(411, 448)
         Me.GroupBox1.TabIndex = 18
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "New Room Information"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Enabled = False
+        Me.Label9.Location = New System.Drawing.Point(29, 255)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(92, 13)
+        Me.Label9.TabIndex = 16
+        Me.Label9.Text = "Baseboard Heigth"
+        '
+        'txtBB_height
+        '
+        Me.txtBB_height.Enabled = False
+        Me.txtBB_height.Location = New System.Drawing.Point(141, 247)
+        Me.txtBB_height.Name = "txtBB_height"
+        Me.txtBB_height.Size = New System.Drawing.Size(142, 20)
+        Me.txtBB_height.TabIndex = 17
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Enabled = False
+        Me.Label10.Location = New System.Drawing.Point(32, 289)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(75, 13)
+        Me.Label10.TabIndex = 18
+        Me.Label10.Text = "Reveal Height"
+        '
+        'txtRevealHeight
+        '
+        Me.txtRevealHeight.Enabled = False
+        Me.txtRevealHeight.Location = New System.Drawing.Point(141, 282)
+        Me.txtRevealHeight.Name = "txtRevealHeight"
+        Me.txtRevealHeight.Size = New System.Drawing.Size(142, 20)
+        Me.txtRevealHeight.TabIndex = 19
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Enabled = False
+        Me.Label11.Location = New System.Drawing.Point(32, 328)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(79, 13)
+        Me.Label11.TabIndex = 20
+        Me.Label11.Text = "SE Strip Height"
+        '
+        'txtSE_height
+        '
+        Me.txtSE_height.Enabled = False
+        Me.txtSE_height.Location = New System.Drawing.Point(141, 320)
+        Me.txtSE_height.Name = "txtSE_height"
+        Me.txtSE_height.Size = New System.Drawing.Size(142, 20)
+        Me.txtSE_height.TabIndex = 21
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(151, 211)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(111, 17)
+        Me.CheckBox1.TabIndex = 22
+        Me.CheckBox1.Text = "Room has Reveal"
+        Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'Form3
         '
@@ -238,4 +316,11 @@ Partial Class Form3
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents txtBB_height As TextBox
+    Friend WithEvents txtRevealHeight As TextBox
+    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents txtSE_height As TextBox
+    Friend WithEvents Label11 As Label
 End Class

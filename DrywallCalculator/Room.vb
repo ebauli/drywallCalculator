@@ -6,17 +6,22 @@
     Private RoomDescription As String
     Private RoomHeight As Double
     Private RoomDrywallThickness As Double
+    Private hasReveal As String
     Private baseboard_height As Double
     Private reveal_height As Double
     Private strip_height As Double
 
-    Public Sub New(newProjectID As Integer, newRoomID As Integer, newRoomName As String, newRoomDescription As String, newRoomDrywallThickness As Double)
+    Public Sub New(newProjectID As Integer, newRoomID As Integer, newRoomName As String, newRoomDescription As String, newRoomDrywallThickness As Double, newRoomHasReveal As String, newRoom_bbHeight As Double, newRoomRevealHeight As Double, newRoomStripSize As Double)
 
         ProjectId = newProjectID
         RoomID = newRoomID
         RoomName = newRoomName
         RoomDescription = newRoomDescription
         RoomDrywallThickness = newRoomDrywallThickness
+        hasReveal = newRoomHasReveal
+        baseboard_height = newRoom_bbHeight
+        reveal_height = newRoomRevealHeight
+        strip_height = newRoomStripSize
 
     End Sub
 
@@ -44,6 +49,15 @@
         End Get
         Set(value As String)
             RoomName = value
+        End Set
+    End Property
+
+    Public Property get_hasReveal() As String
+        Get
+            Return hasReveal
+        End Get
+        Set(value As String)
+            hasReveal = value
         End Set
     End Property
 

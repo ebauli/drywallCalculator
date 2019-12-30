@@ -262,7 +262,9 @@
                 w2 = 0
                 ' if the wall has reveal you will substract the height of the reveal assembly to the height of the wall
                 If wall.get_HasReveal = "1" Then
+
                     h1 = Room.get_RoomHeight - wall.get_SE_stripHeight - wall.get_RevealHeight - wall.get_BaseBoardHeight - Room.get_RoomDrywallThickness
+
                 Else
                     h1 = Room.get_RoomHeight - Room.get_RoomDrywallThickness
 
@@ -270,7 +272,7 @@
 
                 h2 = 16
                 Dim drywallPiece1 As New DrywallPieces(projectid, Room.get_name, wall.get_name, "N/A", "C2_Flap", Room.get_RoomDrywallThickness, 48, w2, h1, h2)
-                Dim drywallPieceReveal As New DrywallPieces(projectid, Room.get_name, wall.get_name, "N/A", "SE_Strip", Room.get_RoomDrywallThickness, 96, w2, wall.get_SE_stripHeight, h2)
+                Dim drywallPieceReveal As New DrywallPieces(projectid, Room.get_name, wall.get_name, "N/A", "SE_Strip", Room.get_RoomDrywallThickness, 96, w2, wall.get_SE_stripHeight, 0)
 
                 For i = 1 To numberFullPieces
                     DrywallPieceList.Add(drywallPiece1)
@@ -289,7 +291,7 @@
                     DrywallPieceList.Add(drywallPieceReveal)
                 Next
                 If RemainderRevealPieceInches > 0 Then
-                    drywallPieceReveal = New DrywallPieces(projectid, Room.get_name, wall.get_name, "N/A", "SE_Strip", Room.get_RoomDrywallThickness, RemainderRevealPieceInches, w2, wall.get_SE_stripHeight, h2)
+                    drywallPieceReveal = New DrywallPieces(projectid, Room.get_name, wall.get_name, "N/A", "SE_Strip", Room.get_RoomDrywallThickness, RemainderRevealPieceInches, w2, wall.get_SE_stripHeight, 0)
                     DrywallPieceList.Add(drywallPieceReveal)
                 End If
 

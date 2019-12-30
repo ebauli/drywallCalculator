@@ -17,7 +17,7 @@
         Me.MdiParent = frmParent
         comboSource.Add("0", "NO")
         comboSource.Add("1", "YES")
-        ' cmbHasReveal.Items.Add(comboSource)
+        cmbHasReveal.Items.Add(comboSource)
         Label3.Text = projectID
         Label12.Text = projectName
         sql.addParam("@projectID", projectID)
@@ -109,7 +109,7 @@
         ' sql.addParam("@bbHeight", txtBaseboardHeight.Text)
         ' sql.addParam("@reveal_height", txtRevealHeight.Text)
         ' sql.addParam("@stripHeight", txtSE_StripHeight.Text)
-        sql.addParam("@wallID", wallIDSelected)
+        ' sql.addParam("@wallID", wallIDSelected)
 
 
         ' If Not (txtCornerName.Text = String.Empty And txtCornerDesc.Text = String.Empty And txtLsDistance.Text = String.Empty And txtRsDistance.Text = String.Empty) Then
@@ -321,7 +321,7 @@
         'sql.addParam("@revealHeight", txtRevealHeight.Text)
         'sql.addParam("@stripHeight", txtSE_StripHeight.Text)
 
-        If (txtWallName.Text = "" Or txtWallDesc.Text = "" Or txtLeftCorner.Text = "" Or txtRightCorner.Text = "" Or txtWallWidth.Text = "") Then
+        If (txtWallName.Text = "" Or txtWallDesc.Text = "" Or txtLeftCorner.Text = "" Or txtRightCorner.Text = "" Or txtWallWidth.Text = "" Or cmbHasReveal.Text = "" Or txtBaseboardHeight.Text = "" Or txtRevealHeight.Text = "" Or txtSE_StripHeight.Text = "") Then
 
             sql.clearParams()
 
@@ -386,7 +386,10 @@
 
         txtRightCorner.Text = selectedRow.Cells(6).Value.ToString
         txtWallWidth.Text = selectedRow.Cells(7).Value.ToString
-
+        cmbHasReveal.Text = selectedRow.Cells(8).Value.ToString
+        txtBaseboardHeight.Text = selectedRow.Cells(9).Value.ToString
+        txtRevealHeight.Text = selectedRow.Cells(10).Value.ToString
+        txtSE_StripHeight.Text = selectedRow.Cells(11).Value.ToString
         wallIDSelected = selectedRow.Cells(0).Value
 
 

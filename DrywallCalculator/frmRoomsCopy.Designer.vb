@@ -48,11 +48,19 @@ Partial Class frmRooms
         Me.txtLeftCorner = New System.Windows.Forms.TextBox()
         Me.txtRightCorner = New System.Windows.Forms.TextBox()
         Me.txtWallWidth = New System.Windows.Forms.TextBox()
+        Me.txtBaseboardHeight = New System.Windows.Forms.TextBox()
+        Me.txtRevealHeight = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.txtSE_StripHeight = New System.Windows.Forms.TextBox()
+        Me.cmbHasReveal = New System.Windows.Forms.ComboBox()
         Me.GroupCorner = New System.Windows.Forms.GroupBox()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.cbxCornerType = New System.Windows.Forms.ComboBox()
@@ -291,6 +299,20 @@ Partial Class frmRooms
         Me.txtWallWidth.Size = New System.Drawing.Size(150, 20)
         Me.txtWallWidth.TabIndex = 28
         '
+        'txtBaseboardHeight
+        '
+        Me.txtBaseboardHeight.Location = New System.Drawing.Point(229, 572)
+        Me.txtBaseboardHeight.Name = "txtBaseboardHeight"
+        Me.txtBaseboardHeight.Size = New System.Drawing.Size(150, 20)
+        Me.txtBaseboardHeight.TabIndex = 30
+        '
+        'txtRevealHeight
+        '
+        Me.txtRevealHeight.Location = New System.Drawing.Point(229, 598)
+        Me.txtRevealHeight.Name = "txtRevealHeight"
+        Me.txtRevealHeight.Size = New System.Drawing.Size(150, 20)
+        Me.txtRevealHeight.TabIndex = 31
+        '
         'Label13
         '
         Me.Label13.AutoSize = True
@@ -335,6 +357,58 @@ Partial Class frmRooms
         Me.Label17.Size = New System.Drawing.Size(59, 13)
         Me.Label17.TabIndex = 36
         Me.Label17.Text = "Wall Width"
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(48, 546)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(60, 13)
+        Me.Label18.TabIndex = 37
+        Me.Label18.Text = "HasReveal"
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(48, 572)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(92, 13)
+        Me.Label19.TabIndex = 38
+        Me.Label19.Text = "Baseboard Height"
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(48, 598)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(75, 13)
+        Me.Label20.TabIndex = 39
+        Me.Label20.Text = "Reveal Height"
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(48, 624)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(102, 13)
+        Me.Label21.TabIndex = 40
+        Me.Label21.Text = "SE Strip Size Height"
+        '
+        'txtSE_StripHeight
+        '
+        Me.txtSE_StripHeight.Location = New System.Drawing.Point(229, 624)
+        Me.txtSE_StripHeight.Name = "txtSE_StripHeight"
+        Me.txtSE_StripHeight.Size = New System.Drawing.Size(150, 20)
+        Me.txtSE_StripHeight.TabIndex = 41
+        '
+        'cmbHasReveal
+        '
+        Me.cmbHasReveal.FormattingEnabled = True
+        Me.cmbHasReveal.Items.AddRange(New Object() {"0", "1"})
+        Me.cmbHasReveal.Location = New System.Drawing.Point(229, 545)
+        Me.cmbHasReveal.Name = "cmbHasReveal"
+        Me.cmbHasReveal.Size = New System.Drawing.Size(121, 21)
+        Me.cmbHasReveal.TabIndex = 42
         '
         'GroupCorner
         '
@@ -381,14 +455,14 @@ Partial Class frmRooms
         Me.GroupWall.Controls.Add(Me.Button5)
         Me.GroupWall.Location = New System.Drawing.Point(20, 392)
         Me.GroupWall.Name = "GroupWall"
-        Me.GroupWall.Size = New System.Drawing.Size(389, 255)
+        Me.GroupWall.Size = New System.Drawing.Size(389, 344)
         Me.GroupWall.TabIndex = 44
         Me.GroupWall.TabStop = False
         Me.GroupWall.Text = "Wall Information"
         '
         'Button6
         '
-        Me.Button6.Location = New System.Drawing.Point(235, 192)
+        Me.Button6.Location = New System.Drawing.Point(235, 266)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(75, 23)
         Me.Button6.TabIndex = 47
@@ -397,7 +471,7 @@ Partial Class frmRooms
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(35, 192)
+        Me.Button4.Location = New System.Drawing.Point(35, 266)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(75, 23)
         Me.Button4.TabIndex = 45
@@ -406,7 +480,7 @@ Partial Class frmRooms
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(132, 192)
+        Me.Button5.Location = New System.Drawing.Point(132, 266)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(75, 23)
         Me.Button5.TabIndex = 46
@@ -473,11 +547,19 @@ Partial Class frmRooms
         Me.Controls.Add(Me.Label24)
         Me.Controls.Add(Me.Label23)
         Me.Controls.Add(Me.btnCalculate)
+        Me.Controls.Add(Me.cmbHasReveal)
+        Me.Controls.Add(Me.txtSE_StripHeight)
+        Me.Controls.Add(Me.Label21)
+        Me.Controls.Add(Me.Label20)
+        Me.Controls.Add(Me.Label19)
+        Me.Controls.Add(Me.Label18)
         Me.Controls.Add(Me.Label17)
         Me.Controls.Add(Me.Label16)
         Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.Label13)
+        Me.Controls.Add(Me.txtRevealHeight)
+        Me.Controls.Add(Me.txtBaseboardHeight)
         Me.Controls.Add(Me.txtWallWidth)
         Me.Controls.Add(Me.txtRightCorner)
         Me.Controls.Add(Me.txtLeftCorner)
@@ -535,11 +617,19 @@ Partial Class frmRooms
     Friend WithEvents txtLeftCorner As TextBox
     Friend WithEvents txtRightCorner As TextBox
     Friend WithEvents txtWallWidth As TextBox
+    Friend WithEvents txtBaseboardHeight As TextBox
+    Friend WithEvents txtRevealHeight As TextBox
     Friend WithEvents Label13 As Label
     Friend WithEvents Label14 As Label
     Friend WithEvents Label15 As Label
     Friend WithEvents Label16 As Label
     Friend WithEvents Label17 As Label
+    Friend WithEvents Label18 As Label
+    Friend WithEvents Label19 As Label
+    Friend WithEvents Label20 As Label
+    Friend WithEvents Label21 As Label
+    Friend WithEvents txtSE_StripHeight As TextBox
+    Friend WithEvents cmbHasReveal As ComboBox
     Friend WithEvents GroupCorner As GroupBox
     Friend WithEvents GroupWall As GroupBox
     Friend WithEvents Button6 As Button

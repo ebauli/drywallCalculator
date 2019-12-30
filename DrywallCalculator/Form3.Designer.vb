@@ -215,6 +215,7 @@ Partial Class Form3
         'Label9
         '
         Me.Label9.AutoSize = True
+        Me.Label9.Enabled = False
         Me.Label9.Location = New System.Drawing.Point(29, 255)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(92, 13)
@@ -232,6 +233,7 @@ Partial Class Form3
         'Label10
         '
         Me.Label10.AutoSize = True
+        Me.Label10.Enabled = False
         Me.Label10.Location = New System.Drawing.Point(32, 289)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(75, 13)
@@ -249,6 +251,7 @@ Partial Class Form3
         'Label11
         '
         Me.Label11.AutoSize = True
+        Me.Label11.Enabled = False
         Me.Label11.Location = New System.Drawing.Point(32, 328)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(79, 13)

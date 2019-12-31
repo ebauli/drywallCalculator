@@ -38,13 +38,15 @@ Partial Class Form3
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.txtBB_height = New System.Windows.Forms.TextBox()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.txtRevealHeight = New System.Windows.Forms.TextBox()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.txtSE_height = New System.Windows.Forms.TextBox()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.txtSE_height = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.txtRevealHeight = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.txtBB_height = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -83,9 +85,9 @@ Partial Class Form3
         '
         'btnCreateRoom
         '
-        Me.btnCreateRoom.Location = New System.Drawing.Point(141, 364)
+        Me.btnCreateRoom.Location = New System.Drawing.Point(126, 367)
         Me.btnCreateRoom.Name = "btnCreateRoom"
-        Me.btnCreateRoom.Size = New System.Drawing.Size(113, 23)
+        Me.btnCreateRoom.Size = New System.Drawing.Size(167, 23)
         Me.btnCreateRoom.TabIndex = 7
         Me.btnCreateRoom.Text = "Create Room"
         Me.btnCreateRoom.UseVisualStyleBackColor = True
@@ -191,6 +193,8 @@ Partial Class Form3
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Button3)
+        Me.GroupBox1.Controls.Add(Me.Button2)
         Me.GroupBox1.Controls.Add(Me.CheckBox1)
         Me.GroupBox1.Controls.Add(Me.txtSE_height)
         Me.GroupBox1.Controls.Add(Me.Label11)
@@ -212,41 +216,23 @@ Partial Class Form3
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "New Room Information"
         '
-        'Label9
+        'CheckBox1
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.Enabled = False
-        Me.Label9.Location = New System.Drawing.Point(29, 255)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(92, 13)
-        Me.Label9.TabIndex = 16
-        Me.Label9.Text = "Baseboard Heigth"
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(151, 211)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(111, 17)
+        Me.CheckBox1.TabIndex = 22
+        Me.CheckBox1.Text = "Room has Reveal"
+        Me.CheckBox1.UseVisualStyleBackColor = True
         '
-        'txtBB_height
+        'txtSE_height
         '
-        Me.txtBB_height.Enabled = False
-        Me.txtBB_height.Location = New System.Drawing.Point(141, 247)
-        Me.txtBB_height.Name = "txtBB_height"
-        Me.txtBB_height.Size = New System.Drawing.Size(142, 20)
-        Me.txtBB_height.TabIndex = 17
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Enabled = False
-        Me.Label10.Location = New System.Drawing.Point(32, 289)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(75, 13)
-        Me.Label10.TabIndex = 18
-        Me.Label10.Text = "Reveal Height"
-        '
-        'txtRevealHeight
-        '
-        Me.txtRevealHeight.Enabled = False
-        Me.txtRevealHeight.Location = New System.Drawing.Point(141, 282)
-        Me.txtRevealHeight.Name = "txtRevealHeight"
-        Me.txtRevealHeight.Size = New System.Drawing.Size(142, 20)
-        Me.txtRevealHeight.TabIndex = 19
+        Me.txtSE_height.Enabled = False
+        Me.txtSE_height.Location = New System.Drawing.Point(141, 320)
+        Me.txtSE_height.Name = "txtSE_height"
+        Me.txtSE_height.Size = New System.Drawing.Size(142, 20)
+        Me.txtSE_height.TabIndex = 21
         '
         'Label11
         '
@@ -258,29 +244,65 @@ Partial Class Form3
         Me.Label11.TabIndex = 20
         Me.Label11.Text = "SE Strip Height"
         '
-        'txtSE_height
+        'txtRevealHeight
         '
-        Me.txtSE_height.Enabled = False
-        Me.txtSE_height.Location = New System.Drawing.Point(141, 320)
-        Me.txtSE_height.Name = "txtSE_height"
-        Me.txtSE_height.Size = New System.Drawing.Size(142, 20)
-        Me.txtSE_height.TabIndex = 21
+        Me.txtRevealHeight.Enabled = False
+        Me.txtRevealHeight.Location = New System.Drawing.Point(141, 282)
+        Me.txtRevealHeight.Name = "txtRevealHeight"
+        Me.txtRevealHeight.Size = New System.Drawing.Size(142, 20)
+        Me.txtRevealHeight.TabIndex = 19
         '
-        'CheckBox1
+        'Label10
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(151, 211)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(111, 17)
-        Me.CheckBox1.TabIndex = 22
-        Me.CheckBox1.Text = "Room has Reveal"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.Label10.AutoSize = True
+        Me.Label10.Enabled = False
+        Me.Label10.Location = New System.Drawing.Point(32, 289)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(75, 13)
+        Me.Label10.TabIndex = 18
+        Me.Label10.Text = "Reveal Height"
+        '
+        'txtBB_height
+        '
+        Me.txtBB_height.Enabled = False
+        Me.txtBB_height.Location = New System.Drawing.Point(141, 247)
+        Me.txtBB_height.Name = "txtBB_height"
+        Me.txtBB_height.Size = New System.Drawing.Size(142, 20)
+        Me.txtBB_height.TabIndex = 17
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Enabled = False
+        Me.Label9.Location = New System.Drawing.Point(29, 255)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(92, 13)
+        Me.Label9.TabIndex = 16
+        Me.Label9.Text = "Baseboard Heigth"
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(126, 407)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 23
+        Me.Button2.Text = "update"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(218, 407)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 23)
+        Me.Button3.TabIndex = 24
+        Me.Button3.Text = "delete"
+        Me.Button3.UseVisualStyleBackColor = True
         '
         'Form3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1264, 761)
+        Me.ClientSize = New System.Drawing.Size(1264, 749)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label5)
@@ -323,4 +345,6 @@ Partial Class Form3
     Friend WithEvents CheckBox1 As CheckBox
     Friend WithEvents txtSE_height As TextBox
     Friend WithEvents Label11 As Label
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button2 As Button
 End Class

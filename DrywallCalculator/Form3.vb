@@ -127,4 +127,29 @@
 
 
     End Sub
+
+    Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
+
+        Dim index As Integer
+        Dim tem As String
+        index = e.RowIndex
+        Dim selectedRow As DataGridViewRow
+        selectedRow = DataGridView1.Rows(index)
+
+
+        txtRoomName.Text = selectedRow.Cells(2).Value.ToString
+        txtRoomDescription.Text = selectedRow.Cells(3).Value.ToString
+        cbxDrywallThickness.Text = selectedRow.Cells(4).Value.ToString
+        If selectedRow.Cells(5).Value.ToString = True Then
+            CheckBox1.CheckState = 1
+        Else
+            CheckBox1.CheckState = 0
+        End If
+
+        txtBB_height.Text = selectedRow.Cells(6).Value.ToString
+        txtRevealHeight.Text = selectedRow.Cells(7).Value.ToString
+        txtSE_height.Text = selectedRow.Cells(8).Value.ToString
+
+
+    End Sub
 End Class

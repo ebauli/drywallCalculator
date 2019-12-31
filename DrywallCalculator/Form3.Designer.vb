@@ -38,6 +38,8 @@ Partial Class Form3
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.btnUpdate1 = New System.Windows.Forms.Button()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.txtSE_height = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -45,8 +47,6 @@ Partial Class Form3
         Me.Label10 = New System.Windows.Forms.Label()
         Me.txtBB_height = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -94,6 +94,7 @@ Partial Class Form3
         '
         'DataGridView1
         '
+        Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(473, 154)
@@ -194,7 +195,7 @@ Partial Class Form3
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.Button3)
-        Me.GroupBox1.Controls.Add(Me.Button2)
+        Me.GroupBox1.Controls.Add(Me.btnUpdate1)
         Me.GroupBox1.Controls.Add(Me.CheckBox1)
         Me.GroupBox1.Controls.Add(Me.txtSE_height)
         Me.GroupBox1.Controls.Add(Me.Label11)
@@ -215,6 +216,24 @@ Partial Class Form3
         Me.GroupBox1.TabIndex = 18
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "New Room Information"
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(218, 407)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 23)
+        Me.Button3.TabIndex = 24
+        Me.Button3.Text = "delete"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'btnUpdate1
+        '
+        Me.btnUpdate1.Location = New System.Drawing.Point(126, 407)
+        Me.btnUpdate1.Name = "btnUpdate1"
+        Me.btnUpdate1.Size = New System.Drawing.Size(75, 23)
+        Me.btnUpdate1.TabIndex = 23
+        Me.btnUpdate1.Text = "update"
+        Me.btnUpdate1.UseVisualStyleBackColor = True
         '
         'CheckBox1
         '
@@ -280,24 +299,6 @@ Partial Class Form3
         Me.Label9.TabIndex = 16
         Me.Label9.Text = "Baseboard Heigth"
         '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(126, 407)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 23
-        Me.Button2.Text = "update"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(218, 407)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 23)
-        Me.Button3.TabIndex = 24
-        Me.Button3.Text = "delete"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
         'Form3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -346,5 +347,5 @@ Partial Class Form3
     Friend WithEvents txtSE_height As TextBox
     Friend WithEvents Label11 As Label
     Friend WithEvents Button3 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents btnUpdate1 As Button
 End Class

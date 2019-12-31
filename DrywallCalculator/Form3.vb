@@ -2,6 +2,7 @@
     Private sql As New SQLControl
     Public Property projectId As Integer
     Public Property projectName As String
+    Private Property roomIDSelected As Integer
 
     Private tableId As Integer
 
@@ -131,9 +132,10 @@
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
 
         Dim index As Integer
-        Dim tem As String
         index = e.RowIndex
         Dim selectedRow As DataGridViewRow
+        selectedRow = DataGridView1.Rows(index)
+        roomIDSelected = selectedRow.Cells(0).Value
         selectedRow = DataGridView1.Rows(index)
 
 
@@ -152,4 +154,54 @@
 
 
     End Sub
+
+    Private Sub btnUpdate1_Click(sender As Object, e As EventArgs) Handles btnUpdate1.Click
+        modifyRoom()
+    End Sub
+    Private Sub modifyRoom()
+        sql.addParam("@roomName", txtRoomName.Text)
+        sql.addParam("@roomDescription", txtRoomDescription.Text)
+        sql.addParam("@drywallThickness", cbxDrywallThickness.Text)
+
+        If CheckBox1.CheckState = 1 Then
+            sql.addParam("@hasReveal", "TRUE")
+
+        Else
+            sql.addParam("@hasReveal", "FALSE")
+            txtBB_height.Text = 0
+            txtRevealHeight.Text = 0
+            txtSE_height.Text = 0
+
+
+        End If
+        sql.addParam("@bbHeight", txtBB_height.Text)
+        sql.addParam("@revealHeight", txtRevealHeight.Text)
+        sql.addParam("@SE_Height", txtSE_height.Text)
+        sql.addParam("@roomID", roomIDSelected)
+
+        ' If Not (txtCornerName.Text = String.Empty And txtCornerDesc.Text = String.Empty And txtLsDistance.Text = String.Empty And txtRsDistance.Text = String.Empty) Then
+
+        sql.ExecQuery("UPDATE ROOMS SET room_name = @roomName, room_description = @roomDescription, room_Drywall_thickness = @drywallThickness, room_has_reveal = @hasReveal , room_bb_height = @bbHeight , room_reveal_height = @revealHeight , room_strip_size = @SE_Height  where room_id= @roomID")
+        loadGrid(projectId, roomIDSelected)
+        ' End If
+
+    End Sub
+
+    Private Sub loadGrid(pID As Integer, rId As Integer)
+
+        sql.clearParams()
+        sql.addParam("@projectID", pID)
+        sql.addParam("@roomID", rId)
+        sql.ExecQuery("select * from rooms where project_ID = @projectID")
+        If sql.recordcount > 0 Then
+            DataGridView1.DataSource = sql.sqlDS.Tables(0)
+            '   DataGridView1.Rows(0).Selected = True
+
+        Else
+            DataGridView1.DataSource = ""
+
+        End If
+
+    End Sub
+
 End Class

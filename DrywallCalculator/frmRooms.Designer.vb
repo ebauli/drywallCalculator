@@ -82,6 +82,9 @@ Partial Class frmRooms
         'DataGridView1
         '
         Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.AllowUserToResizeColumns = False
+        Me.DataGridView1.AllowUserToResizeRows = False
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(445, 108)

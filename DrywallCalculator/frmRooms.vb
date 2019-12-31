@@ -247,27 +247,34 @@
 
 
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
-        Dim index As Integer
-        index = e.RowIndex
-        Dim selectedRow As DataGridViewRow
-        selectedRow = DataGridView1.Rows(index)
+        Try
 
 
-        txtCornerName.Text = selectedRow.Cells(3).Value.ToString
-        txtCornerDesc.Text = selectedRow.Cells(4).Value.ToString
-        cbxCornerType.Text = selectedRow.Cells(5).Value.ToString
 
-        txtLsDistance.Text = selectedRow.Cells(6).Value.ToString
-        txtRsDistance.Text = selectedRow.Cells(7).Value.ToString
-        txtHeightFF.Text = selectedRow.Cells(8).Value.ToString
-        Label12.Text = selectedRow.Cells(3).Value.ToString
-        cornerIDSelected = selectedRow.Cells(0).Value
-        If senderCorner = "left" Then
-            txtLeftCorner.Text = cornerIDSelected
-        End If
-        If senderCorner = "right" Then
-            txtRightCorner.Text = cornerIDSelected
-        End If
+
+            Dim index As Integer
+            index = e.RowIndex
+            Dim selectedRow As DataGridViewRow
+            selectedRow = DataGridView1.Rows(index)
+
+
+            txtCornerName.Text = selectedRow.Cells(3).Value.ToString
+            txtCornerDesc.Text = selectedRow.Cells(4).Value.ToString
+            cbxCornerType.Text = selectedRow.Cells(5).Value.ToString
+
+            txtLsDistance.Text = selectedRow.Cells(6).Value.ToString
+            txtRsDistance.Text = selectedRow.Cells(7).Value.ToString
+            txtHeightFF.Text = selectedRow.Cells(8).Value.ToString
+            Label12.Text = selectedRow.Cells(3).Value.ToString
+            cornerIDSelected = selectedRow.Cells(0).Value
+            If senderCorner = "left" Then
+                txtLeftCorner.Text = cornerIDSelected
+            End If
+            If senderCorner = "right" Then
+                txtRightCorner.Text = cornerIDSelected
+            End If
+        Catch ex As Exception
+        End Try
 
     End Sub
 
@@ -373,24 +380,28 @@
 
 
     Private Sub DataGridView2_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView2.CellClick
-
-        Dim index As Integer
-        index = e.RowIndex
-        Dim selectedRow As DataGridViewRow
-        selectedRow = DataGridView2.Rows(index)
-
-
-        txtWallName.Text = selectedRow.Cells(3).Value.ToString
-        txtWallDesc.Text = selectedRow.Cells(4).Value.ToString
-        txtLeftCorner.Text = selectedRow.Cells(5).Value.ToString
-
-        txtRightCorner.Text = selectedRow.Cells(6).Value.ToString
-        txtWallWidth.Text = selectedRow.Cells(7).Value.ToString
-
-        wallIDSelected = selectedRow.Cells(0).Value
+        Try
 
 
 
+
+            Dim index As Integer
+            index = e.RowIndex
+            Dim selectedRow As DataGridViewRow
+            selectedRow = DataGridView2.Rows(index)
+
+
+            txtWallName.Text = selectedRow.Cells(3).Value.ToString
+            txtWallDesc.Text = selectedRow.Cells(4).Value.ToString
+            txtLeftCorner.Text = selectedRow.Cells(5).Value.ToString
+
+            txtRightCorner.Text = selectedRow.Cells(6).Value.ToString
+            txtWallWidth.Text = selectedRow.Cells(7).Value.ToString
+
+            wallIDSelected = selectedRow.Cells(0).Value
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
@@ -403,5 +414,9 @@
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
         DeleteWall()
+    End Sub
+
+    Private Sub DataGridView2_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView2.CellContentClick
+
     End Sub
 End Class

@@ -39,17 +39,23 @@ Public Class Form4
 
 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
-        Dim index As Integer
-        index = e.RowIndex
-        Dim selectedRow As DataGridViewRow
-        selectedRow = DataGridView1.Rows(index)
-
-
-        txtProjectID.Text = selectedRow.Cells(0).Value.ToString
-        txtProjectName.Text = selectedRow.Cells(1).Value.ToString
-        txtProjectDescription.Text = selectedRow.Cells(2).Value.ToString
+        Try
 
 
 
+
+
+            Dim index As Integer
+            index = e.RowIndex
+            Dim selectedRow As DataGridViewRow
+            selectedRow = DataGridView1.Rows(index)
+
+
+            txtProjectID.Text = selectedRow.Cells(0).Value.ToString
+            txtProjectName.Text = selectedRow.Cells(1).Value.ToString
+            txtProjectDescription.Text = selectedRow.Cells(2).Value.ToString
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class

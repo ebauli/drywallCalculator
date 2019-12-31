@@ -130,29 +130,30 @@
     End Sub
 
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
+        Try
 
-        Dim index As Integer
-        index = e.RowIndex
-        Dim selectedRow As DataGridViewRow
-        selectedRow = DataGridView1.Rows(index)
-        roomIDSelected = selectedRow.Cells(0).Value
-        selectedRow = DataGridView1.Rows(index)
-
-
-        txtRoomName.Text = selectedRow.Cells(2).Value.ToString
-        txtRoomDescription.Text = selectedRow.Cells(3).Value.ToString
-        cbxDrywallThickness.Text = selectedRow.Cells(4).Value.ToString
-        If selectedRow.Cells(5).Value.ToString = True Then
-            CheckBox1.CheckState = 1
-        Else
-            CheckBox1.CheckState = 0
-        End If
-
-        txtBB_height.Text = selectedRow.Cells(6).Value.ToString
-        txtRevealHeight.Text = selectedRow.Cells(7).Value.ToString
-        txtSE_height.Text = selectedRow.Cells(8).Value.ToString
+            Dim index As Integer
+            index = e.RowIndex
+            Dim selectedRow As DataGridViewRow
+            selectedRow = DataGridView1.Rows(index)
+            roomIDSelected = selectedRow.Cells(0).Value
+            selectedRow = DataGridView1.Rows(index)
 
 
+            txtRoomName.Text = selectedRow.Cells(2).Value.ToString
+            txtRoomDescription.Text = selectedRow.Cells(3).Value.ToString
+            cbxDrywallThickness.Text = selectedRow.Cells(4).Value.ToString
+            If selectedRow.Cells(5).Value.ToString = True Then
+                CheckBox1.CheckState = 1
+            Else
+                CheckBox1.CheckState = 0
+            End If
+
+            txtBB_height.Text = selectedRow.Cells(6).Value.ToString
+            txtRevealHeight.Text = selectedRow.Cells(7).Value.ToString
+            txtSE_height.Text = selectedRow.Cells(8).Value.ToString
+        Catch ex As Exception
+        End Try
     End Sub
 
     Private Sub btnUpdate1_Click(sender As Object, e As EventArgs) Handles btnUpdate1.Click

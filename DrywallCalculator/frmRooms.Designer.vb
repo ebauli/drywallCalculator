@@ -502,7 +502,7 @@ Partial Class frmRooms
         Me.Controls.Add(Me.GroupCorner)
         Me.Controls.Add(Me.GroupWall)
         Me.Name = "frmRooms"
-        Me.Text = "frmRooms"
+        Me.Text = "Room Building Form"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupCorner.ResumeLayout(False)

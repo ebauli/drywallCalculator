@@ -73,7 +73,7 @@ Partial Class frmParent
         Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "frmParent"
-        Me.Text = "frmParent"
+        Me.Text = "Parent Form"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)

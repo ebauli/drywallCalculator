@@ -50,20 +50,20 @@ Partial Class Form1
         'AddNewProjectToolStripMenuItem
         '
         Me.AddNewProjectToolStripMenuItem.Name = "AddNewProjectToolStripMenuItem"
-        Me.AddNewProjectToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.AddNewProjectToolStripMenuItem.Size = New System.Drawing.Size(163, 22)
         Me.AddNewProjectToolStripMenuItem.Text = "Add New Project"
         '
         'OpenProjectToolStripMenuItem
         '
         Me.OpenProjectToolStripMenuItem.Name = "OpenProjectToolStripMenuItem"
-        Me.OpenProjectToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.OpenProjectToolStripMenuItem.Size = New System.Drawing.Size(163, 22)
         Me.OpenProjectToolStripMenuItem.Text = "Open project"
         '
         'ExploreProjectToolStripMenuItem
         '
         Me.ExploreProjectToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ViewRoomsInProjectToolStripMenuItem})
         Me.ExploreProjectToolStripMenuItem.Name = "ExploreProjectToolStripMenuItem"
-        Me.ExploreProjectToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ExploreProjectToolStripMenuItem.Size = New System.Drawing.Size(163, 22)
         Me.ExploreProjectToolStripMenuItem.Text = "Explore Project"
         '
         'ViewRoomsInProjectToolStripMenuItem
@@ -80,7 +80,7 @@ Partial Class Form1
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.Text = "Project Main Page"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)

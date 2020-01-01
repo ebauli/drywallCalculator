@@ -120,7 +120,7 @@ Partial Class Form2
         Me.Controls.Add(Me.txtProjectDescription)
         Me.Controls.Add(Me.txtProjectName)
         Me.Name = "Form2"
-        Me.Text = "Form2"
+        Me.Text = "Project Creation"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

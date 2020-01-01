@@ -314,7 +314,7 @@ Partial Class Form3
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "Form3"
-        Me.Text = "Form3"
+        Me.Text = "Room Creation"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

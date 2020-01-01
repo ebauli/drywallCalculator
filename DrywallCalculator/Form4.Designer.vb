@@ -151,7 +151,7 @@ Partial Class Form4
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Name = "Form4"
-        Me.Text = "Form4"
+        Me.Text = "Created Projects"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

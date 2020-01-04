@@ -1,5 +1,5 @@
 ﻿Public Class DrywallPieces
-
+    Implements IComparable(Of DrywallPieces)
     Private ProjectID As Integer
     Private RoomName As String
     Private WallName As String
@@ -117,6 +117,12 @@
             H2 = value
         End Set
     End Property
+
+    Public Function CompareTo(other As DrywallPieces) As Integer _
+        Implements IComparable(Of DrywallPieces).CompareTo
+        ' Compare sizes.
+        Return Me.get_PieceType.CompareTo(other.get_PieceType())
+    End Function
 
 
 End Class

@@ -1,13 +1,15 @@
-﻿Public Class Form5
+﻿Imports System.ComponentModel
 
-
+Public Class Form5
+    Private sql As New SQLControl
     Public Property projectId As Integer
     Public Property projectName As String
+    Dim headerToSort As Integer
     Public MyWallList As New List(Of Wall)
     Public MyCornerList As New List(Of Corner)
     Public myRoomList As New List(Of Room)
     Public myDrywallPiecesList As New List(Of DrywallPieces)
-    Private sortAscending As Boolean
+
 
 
     Private Sub Form5_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -28,12 +30,12 @@
         Dim inc As Integer
         Maxrow = 0
         inc = 0
-        Sql.addParam("@projectID", projectid)
+        sql.addParam("@projectID", projectid)
 
-        Sql.ExecQuery("select * from rooms where (project_ID = @projectID) ")
-        Maxrow = Sql.sqlDS.Tables(0).Rows.Count
+        sql.ExecQuery("select * from rooms where (project_ID = @projectID) ")
+        Maxrow = sql.sqlDS.Tables(0).Rows.Count
 
-        If Sql.recordcount > 0 Then
+        If sql.recordcount > 0 Then
             Dim RoomID As Integer
             Dim RoomName As String
             Dim RoomHasReveal As String
@@ -46,14 +48,14 @@
             'needs to be inside of loop until the end of recordset and added to corner list object collection
             Dim RoomList As New List(Of Room)()
             For inc = 0 To Maxrow - 1
-                RoomID = Sql.sqlDS.Tables(0).Rows(inc).Item("room_id")
-                RoomName = Sql.sqlDS.Tables(0).Rows(inc).Item("room_name")
-                RoomDescription = Sql.sqlDS.Tables(0).Rows(inc).Item("room_description")
-                RoomDrywallThickness = Sql.sqlDS.Tables(0).Rows(inc).Item("room_Drywall_Thickness")
-                RoomHasReveal = Sql.sqlDS.Tables(0).Rows(inc).Item("room_has_reveal")
-                Room_bbHeight = Sql.sqlDS.Tables(0).Rows(inc).Item("room_bb_height")
-                RoomRevealHeight = Sql.sqlDS.Tables(0).Rows(inc).Item("room_reveal_height")
-                RoomStripSize = Sql.sqlDS.Tables(0).Rows(inc).Item("room_strip_size")
+                RoomID = sql.sqlDS.Tables(0).Rows(inc).Item("room_id")
+                RoomName = sql.sqlDS.Tables(0).Rows(inc).Item("room_name")
+                RoomDescription = sql.sqlDS.Tables(0).Rows(inc).Item("room_description")
+                RoomDrywallThickness = sql.sqlDS.Tables(0).Rows(inc).Item("room_Drywall_Thickness")
+                RoomHasReveal = sql.sqlDS.Tables(0).Rows(inc).Item("room_has_reveal")
+                Room_bbHeight = sql.sqlDS.Tables(0).Rows(inc).Item("room_bb_height")
+                RoomRevealHeight = sql.sqlDS.Tables(0).Rows(inc).Item("room_reveal_height")
+                RoomStripSize = sql.sqlDS.Tables(0).Rows(inc).Item("room_strip_size")
                 Dim myRoom1 As New Room(projectid, RoomID, RoomName, RoomDescription, RoomDrywallThickness, RoomHasReveal, Room_bbHeight, RoomRevealHeight, RoomStripSize)
 
                 RoomList.Add(myRoom1)
@@ -88,12 +90,12 @@
         Dim inc As Integer
         Maxrow = 0
         inc = 0
-        Sql.addParam("@projectID", projectid)
+        sql.addParam("@projectID", projectid)
 
-        Sql.ExecQuery("select * from corners where (project_ID = @projectID) ")
-        Maxrow = Sql.sqlDS.Tables(0).Rows.Count
+        sql.ExecQuery("select * from corners where (project_ID = @projectID) ")
+        Maxrow = sql.sqlDS.Tables(0).Rows.Count
 
-        If Sql.recordcount > 0 Then
+        If sql.recordcount > 0 Then
             Dim cornerID As Integer
             Dim roomID As Integer
             Dim CornerName As String
@@ -107,14 +109,14 @@
             'needs to be inside of loop until the end of recordset and added to corner list object collection
             Dim CornerList As New List(Of Corner)()
             For inc = 0 To Maxrow - 1
-                cornerID = Sql.sqlDS.Tables(0).Rows(inc).Item("corner_id")
-                roomID = Sql.sqlDS.Tables(0).Rows(inc).Item("room_id")
-                CornerName = Sql.sqlDS.Tables(0).Rows(inc).Item("corner_name")
-                cornerDescription = Sql.sqlDS.Tables(0).Rows(inc).Item("corner_description")
-                cornerType = Sql.sqlDS.Tables(0).Rows(inc).Item("corner_type")
-                lsDistance = Sql.sqlDS.Tables(0).Rows(inc).Item("ls_distance")
-                rsDistance = Sql.sqlDS.Tables(0).Rows(inc).Item("rs_distance")
-                heightFF = Sql.sqlDS.Tables(0).Rows(inc).Item("height_ff")
+                cornerID = sql.sqlDS.Tables(0).Rows(inc).Item("corner_id")
+                roomID = sql.sqlDS.Tables(0).Rows(inc).Item("room_id")
+                CornerName = sql.sqlDS.Tables(0).Rows(inc).Item("corner_name")
+                cornerDescription = sql.sqlDS.Tables(0).Rows(inc).Item("corner_description")
+                cornerType = sql.sqlDS.Tables(0).Rows(inc).Item("corner_type")
+                lsDistance = sql.sqlDS.Tables(0).Rows(inc).Item("ls_distance")
+                rsDistance = sql.sqlDS.Tables(0).Rows(inc).Item("rs_distance")
+                heightFF = sql.sqlDS.Tables(0).Rows(inc).Item("height_ff")
                 Dim mycorner1 As New Corner(CornerName, cornerDescription, cornerType, lsDistance, rsDistance, heightFF, roomID, projectid, projectName)
 
                 CornerList.Add(mycorner1)
@@ -155,7 +157,7 @@
             '   End
         Else
 
-            MsgBox("something wrong")
+            MsgBox("No Corners to Show Corners need to be declared")
 
         End If
 
@@ -169,13 +171,13 @@
         Maxrow = 0
         inc = 0
 
-        Sql.addParam("@projectID", projectid)
+        sql.addParam("@projectID", projectid)
 
 
-        Sql.ExecQuery("select * from walls where (project_ID = @projectID) ")
-        Maxrow = Sql.sqlDS.Tables(0).Rows.Count
+        sql.ExecQuery("select * from walls where (project_ID = @projectID) ")
+        Maxrow = sql.sqlDS.Tables(0).Rows.Count
 
-        If Sql.recordcount > 0 Then
+        If sql.recordcount > 0 Then
 
 
 
@@ -189,13 +191,13 @@
 
             Dim WallList As New List(Of Wall)()
             For inc = 0 To Maxrow - 1
-                wallID = Sql.sqlDS.Tables(0).Rows(inc).Item("wall_id")
-                roomID = Sql.sqlDS.Tables(0).Rows(inc).Item("room_id")
-                wallName = Sql.sqlDS.Tables(0).Rows(inc).Item("wall_name")
-                wallDescription = Sql.sqlDS.Tables(0).Rows(inc).Item("wall_description")
-                wallWidth = Sql.sqlDS.Tables(0).Rows(inc).Item("width")
-                leftCorner = Sql.sqlDS.Tables(0).Rows(inc).Item("lc_id")
-                rightcorner = Sql.sqlDS.Tables(0).Rows(inc).Item("rc_id")
+                wallID = sql.sqlDS.Tables(0).Rows(inc).Item("wall_id")
+                roomID = sql.sqlDS.Tables(0).Rows(inc).Item("room_id")
+                wallName = sql.sqlDS.Tables(0).Rows(inc).Item("wall_name")
+                wallDescription = sql.sqlDS.Tables(0).Rows(inc).Item("wall_description")
+                wallWidth = sql.sqlDS.Tables(0).Rows(inc).Item("width")
+                leftCorner = sql.sqlDS.Tables(0).Rows(inc).Item("lc_id")
+                rightcorner = sql.sqlDS.Tables(0).Rows(inc).Item("rc_id")
 
                 Dim mywall1 As New Wall(wallName, wallDescription, leftCorner, rightcorner, wallWidth, roomID, projectid)
 
@@ -211,18 +213,18 @@
                 Console.WriteLine(wall.get_LeftCorner)
                 Console.WriteLine(wall.get_RightCorner)
 
-                Sql.addParam("@corner_id", wall.get_LeftCorner)
-                Sql.ExecQuery("select rs_distance from corners where corner_id = @corner_id ")
+                sql.addParam("@corner_id", wall.get_LeftCorner)
+                sql.ExecQuery("select rs_distance from corners where corner_id = @corner_id ")
 
-                For Each r As DataRow In Sql.sqlDS.Tables(0).Rows
+                For Each r As DataRow In sql.sqlDS.Tables(0).Rows
                     Console.WriteLine(r("rs_distance"))
                     w1 = r("rs_distance")
                 Next
 
-                Sql.addParam("@corner_id", wall.get_RightCorner)
-                Sql.ExecQuery("select ls_distance from corners where corner_ID = @corner_id ")
+                sql.addParam("@corner_id", wall.get_RightCorner)
+                sql.ExecQuery("select ls_distance from corners where corner_ID = @corner_id ")
 
-                For Each r As DataRow In Sql.sqlDS.Tables(0).Rows
+                For Each r As DataRow In sql.sqlDS.Tables(0).Rows
                     Console.WriteLine(r("ls_distance"))
                     w2 = r("ls_distance")
                 Next
@@ -235,7 +237,7 @@
 
         Else
 
-            MsgBox("something wrong")
+            MsgBox("No fills to Show Walls need to be declared")
 
         End If
 
@@ -246,6 +248,8 @@
     Private Sub calculatePieces(projectid)
         ' Need to cretae the object first and then add to the list 
         Dim DrywallPieceList As New List(Of DrywallPieces)()
+
+
         Dim w1, w2, h1, h2 As Double
 
         For Each Room In myRoomList
@@ -366,6 +370,7 @@
         Dim columnNumber, i As Integer
 
 
+        myDrywallPiecesList.Sort(Function(x, y) x.get_PieceType.CompareTo(y.get_PieceType))
         DataGridView1.DataSource = myDrywallPiecesList
 
         columnNumber = DataGridView1.DisplayedColumnCount(True)
@@ -383,16 +388,16 @@
 
         For i = 0 To columnNumber - 1
             DataGridView1.Columns(i).HeaderCell.Style.Font = New Font("SanSerif", 9, FontStyle.Bold)
-            DataGridView1.Columns(i).SortMode = DataGridViewColumnSortMode.Automatic
+
         Next
 
+
+        'DataGridView1.Sort(DataGridView1.Columns(5), ListSortDirection.Ascending)
         '  For Each e In myDrywallPiecesList
         '  MsgBox("Piece Type: " & e.get_PieceType & " w1 : " & e.get_W1 & " w2: " & e.get_W2 & " h1: " & e.get_H1 & " h2: " & e.get_H2 & " in Room " & e.get_RoomName & " in this location " & e.get_WallName)
 
 
         '  Next
-
-
 
 
     End Sub
@@ -445,7 +450,86 @@
     End Sub
 
 
-    Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton1.CheckedChanged
-        DataGridView1.Sort(DataGridView1.Columns(5), System.ComponentModel.ListSortDirection.Ascending)
+    Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs)
+        myDrywallPiecesList.Sort(Function(x, y) x.get_RoomName.CompareTo(y.get_RoomName))
+        MsgBox("hola")
+        showPieces()
+
     End Sub
+
+    Private Sub DataGridView1_ColumnHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView1.ColumnHeaderMouseClick
+        If e.ColumnIndex = 4 Then
+            headerToSort = 4
+            showPiecesAgain()
+
+        ElseIf e.ColumnIndex = 6 Then
+            headerToSort = 6
+            showPiecesAgain()
+        ElseIf e.ColumnIndex = 2 Then
+            headerToSort = 2
+            showPiecesAgain()
+
+        End If
+        DataGridView1.Refresh()
+    End Sub
+
+
+    Private Sub showPiecesAgain()
+        ' in the form load we will cretae all the objeects needed to cvlculate the puieces.
+
+
+
+        Dim columnNumber, i As Integer
+
+        If headerToSort = 4 Then
+
+            myDrywallPiecesList.Sort(Function(x, y) x.get_PieceType.CompareTo(y.get_PieceType))
+
+        ElseIf headerToSort = 6 Then
+
+            myDrywallPiecesList.Sort(Function(x, y) x.get_W1.CompareTo(y.get_W1))
+
+        ElseIf headerToSort = 2 Then
+
+            myDrywallPiecesList.Sort(Function(x, y) x.get_RoomName.CompareTo(y.get_RoomName))
+
+        Else
+
+            myDrywallPiecesList.Sort(Function(x, y) x.get_RoomName.CompareTo(y.get_RoomName))
+        End If
+
+
+        DataGridView1.DataSource = myDrywallPiecesList
+
+        columnNumber = DataGridView1.DisplayedColumnCount(True)
+
+        DataGridView1.Columns(0).HeaderText = "Project ID"
+        DataGridView1.Columns(1).HeaderText = "Wall"
+        DataGridView1.Columns(2).HeaderText = "Room"
+        DataGridView1.Columns(3).HeaderText = "Corner Type"
+        DataGridView1.Columns(4).HeaderText = "Piece Type"
+        DataGridView1.Columns(5).HeaderText = "Thickness"
+        DataGridView1.Columns(6).HeaderText = "W1"
+        DataGridView1.Columns(7).HeaderText = "W2"
+        DataGridView1.Columns(8).HeaderText = "H1"
+        DataGridView1.Columns(9).HeaderText = "H2"
+
+        For i = 0 To columnNumber - 1
+            DataGridView1.Columns(i).HeaderCell.Style.Font = New Font("SanSerif", 9, FontStyle.Bold)
+
+        Next
+
+
+        'DataGridView1.Sort(DataGridView1.Columns(5), ListSortDirection.Ascending)
+        '  For Each e In myDrywallPiecesList
+        '  MsgBox("Piece Type: " & e.get_PieceType & " w1 : " & e.get_W1 & " w2: " & e.get_W2 & " h1: " & e.get_H1 & " h2: " & e.get_H2 & " in Room " & e.get_RoomName & " in this location " & e.get_WallName)
+
+
+        '  Next
+        DataGridView1.Refresh()
+
+    End Sub
+
+
+
 End Class

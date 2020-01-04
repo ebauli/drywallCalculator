@@ -10,7 +10,7 @@ Public Class Form5
     Public myRoomList As New List(Of Room)
     Public myDrywallPiecesList As New List(Of DrywallPieces)
 
-
+    'I amjust testing this stuff out
 
     Private Sub Form5_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' in the form load we will cretae all the objeects needed to cvlculate the puieces.

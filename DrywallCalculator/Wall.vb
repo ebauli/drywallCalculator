@@ -9,6 +9,9 @@
     Private RoomID As Integer
     Private RoomName As String
     Private fillWidth As Double
+    Private lcrs_distance As Double
+    Private rcls_distance As Double
+
 
 
 
@@ -99,6 +102,27 @@
         End Set
     End Property
 
+    Public Property get_leftDistance() As Double
+
+        Get
+            Return lcrs_distance
+        End Get
+        Set(value As Double)
+            lcrs_distance = value
+        End Set
+    End Property
+
+    Public Property get_righttDistance() As Double
+
+        Get
+            Return rcls_distance
+        End Get
+        Set(value As Double)
+            rcls_distance = value
+        End Set
+    End Property
+
+
     Public Property get_fillWidth() As Double
         Get
             Return fillWidth
@@ -108,6 +132,7 @@
             fillWidth = value
         End Set
     End Property
+
 
 
 End Class

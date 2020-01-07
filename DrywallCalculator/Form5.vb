@@ -229,7 +229,9 @@ Public Class Form5
                     w2 = r("ls_distance")
                 Next
                 wall.get_fillWidth = wall.get_WallWidth - w1 - w2
-
+                wall.get_leftDistance = w1
+                wall.get_righttDistance = w2
+                MsgBox(CStr(wall.get_leftDistance) + "   " + CStr(wall.get_fillWidth) + "   " + CStr(wall.get_righttDistance))
             Next
 
 
@@ -370,7 +372,7 @@ Public Class Form5
         Dim columnNumber, i As Integer
 
 
-        myDrywallPiecesList.Sort(Function(x, y) x.get_PieceType.CompareTo(y.get_PieceType))
+        ' myDrywallPiecesList.Sort(Function(x, y) x.get_PieceType.CompareTo(y.get_PieceType))
         DataGridView1.DataSource = myDrywallPiecesList
 
         columnNumber = DataGridView1.DisplayedColumnCount(True)
@@ -468,6 +470,9 @@ Public Class Form5
         ElseIf e.ColumnIndex = 2 Then
             headerToSort = 2
             showPiecesAgain()
+        Else
+            headerToSort = 20
+            showPiecesAgain()
 
         End If
         DataGridView1.Refresh()
@@ -493,9 +498,9 @@ Public Class Form5
 
             myDrywallPiecesList.Sort(Function(x, y) x.get_RoomName.CompareTo(y.get_RoomName))
 
-        Else
-
-            myDrywallPiecesList.Sort(Function(x, y) x.get_RoomName.CompareTo(y.get_RoomName))
+        ElseIf headerToSort = 20 Then
+            MsgBox("here")
+            ' myDrywallPiecesList.Sort(Function(x, y) x.get_RoomName.CompareTo(y.get_RoomName))
         End If
 
 

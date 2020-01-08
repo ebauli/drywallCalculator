@@ -11,6 +11,10 @@
     Private W1 As Double
     Private W2 As Double
     Private H1 As Double
+    Private leftStudRight_distance As Double
+    Private rightstudleft_distance As Double
+
+
 
     Public Sub New(newProjectID As Integer, newRoomName As String, newWallName As String, newInCorner As String, newPieceType As String, newDrywallThickness As Double, newW1 As Double, newW2 As Double, newH1 As Double, newH2 As Double)
 
@@ -24,7 +28,6 @@
         W2 = newW2
         H1 = newH1
         H2 = newH2
-
 
     End Sub
 
@@ -117,6 +120,8 @@
             H2 = value
         End Set
     End Property
+
+
 
     Public Function CompareTo(other As DrywallPieces) As Integer _
         Implements IComparable(Of DrywallPieces).CompareTo

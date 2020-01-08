@@ -9,6 +9,8 @@
     Private RoomID As Integer
     Private RoomName As String
     Private fillWidth As Double
+    Private rightstudleft_distance As Double
+    Private leftStudRight_distance As Double
 
 
 
@@ -106,6 +108,24 @@
 
         Set(value As Double)
             fillWidth = value
+        End Set
+    End Property
+
+    Public Property get_rightDistance() As Double
+        Get
+            Return rightstudleft_distance
+        End Get
+        Set(value As Double)
+            rightstudleft_distance = value
+        End Set
+    End Property
+
+    Public Property get_leftDistance() As Double
+        Get
+            Return leftStudRight_distance
+        End Get
+        Set(value As Double)
+            leftStudRight_distance = value
         End Set
     End Property
 

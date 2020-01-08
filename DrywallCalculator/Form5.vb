@@ -229,6 +229,10 @@ Public Class Form5
                     w2 = r("ls_distance")
                 Next
                 wall.get_fillWidth = wall.get_WallWidth - w1 - w2
+                wall.get_leftDistance = w1
+                wall.get_rightDistance = w2
+                MsgBox(CStr(wall.get_leftDistance) + "   " + CStr(wall.get_fillWidth) + "   " + CStr(wall.get_rightDistance))
+
 
             Next
 

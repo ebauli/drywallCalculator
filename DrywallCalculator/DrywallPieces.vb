@@ -1,5 +1,7 @@
 ﻿Public Class DrywallPieces
     Implements IComparable(Of DrywallPieces)
+    Private H2 As Double
+
     Private ProjectID As Integer
     Private RoomName As String
     Private WallName As String
@@ -9,8 +11,6 @@
     Private W1 As Double
     Private W2 As Double
     Private H1 As Double
-    Private H2 As Double
-
 
     Public Sub New(newProjectID As Integer, newRoomName As String, newWallName As String, newInCorner As String, newPieceType As String, newDrywallThickness As Double, newW1 As Double, newW2 As Double, newH1 As Double, newH2 As Double)
 

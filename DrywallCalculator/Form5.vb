@@ -4,11 +4,13 @@ Public Class Form5
     Private sql As New SQLControl
     Public Property projectId As Integer
     Public Property projectName As String
+
     Dim headerToSort As Integer
     Public MyWallList As New List(Of Wall)
     Public MyCornerList As New List(Of Corner)
     Public myRoomList As New List(Of Room)
     Public myDrywallPiecesList As New List(Of DrywallPieces)
+    Dim leveledCeiling As String
 
     'I amjust testing this stuff out
 
@@ -45,6 +47,7 @@ Public Class Form5
             Dim RoomDescription As String
             Dim RoomDrywallThickness As Double
 
+
             'needs to be inside of loop until the end of recordset and added to corner list object collection
             Dim RoomList As New List(Of Room)()
             For inc = 0 To Maxrow - 1
@@ -56,7 +59,8 @@ Public Class Form5
                 Room_bbHeight = sql.sqlDS.Tables(0).Rows(inc).Item("room_bb_height")
                 RoomRevealHeight = sql.sqlDS.Tables(0).Rows(inc).Item("room_reveal_height")
                 RoomStripSize = sql.sqlDS.Tables(0).Rows(inc).Item("room_strip_size")
-                Dim myRoom1 As New Room(projectid, RoomID, RoomName, RoomDescription, RoomDrywallThickness, RoomHasReveal, Room_bbHeight, RoomRevealHeight, RoomStripSize)
+                leveledCeiling = sql.sqlDS.Tables(0).Rows(inc).Item("room_ceiling_leveled")
+                Dim myRoom1 As New Room(projectid, RoomID, RoomName, RoomDescription, RoomDrywallThickness, RoomHasReveal, Room_bbHeight, RoomRevealHeight, RoomStripSize, leveledCeiling)
 
                 RoomList.Add(myRoom1)
 
@@ -136,10 +140,15 @@ Public Class Form5
 
             For Each room In myRoomList
 
+                Dim result As IOrderedEnumerable(Of Corner)
+                Dim levelCeiling = room.get_ceiling_leveled()
+                ' MsgBox(levelCeiling)
+                If levelCeiling = "TRUE" Then
+                    result = From e In CornerList Where e.get_RoomID.Equals(room.get_RoomID) Order By e.get_HeightFF Ascending
+                Else
+                    result = From e In CornerList Where e.get_RoomID.Equals(room.get_RoomID) Order By e.get_HeightFF Descending
 
-
-
-                Dim result = From e In CornerList Where e.get_RoomID.Equals(room.get_RoomID) Order By e.get_HeightFF Ascending
+                End If
 
 
                 If result.Count > 0 Then
@@ -231,7 +240,7 @@ Public Class Form5
                 wall.get_fillWidth = wall.get_WallWidth - w1 - w2
                 wall.get_leftDistance = w1
                 wall.get_rightDistance = w2
-                MsgBox(CStr(wall.get_leftDistance) + "   " + CStr(wall.get_fillWidth) + "   " + CStr(wall.get_rightDistance))
+                ' MsgBox(CStr(wall.get_leftDistance) + "   " + CStr(wall.get_fillWidth) + "   " + CStr(wall.get_rightDistance))
 
 
             Next

@@ -12,7 +12,6 @@
         createRoom()
 
 
-
     End Sub
 
     Private Sub createRoom()
@@ -34,6 +33,15 @@
         sql.addParam("@project_id", projectId)
         sql.addParam("@drywallThickness", cbxDrywallThickness.Text)
 
+
+        If cbxCeilingLeveled.CheckState = 1 Then
+            sql.addParam("@ceilingLeveled", "TRUE")
+        Else
+            sql.addParam("@ceilingLeveled", "FALSE")
+        End If
+
+        
+
         If CheckBox1.CheckState = 1 Then
             sql.addParam("@hasReveal", "TRUE")
             sql.addParam("@bbHeight", txtBB_height.Text)
@@ -53,7 +61,7 @@
 
 
 
-        sql.ExecQuery("INSERT INTO ROOMS (room_name , room_description , project_id, room_Drywall_Thickness, room_has_reveal, room_bb_height, room_reveal_height, room_strip_size) values (@roomName,@roomDescription,@project_id, @drywallThickness, @hasReveal, @bbHeight, @revealHeight, @SE_stripHeight )")
+        sql.ExecQuery("INSERT INTO ROOMS (room_name , room_description , project_id, room_Drywall_Thickness, room_has_reveal, room_bb_height, room_reveal_height, room_strip_size, room_ceiling_leveled) values (@roomName,@roomDescription,@project_id, @drywallThickness, @hasReveal, @bbHeight, @revealHeight, @SE_stripHeight, @ceilingLeveled  )")
         tableId = sql.tableID
         loadGrid()
 
@@ -146,9 +154,20 @@
                 CheckBox1.CheckState = 0
             End If
 
+
+            If selectedRow.Cells(9).Value.ToString = "TRUE" Then
+                cbxCeilingLeveled.CheckState = 1
+            Else
+                cbxCeilingLeveled.CheckState = 0
+            End If
+
             txtBB_height.Text = selectedRow.Cells(6).Value.ToString
             txtRevealHeight.Text = selectedRow.Cells(7).Value.ToString
             txtSE_height.Text = selectedRow.Cells(8).Value.ToString
+
+
+
+
         Catch ex As Exception
         End Try
     End Sub
@@ -160,6 +179,14 @@
         sql.addParam("@roomName", txtRoomName.Text)
         sql.addParam("@roomDescription", txtRoomDescription.Text)
         sql.addParam("@drywallThickness", cbxDrywallThickness.Text)
+
+        If cbxCeilingLeveled.CheckState = 1 Then
+            sql.addParam("@ceilingLeveled", "TRUE")
+
+        Else
+            sql.addParam("@ceilingLeveled", "FALSE")
+        End If
+
 
         If CheckBox1.CheckState = 1 Then
             sql.addParam("@hasReveal", "TRUE")
@@ -179,7 +206,7 @@
 
         ' If Not (txtCornerName.Text = String.Empty And txtCornerDesc.Text = String.Empty And txtLsDistance.Text = String.Empty And txtRsDistance.Text = String.Empty) Then
 
-        sql.ExecQuery("UPDATE ROOMS SET room_name = @roomName, room_description = @roomDescription, room_Drywall_thickness = @drywallThickness, room_has_reveal = @hasReveal , room_bb_height = @bbHeight , room_reveal_height = @revealHeight , room_strip_size = @SE_Height  where room_id= @roomID")
+        sql.ExecQuery("UPDATE ROOMS SET room_name = @roomName, room_description = @roomDescription, room_Drywall_thickness = @drywallThickness, room_has_reveal = @hasReveal , room_bb_height = @bbHeight , room_reveal_height = @revealHeight , room_strip_size = @SE_Height , room_ceiling_leveled = @ceilingLeveled  where room_id= @roomID")
         loadGrid(projectId, roomIDSelected)
         ' End If
 
@@ -202,4 +229,7 @@
 
     End Sub
 
+    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
+
+    End Sub
 End Class

@@ -10,8 +10,9 @@
     Private baseboard_height As Double
     Private reveal_height As Double
     Private strip_height As Double
+    Private ceiling_leveled As String
 
-    Public Sub New(newProjectID As Integer, newRoomID As Integer, newRoomName As String, newRoomDescription As String, newRoomDrywallThickness As Double, newRoomHasReveal As String, newRoom_bbHeight As Double, newRoomRevealHeight As Double, newRoomStripSize As Double)
+    Public Sub New(newProjectID As Integer, newRoomID As Integer, newRoomName As String, newRoomDescription As String, newRoomDrywallThickness As Double, newRoomHasReveal As String, newRoom_bbHeight As Double, newRoomRevealHeight As Double, newRoomStripSize As Double, newCeiling_leveled As String)
 
         ProjectId = newProjectID
         RoomID = newRoomID
@@ -22,6 +23,7 @@
         baseboard_height = newRoom_bbHeight
         reveal_height = newRoomRevealHeight
         strip_height = newRoomStripSize
+        ceiling_leveled = newCeiling_leveled
 
     End Sub
 
@@ -114,6 +116,21 @@
             strip_height = value
         End Set
     End Property
+
+
+    Public Property get_ceiling_leveled() As String
+        Get
+            Return ceiling_leveled
+        End Get
+        Set(value As String)
+            ceiling_leveled = value
+        End Set
+    End Property
+
+
+
+
+
 
 
 End Class

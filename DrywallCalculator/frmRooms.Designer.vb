@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmRooms
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmRooms
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.cbxRooms = New System.Windows.Forms.ComboBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
@@ -65,10 +65,13 @@ Partial Class frmRooms
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
+        Me.chbCeilingLeveled = New System.Windows.Forms.CheckBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupCorner.SuspendLayout()
         Me.GroupWall.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'cbxRooms
@@ -467,11 +470,32 @@ Partial Class frmRooms
         Me.Label12.TabIndex = 49
         Me.Label12.Text = "Label12"
         '
+        'chbCeilingLeveled
+        '
+        Me.chbCeilingLeveled.AutoSize = True
+        Me.chbCeilingLeveled.Location = New System.Drawing.Point(6, 34)
+        Me.chbCeilingLeveled.Name = "chbCeilingLeveled"
+        Me.chbCeilingLeveled.Size = New System.Drawing.Size(109, 17)
+        Me.chbCeilingLeveled.TabIndex = 0
+        Me.chbCeilingLeveled.Text = "Is Ceiling Leveled"
+        Me.chbCeilingLeveled.UseVisualStyleBackColor = True
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.chbCeilingLeveled)
+        Me.GroupBox1.Location = New System.Drawing.Point(20, 663)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(207, 63)
+        Me.GroupBox1.TabIndex = 50
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Additional Information"
+        '
         'frmRooms
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1264, 749)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Label24)
@@ -508,6 +532,8 @@ Partial Class frmRooms
         Me.GroupCorner.ResumeLayout(False)
         Me.GroupCorner.PerformLayout()
         Me.GroupWall.ResumeLayout(False)
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -556,4 +582,6 @@ Partial Class frmRooms
     Friend WithEvents Label24 As Label
     Friend WithEvents Label11 As Label
     Friend WithEvents Label12 As Label
+    Friend WithEvents chbCeilingLeveled As CheckBox
+    Friend WithEvents GroupBox1 As GroupBox
 End Class

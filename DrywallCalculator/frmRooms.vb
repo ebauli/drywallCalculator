@@ -6,6 +6,7 @@
     Public Property roomName As String
     Public Property cornerIDSelected As Integer
     Public Property wallIDSelected As Integer
+    Private ceiligLeveled As String
     Private senderCorner As String
     Private sql As New SQLControl
     Private tableId As Integer
@@ -205,10 +206,11 @@
             Label9.Text = sql.sqlDS.Tables(0).Rows(0).Item("room_id")
             roomID = sql.sqlDS.Tables(0).Rows(0).Item("room_id")
             Label10.Text = sql.sqlDS.Tables(0).Rows(0).Item("room_name")
+            ceiligLeveled = sql.sqlDS.Tables(0).Rows(0).Item("room_ceiling_leveled")
+
 
 
         End If
-
         loadGrid(projectID, roomID)
 
     End Sub
@@ -419,4 +421,6 @@
     Private Sub DataGridView2_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView2.CellContentClick
 
     End Sub
+
+
 End Class

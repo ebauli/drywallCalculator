@@ -1,6 +1,14 @@
 ﻿Imports System.ComponentModel
+Imports System.IO
+Imports iText.Kernel
+Imports iText.IO
+Imports iText.Pdfa
+Imports System.Drawing
+
+
 
 Public Class Form5
+
     Private sql As New SQLControl
     Public Property projectId As Integer
     Public Property projectName As String
@@ -11,6 +19,8 @@ Public Class Form5
     Public myRoomList As New List(Of Room)
     Public myDrywallPiecesList As New List(Of DrywallPieces)
     Dim leveledCeiling As String
+    Dim dest As String
+
 
     'I amjust testing this stuff out
 
@@ -336,38 +346,55 @@ Public Class Form5
                 If corner.get_cornerType = "Interior Corner" Then
                     w1 = corner.get_LeftStudDistance - Room.get_RoomDrywallThickness
                     w2 = corner.get_RightStudDistance - Room.get_RoomDrywallThickness
-                Else
+                    If w1 > w2 Or w1 = w2 Then
+                        h2 = w1
+                    ElseIf w1 < w2 Then
+                        h2 = w2
+                    End If
+
+                ElseIf corner.get_cornerType = "Exterior corner" Then
                     w1 = corner.get_LeftStudDistance + Room.get_RoomDrywallThickness
                     w2 = corner.get_RightStudDistance + Room.get_RoomDrywallThickness
-                End If
+                    If w1 > w2 Or w1 = w2 Then
+                        h2 = corner.get_RightStudDistance - Room.get_RoomDrywallThickness
+                    ElseIf w1 < w2 Then
+                        h2 = corner.get_LeftStudDistance - Room.get_RoomDrywallThickness
 
+                    ElseIf corner.get_cornerType = "Flat" Then
+                        w1 = 0
+                        w2 = 0
+                    End If
+                End If
                 If Room.get_hasReveal = "TRUE" Then
                     h1 = Room.get_RoomHeight - Room.get_strip_height - Room.get_reveal_height - Room.get_baseboard_height - Room.get_RoomDrywallThickness
-                    h2 = 16
+                    ' h2 = 16
 
                 Else
                     h1 = Room.get_RoomHeight - Room.get_RoomDrywallThickness
-                    h2 = 16
+                    ' h2 = 16
 
                 End If
+
 
 
                 '  h1 = Room.get_RoomHeight - 11.625 - Room.get_RoomDrywallThickness
                 'h1 = Room.get_RoomHeight - Wall.get_SE_stripHeight - Wall.get_RevealHeight - Wall.get_BaseBoardHeight - Room.get_RoomDrywallThickness
-                h2 = 16
+                ' h2 = 16
                 Dim drywallPiece1 As DrywallPieces
                 Dim drywallPiece2 As DrywallPieces
 
-                If Room.get_hasReveal = "TRUE" Then
+                If Not corner.get_cornerType = "Flat" Then 'if the corner is flat do not added it to the pieces needed
+                    If Room.get_hasReveal = "TRUE" Then
 
-                    drywallPiece1 = New DrywallPieces(projectid, Room.get_name, corner.get_Name, corner.get_cornerType, "C3", Room.get_RoomDrywallThickness, w1, w2, h1, h2)
-                    DrywallPieceList.Add(drywallPiece1)
-                    drywallPiece2 = New DrywallPieces(projectid, Room.get_name, corner.get_Name, corner.get_cornerType, "SE_Corner", Room.get_RoomDrywallThickness, w1, w2, 8, 0)
-                    DrywallPieceList.Add(drywallPiece2)
-                Else
+                        drywallPiece1 = New DrywallPieces(projectid, Room.get_name, corner.get_Name, corner.get_cornerType, "C3", Room.get_RoomDrywallThickness, w1, w2, h1, h2)
+                        DrywallPieceList.Add(drywallPiece1)
+                        drywallPiece2 = New DrywallPieces(projectid, Room.get_name, corner.get_Name, corner.get_cornerType, "SE_Corner", Room.get_RoomDrywallThickness, w1, w2, 8, 0)
+                        DrywallPieceList.Add(drywallPiece2)
+                    Else
 
-                    drywallPiece1 = New DrywallPieces(projectid, Room.get_name, corner.get_Name, corner.get_cornerType, "C3", Room.get_RoomDrywallThickness, w1, w2, h1, h2)
-                    DrywallPieceList.Add(drywallPiece1)
+                        drywallPiece1 = New DrywallPieces(projectid, Room.get_name, corner.get_Name, corner.get_cornerType, "C3", Room.get_RoomDrywallThickness, w1, w2, h1, h2)
+                        DrywallPieceList.Add(drywallPiece1)
+                    End If
                 End If
 
 
@@ -446,6 +473,14 @@ Public Class Form5
         location = SaveFileDialog1.FileName
         My.Computer.FileSystem.WriteAllText(location & ".csv", thecsvfile, False)
         '"export.csv"
+
+
+
+        Dim reader As New Pdf.PdfReader(dest)
+        Dim writer As New Pdf.PdfWriter(dest)
+        Dim pdfDoc As New Pdf.PdfDocument(writer)
+
+
 
     End Sub
 

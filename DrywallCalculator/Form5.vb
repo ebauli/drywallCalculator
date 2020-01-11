@@ -368,7 +368,7 @@ Public Class Form5
                 If Room.get_hasReveal = "TRUE" Then
                     h1 = Room.get_RoomHeight - Room.get_strip_height - Room.get_reveal_height - Room.get_baseboard_height - Room.get_RoomDrywallThickness
                     ' h2 = 16
-
+                    'nothing
                 Else
                     h1 = Room.get_RoomHeight - Room.get_RoomDrywallThickness
                     ' h2 = 16

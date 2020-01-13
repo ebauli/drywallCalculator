@@ -17,4 +17,8 @@
         Form4.MdiParent = Me
         Form4.Show()
     End Sub
+
+    Private Sub DrywallPiecesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DrywallPiecesToolStripMenuItem.Click
+        frmReport1.Show()
+    End Sub
 End Class

@@ -27,12 +27,15 @@ Partial Class frmParent
         Me.AddNewProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenExistingProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReportsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RoomInformationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DrywallPiecesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProjectToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProjectToolStripMenuItem, Me.ReportsToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1249, 24)
@@ -64,6 +67,25 @@ Partial Class frmParent
         Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(187, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
+        'ReportsToolStripMenuItem
+        '
+        Me.ReportsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RoomInformationToolStripMenuItem, Me.DrywallPiecesToolStripMenuItem})
+        Me.ReportsToolStripMenuItem.Name = "ReportsToolStripMenuItem"
+        Me.ReportsToolStripMenuItem.Size = New System.Drawing.Size(59, 20)
+        Me.ReportsToolStripMenuItem.Text = "Reports"
+        '
+        'RoomInformationToolStripMenuItem
+        '
+        Me.RoomInformationToolStripMenuItem.Name = "RoomInformationToolStripMenuItem"
+        Me.RoomInformationToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.RoomInformationToolStripMenuItem.Text = "Room Information"
+        '
+        'DrywallPiecesToolStripMenuItem
+        '
+        Me.DrywallPiecesToolStripMenuItem.Name = "DrywallPiecesToolStripMenuItem"
+        Me.DrywallPiecesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.DrywallPiecesToolStripMenuItem.Text = "Drywall Pieces "
+        '
         'frmParent
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -86,4 +108,7 @@ Partial Class frmParent
     Friend WithEvents AddNewProjectToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents OpenExistingProjectToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ReportsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RoomInformationToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DrywallPiecesToolStripMenuItem As ToolStripMenuItem
 End Class

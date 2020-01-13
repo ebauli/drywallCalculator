@@ -27,6 +27,8 @@ Public Class Form5
     Private Sub Form5_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' in the form load we will cretae all the objeects needed to cvlculate the puieces.
 
+        Me.MdiParent = frmParent
+
         createRoomList(projectId)
         createWallList(projectId)
         createCornerList(projectId)
@@ -476,9 +478,9 @@ Public Class Form5
 
 
 
-        Dim reader As New Pdf.PdfReader(dest)
-        Dim writer As New Pdf.PdfWriter(dest)
-        Dim pdfDoc As New Pdf.PdfDocument(writer)
+        '  Dim reader As New Pdf.PdfReader(dest)
+        ' Dim writer As New Pdf.PdfWriter(dest)
+        ' Dim pdfDoc As New Pdf.PdfDocument(writer)
 
 
 
@@ -578,6 +580,11 @@ Public Class Form5
 
     End Sub
 
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim frmReport As New frmReport1()
+        frmReport.myDrywallPiecesList = myDrywallPiecesList
+        MsgBox(myDrywallPiecesList.Count())
 
-
+        frmReport.ShowDialog()
+    End Sub
 End Class

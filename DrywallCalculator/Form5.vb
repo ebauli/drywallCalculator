@@ -286,11 +286,11 @@ Public Class Form5
 
                 If Room.get_hasReveal = "TRUE" Then
                     h1 = Room.get_RoomHeight - Room.get_strip_height - Room.get_reveal_height - Room.get_baseboard_height - Room.get_RoomDrywallThickness
-                    h2 = 16
+                    h2 = 16 - Room.get_RoomDrywallThickness
 
                 Else
                     h1 = Room.get_RoomHeight - Room.get_RoomDrywallThickness
-                    h2 = 16
+                    h2 = 16 - Room.get_RoomDrywallThickness
 
                 End If
 
@@ -563,6 +563,13 @@ Public Class Form5
 
     End Sub
 
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+
+        Dim frmReport1N As New frmReport1()
+        frmReport1N.myCornerlist = MyCornerList
+
+        frmReport1N.Show()
 
 
+    End Sub
 End Class

@@ -170,6 +170,12 @@
     <Compile Include="frmParent.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmReport1.Designer.vb">
+      <DependentUpon>frmReport1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmReport1.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmRooms.Designer.vb">
       <DependentUpon>frmRooms.vb</DependentUpon>
     </Compile>
@@ -220,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmParent.resx">
       <DependentUpon>frmParent.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReport1.resx">
+      <DependentUpon>frmReport1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRooms.resx">
       <DependentUpon>frmRooms.vb</DependentUpon>

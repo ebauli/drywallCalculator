@@ -1,6 +1,6 @@
 ﻿Public Class frmParent
 
-
+    Public Property myDrywallPiecesList As New List(Of DrywallPieces)
     Private Sub frmParent_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
@@ -19,6 +19,17 @@
     End Sub
 
     Private Sub DrywallPiecesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DrywallPiecesToolStripMenuItem.Click
-        frmReport1.Show()
+        Dim frmReport As New frmReport1()
+        frmReport.MdiParent = Me
+        frmReport.myDrywallPiecesList = myDrywallPiecesList
+        frmReport.Show()
+    End Sub
+
+    Private Sub ReportsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReportsToolStripMenuItem.Click
+
+    End Sub
+
+    Private Sub frmParent_GotFocus(sender As Object, e As EventArgs) Handles Me.GotFocus
+
     End Sub
 End Class

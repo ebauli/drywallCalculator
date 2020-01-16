@@ -24,10 +24,14 @@ Partial Class frmReport1
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.DrywallPiecesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         CType(Me.DrywallPiecesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'DrywallPiecesBindingSource
+        '
+        Me.DrywallPiecesBindingSource.DataSource = GetType(DrywallCalculator.DrywallPieces)
         '
         'ReportViewer1
         '
@@ -38,12 +42,8 @@ Partial Class frmReport1
         Me.ReportViewer1.Location = New System.Drawing.Point(12, 55)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
-        Me.ReportViewer1.Size = New System.Drawing.Size(742, 278)
+        Me.ReportViewer1.Size = New System.Drawing.Size(776, 278)
         Me.ReportViewer1.TabIndex = 0
-        '
-        'DrywallPiecesBindingSource
-        '
-        Me.DrywallPiecesBindingSource.DataSource = GetType(DrywallCalculator.DrywallPieces)
         '
         'frmReport1
         '

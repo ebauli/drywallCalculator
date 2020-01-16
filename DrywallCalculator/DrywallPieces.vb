@@ -11,12 +11,13 @@
     Private W1 As Double
     Private W2 As Double
     Private H1 As Double
+    Private uniqueName As String
     Private leftStudRight_distance As Double
     Private rightstudleft_distance As Double
 
 
 
-    Public Sub New(newProjectID As Integer, newRoomName As String, newWallName As String, newInCorner As String, newPieceType As String, newDrywallThickness As Double, newW1 As Double, newW2 As Double, newH1 As Double, newH2 As Double)
+    Public Sub New(newProjectID As Integer, newRoomName As String, newWallName As String, newInCorner As String, newPieceType As String, newDrywallThickness As Double, newW1 As Double, newW2 As Double, newH1 As Double, newH2 As Double, newUniquename As String)
 
         ProjectID = newProjectID
         WallName = newWallName
@@ -24,6 +25,7 @@
         InCorner = newInCorner
         PieceType = newPieceType
         DrywallThickness = newDrywallThickness
+        uniqueName = newUniquename
         W1 = newW1
         W2 = newW2
         H1 = newH1
@@ -118,6 +120,15 @@
         End Get
         Set(value As Double)
             H2 = value
+        End Set
+    End Property
+
+    Public Property get_UniqueName() As String
+        Get
+            Return uniqueName
+        End Get
+        Set(value As String)
+            uniqueName = value
         End Set
     End Property
 

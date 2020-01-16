@@ -376,8 +376,12 @@
 
     Private Sub btnCalculate_Click(sender As Object, e As EventArgs) Handles btnCalculate.Click
         Dim frm5N As New Form5()
+        frm5N.MdiParent = frmParent
         frm5N.projectID = projectID
         frm5N.Show()
+
+
+
     End Sub
 
 

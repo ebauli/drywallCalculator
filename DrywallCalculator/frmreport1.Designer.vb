@@ -23,27 +23,27 @@ Partial Class frmReport1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.DrywallPiecesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.DrywallPiecesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         CType(Me.DrywallPiecesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'DrywallPiecesBindingSource
-        '
-        Me.DrywallPiecesBindingSource.DataSource = GetType(DrywallCalculator.DrywallPieces)
-        '
         'ReportViewer1
         '
-        ReportDataSource1.Name = "DataSet1"
-        ReportDataSource1.Value = Me.DrywallPiecesBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        ReportDataSource2.Name = "DataSet1"
+        ReportDataSource2.Value = Me.DrywallPiecesBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "DrywallCalculator.Report1.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(12, 55)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
         Me.ReportViewer1.Size = New System.Drawing.Size(776, 278)
         Me.ReportViewer1.TabIndex = 0
+        '
+        'DrywallPiecesBindingSource
+        '
+        Me.DrywallPiecesBindingSource.DataSource = GetType(DrywallCalculator.DrywallPieces)
         '
         'frmReport1
         '

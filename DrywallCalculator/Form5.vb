@@ -408,16 +408,12 @@ Public Class Form5
         Next
         myDrywallPiecesList = DrywallPieceList
 
-
-
-
         Dim myMDI As frmParent 'change to whatever class your MDI uses
         myMDI = DirectCast(Me.MdiParent, frmParent)
         myMDI.myDrywallPiecesList = myDrywallPiecesList
-
-
-
-
+        myMDI.MyWallList = MyWallList
+        myMDI.MyCornerList = MyCornerList
+        myMDI.myRoomList = myRoomList
 
 
 

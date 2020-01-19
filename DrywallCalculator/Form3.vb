@@ -21,6 +21,11 @@
 
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles Me.Load
         Me.MdiParent = frmParent
+
+        Dim myMDI As frmParent 'change to whatever class your MDI uses
+        myMDI = DirectCast(Me.MdiParent, frmParent)
+        myMDI.projectID = projectId
+
         Label3.Text = projectId
         Label5.Text = projectName
         loadGrid()

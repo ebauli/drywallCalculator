@@ -26,6 +26,7 @@ Public Class frmReport1
         DrywallPiecesBindingSource.DataSource = myDrywallPiecesList
         ReportViewer1.AutoSize = True
         ReportViewer1.RefreshReport()
+        Me.ReportViewer1.RefreshReport()
     End Sub
 
     Private Sub DrywallPiecesBindingSource_CurrentChanged(sender As Object, e As EventArgs) Handles DrywallPiecesBindingSource.CurrentChanged

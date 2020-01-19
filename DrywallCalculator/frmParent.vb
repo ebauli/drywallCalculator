@@ -1,6 +1,12 @@
 ﻿Public Class frmParent
 
     Public Property myDrywallPiecesList As New List(Of DrywallPieces)
+    Public Property myRoomList As New List(Of Room)
+    Public Property MyCornerList As New List(Of Corner)
+    Public Property MyWallList As New List(Of Wall)
+
+
+    Public Property projectID As Integer
     Private Sub frmParent_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
@@ -31,5 +37,12 @@
 
     Private Sub frmParent_GotFocus(sender As Object, e As EventArgs) Handles Me.GotFocus
 
+    End Sub
+
+    Private Sub RoomInformationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RoomInformationToolStripMenuItem.Click
+        Dim frm_rptRoomInfo As New frm_rptRoomInfo()
+        frm_rptRoomInfo.MdiParent = Me
+        frm_rptRoomInfo.myRoomList = myRoomList
+        frm_rptRoomInfo.Show()
     End Sub
 End Class

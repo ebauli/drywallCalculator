@@ -4,6 +4,8 @@ Imports iText.Kernel
 Imports iText.IO
 Imports iText.Pdfa
 Imports System.Drawing
+Imports System.Linq
+
 
 
 
@@ -308,7 +310,7 @@ Public Class Form5
                 Dim drywallPieceReveal As DrywallPieces
 
                 uniqueName = Room.get_name + wall.get_name
-                drywallPiece1 = New DrywallPieces(projectid, Room.get_name, wall.get_name, "N/A", "C2_Flap", Room.get_RoomDrywallThickness, 48, w2, h1, h2, uniqueName)
+                drywallPiece1 = New DrywallPieces(projectid, Room.get_RoomID, Room.get_name, wall.get_name, "N/A", "C2_Flap", Room.get_RoomDrywallThickness, 48, w2, h1, h2, uniqueName)
 
                 For i = 1 To numberFullPieces
 
@@ -316,7 +318,7 @@ Public Class Form5
                 Next
 
                 If RemainderPieceInches > 0 Then
-                    drywallPiece1 = New DrywallPieces(projectid, Room.get_name, wall.get_name, "N/A", "C2_Flap", Room.get_RoomDrywallThickness, RemainderPieceInches, w2, h1, h2, uniqueName)
+                    drywallPiece1 = New DrywallPieces(projectid, Room.get_RoomID, Room.get_name, wall.get_name, "N/A", "C2_Flap", Room.get_RoomDrywallThickness, RemainderPieceInches, w2, h1, h2, uniqueName)
                     DrywallPieceList.Add(drywallPiece1)
                 End If
 
@@ -326,14 +328,14 @@ Public Class Form5
 
                 If Room.get_hasReveal = "TRUE" Then
                     uniqueName = Room.get_name + wall.get_name
-                    drywallPieceReveal = New DrywallPieces(projectid, Room.get_name, wall.get_name, "N/A", "SE_Strip", Room.get_RoomDrywallThickness, 96, w2, Room.get_strip_height, 0, uniqueName)
+                    drywallPieceReveal = New DrywallPieces(projectid, Room.get_RoomID, Room.get_name, wall.get_name, "N/A", "SE_Strip", Room.get_RoomDrywallThickness, 96, w2, Room.get_strip_height, 0, uniqueName)
 
                     For i = 1 To numberRevealFullPieces
                         DrywallPieceList.Add(drywallPieceReveal)
                     Next
                     If RemainderRevealPieceInches > 0 Then
                         uniqueName = Room.get_name + wall.get_name
-                        drywallPieceReveal = New DrywallPieces(projectid, Room.get_name, wall.get_name, "N/A", "SE_Strip", Room.get_RoomDrywallThickness, RemainderRevealPieceInches, w2, Room.get_strip_height, 0, uniqueName)
+                        drywallPieceReveal = New DrywallPieces(projectid, Room.get_RoomID, Room.get_name, wall.get_name, "N/A", "SE_Strip", Room.get_RoomDrywallThickness, RemainderRevealPieceInches, w2, Room.get_strip_height, 0, uniqueName)
                         DrywallPieceList.Add(drywallPieceReveal)
 
                     End If
@@ -391,13 +393,13 @@ Public Class Form5
                 If Not corner.get_cornerType = "Flat" Then 'if the corner is flat do not added it to the pieces needed
                     If Room.get_hasReveal = "TRUE" Then
 
-                        drywallPiece1 = New DrywallPieces(projectid, Room.get_name, corner.get_Name, corner.get_cornerType, "C3", Room.get_RoomDrywallThickness, w1, w2, h1, h2, uniqueName)
+                        drywallPiece1 = New DrywallPieces(projectid, Room.get_RoomID, Room.get_name, corner.get_Name, corner.get_cornerType, "C3", Room.get_RoomDrywallThickness, w1, w2, h1, h2, uniqueName)
                         DrywallPieceList.Add(drywallPiece1)
-                        drywallPiece2 = New DrywallPieces(projectid, Room.get_name, corner.get_Name, corner.get_cornerType, "SE_Corner", Room.get_RoomDrywallThickness, w1, w2, 8, 0, uniqueName)
+                        drywallPiece2 = New DrywallPieces(projectid, Room.get_RoomID, Room.get_name, corner.get_Name, corner.get_cornerType, "SE_Corner", Room.get_RoomDrywallThickness, w1, w2, 8, 0, uniqueName)
                         DrywallPieceList.Add(drywallPiece2)
                     Else
 
-                        drywallPiece1 = New DrywallPieces(projectid, Room.get_name, corner.get_Name, corner.get_cornerType, "C3", Room.get_RoomDrywallThickness, w1, w2, h1, h2, uniqueName)
+                        drywallPiece1 = New DrywallPieces(projectid, Room.get_RoomID, Room.get_name, corner.get_Name, corner.get_cornerType, "C3", Room.get_RoomDrywallThickness, w1, w2, h1, h2, uniqueName)
                         DrywallPieceList.Add(drywallPiece1)
                     End If
                 End If
@@ -414,8 +416,6 @@ Public Class Form5
         myMDI.MyWallList = MyWallList
         myMDI.MyCornerList = MyCornerList
         myMDI.myRoomList = myRoomList
-
-
 
     End Sub
 
@@ -548,6 +548,7 @@ Public Class Form5
 
         If headerToSort = 4 Then
 
+            ' myDrywallPiecesList.OrderBy(Function(x) x.get_PieceType).ThenBy(Function(x) x.get_RoomName)
             myDrywallPiecesList.Sort(Function(x, y) x.get_PieceType.CompareTo(y.get_PieceType))
 
         ElseIf headerToSort = 6 Then
@@ -556,7 +557,13 @@ Public Class Form5
 
         ElseIf headerToSort = 2 Then
 
-            myDrywallPiecesList.Sort(Function(x, y) x.get_RoomName.CompareTo(y.get_RoomName))
+            ' myDrywallPiecesList.Sort(Function(x, y) x.get_RoomName.CompareTo(y.get_RoomName))
+
+            Dim sortedResult = From r In myDrywallPiecesList Order By r.get_RoomName Ascending, r.get_PieceType, r.get_WallName
+
+            MsgBox(sortedResult.Count)
+            myDrywallPiecesList = sortedResult.ToList
+            ' myDrywallPiecesList.Sort(Function(x, y) x.get_RoomName.CompareTo(y.get_RoomName))
 
         Else
 
@@ -568,16 +575,19 @@ Public Class Form5
 
         columnNumber = DataGridView1.DisplayedColumnCount(True)
 
+
         DataGridView1.Columns(0).HeaderText = "Project ID"
-        DataGridView1.Columns(1).HeaderText = "Wall"
-        DataGridView1.Columns(2).HeaderText = "Room"
-        DataGridView1.Columns(3).HeaderText = "Corner Type"
-        DataGridView1.Columns(4).HeaderText = "Piece Type"
-        DataGridView1.Columns(5).HeaderText = "Thickness"
-        DataGridView1.Columns(6).HeaderText = "W1"
-        DataGridView1.Columns(7).HeaderText = "W2"
-        DataGridView1.Columns(8).HeaderText = "H1"
-        DataGridView1.Columns(9).HeaderText = "H2"
+        DataGridView1.Columns(1).HeaderText = "Room ID"
+        DataGridView1.Columns(2).HeaderText = "Corner Name"
+        DataGridView1.Columns(3).HeaderText = "Room Name"
+        DataGridView1.Columns(4).HeaderText = "Corner Type"
+        DataGridView1.Columns(5).HeaderText = "Piece Type"
+        DataGridView1.Columns(6).HeaderText = "Thickness"
+        DataGridView1.Columns(7).HeaderText = "W1"
+        DataGridView1.Columns(8).HeaderText = "W2"
+        DataGridView1.Columns(9).HeaderText = "H1"
+        DataGridView1.Columns(10).HeaderText = "H2"
+        DataGridView1.Columns(11).HeaderText = "uniqueName"
 
         For i = 0 To columnNumber - 1
             DataGridView1.Columns(i).HeaderCell.Style.Font = New Font("SanSerif", 9, FontStyle.Bold)
@@ -592,6 +602,9 @@ Public Class Form5
 
         '  Next
         DataGridView1.Refresh()
+        Dim myMDI As frmParent 'change to whatever class your MDI uses
+        myMDI = DirectCast(Me.MdiParent, frmParent)
+        myMDI.myDrywallPiecesList = myDrywallPiecesList
 
     End Sub
 

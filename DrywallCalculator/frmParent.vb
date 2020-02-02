@@ -4,6 +4,7 @@
     Public Property myRoomList As New List(Of Room)
     Public Property MyCornerList As New List(Of Corner)
     Public Property MyWallList As New List(Of Wall)
+    Public Property myDataAccessClass As New DataAccessClass
 
 
     Public Property projectID As Integer
@@ -27,7 +28,9 @@
     Private Sub DrywallPiecesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DrywallPiecesToolStripMenuItem.Click
         Dim frmReport As New frmReport1()
         frmReport.MdiParent = Me
+        frmReport.myRoomList = myRoomList
         frmReport.myDrywallPiecesList = myDrywallPiecesList
+        frmReport.myDataAccessClass = myDataAccessClass
         frmReport.Show()
     End Sub
 

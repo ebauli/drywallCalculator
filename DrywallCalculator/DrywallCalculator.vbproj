@@ -143,6 +143,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Corner.vb" />
+    <Compile Include="DataAccessClass.vb" />
+    <Compile Include="RoomDrywallPieces.vb" />
     <Compile Include="DrywallPieces.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
@@ -272,8 +274,11 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\DataSources\Corner.datasource" />
+    <None Include="My Project\DataSources\DataAccessClass.datasource" />
     <None Include="My Project\DataSources\DrywallPieces.datasource" />
     <None Include="My Project\DataSources\Room.datasource" />
+    <None Include="My Project\DataSources\RoomDrywallPieces.datasource" />
     <None Include="My Project\DataSources\Wall.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

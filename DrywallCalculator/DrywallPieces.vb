@@ -4,6 +4,7 @@
 
     Private ProjectID As Integer
     Private RoomName As String
+    Private roomID As Integer
     Private WallName As String
     Private InCorner As String
     Private PieceType As String
@@ -17,9 +18,10 @@
 
 
 
-    Public Sub New(newProjectID As Integer, newRoomName As String, newWallName As String, newInCorner As String, newPieceType As String, newDrywallThickness As Double, newW1 As Double, newW2 As Double, newH1 As Double, newH2 As Double, newUniquename As String)
+    Public Sub New(newProjectID As Integer, newroomID As Integer, newRoomName As String, newWallName As String, newInCorner As String, newPieceType As String, newDrywallThickness As Double, newW1 As Double, newW2 As Double, newH1 As Double, newH2 As Double, newUniquename As String)
 
         ProjectID = newProjectID
+        roomID = newroomID
         WallName = newWallName
         RoomName = newRoomName
         InCorner = newInCorner
@@ -39,6 +41,15 @@
         End Get
         Set(value As Integer)
             ProjectID = value
+        End Set
+    End Property
+
+    Public Property get_RoomID() As Integer
+        Get
+            Return roomID
+        End Get
+        Set(value As Integer)
+            roomID = value
         End Set
     End Property
 

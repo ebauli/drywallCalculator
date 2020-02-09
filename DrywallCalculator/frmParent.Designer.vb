@@ -30,6 +30,7 @@ Partial Class frmParent
         Me.ReportsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RoomInformationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DrywallPiecesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RoomDetailsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -69,7 +70,7 @@ Partial Class frmParent
         '
         'ReportsToolStripMenuItem
         '
-        Me.ReportsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RoomInformationToolStripMenuItem, Me.DrywallPiecesToolStripMenuItem})
+        Me.ReportsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RoomInformationToolStripMenuItem, Me.DrywallPiecesToolStripMenuItem, Me.RoomDetailsToolStripMenuItem})
         Me.ReportsToolStripMenuItem.Name = "ReportsToolStripMenuItem"
         Me.ReportsToolStripMenuItem.Size = New System.Drawing.Size(59, 20)
         Me.ReportsToolStripMenuItem.Text = "Reports"
@@ -85,6 +86,12 @@ Partial Class frmParent
         Me.DrywallPiecesToolStripMenuItem.Name = "DrywallPiecesToolStripMenuItem"
         Me.DrywallPiecesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.DrywallPiecesToolStripMenuItem.Text = "Drywall Pieces "
+        '
+        'RoomDetailsToolStripMenuItem
+        '
+        Me.RoomDetailsToolStripMenuItem.Name = "RoomDetailsToolStripMenuItem"
+        Me.RoomDetailsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.RoomDetailsToolStripMenuItem.Text = "RoomDetails"
         '
         'frmParent
         '
@@ -111,4 +118,5 @@ Partial Class frmParent
     Friend WithEvents ReportsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RoomInformationToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DrywallPiecesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RoomDetailsToolStripMenuItem As ToolStripMenuItem
 End Class

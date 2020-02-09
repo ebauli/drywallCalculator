@@ -416,6 +416,7 @@ Public Class Form5
         myMDI.MyWallList = MyWallList
         myMDI.MyCornerList = MyCornerList
         myMDI.myRoomList = myRoomList
+        myMDI.projectID = projectid
 
     End Sub
 

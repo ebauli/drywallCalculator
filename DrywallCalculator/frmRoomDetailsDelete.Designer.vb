@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frm_rptRoomInfo
+Partial Class frmRoomDetailsDelete
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -24,40 +24,50 @@ Partial Class frm_rptRoomInfo
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.RoomBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        CType(Me.RoomBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.DrywallDataSet1 = New DrywallCalculator.drywallDataSet1()
+        Me.DrywallDataSet1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        CType(Me.DrywallDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DrywallDataSet1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'RoomBindingSource
-        '
-        Me.RoomBindingSource.DataSource = GetType(DrywallCalculator.Room)
         '
         'ReportViewer1
         '
         ReportDataSource1.Name = "DataSet1"
-        ReportDataSource1.Value = Me.RoomBindingSource
+        ReportDataSource1.Value = Me.DrywallDataSet1BindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "DrywallCalculator.ReportRooms.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(12, 99)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "DrywallCalculator.Report3.rdlc"
+        Me.ReportViewer1.Location = New System.Drawing.Point(144, 59)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
-        Me.ReportViewer1.Size = New System.Drawing.Size(776, 305)
+        Me.ReportViewer1.Size = New System.Drawing.Size(396, 246)
         Me.ReportViewer1.TabIndex = 0
         '
-        'frm_rptRoomInfo
+        'DrywallDataSet1
+        '
+        Me.DrywallDataSet1.DataSetName = "drywallDataSet1"
+        Me.DrywallDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'DrywallDataSet1BindingSource
+        '
+        Me.DrywallDataSet1BindingSource.DataSource = Me.DrywallDataSet1
+        Me.DrywallDataSet1BindingSource.Position = 0
+        '
+        'frmRoomDetailsDelete
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.ReportViewer1)
-        Me.Name = "frm_rptRoomInfo"
-        Me.Text = "frm_rptRoomInfo"
-        CType(Me.RoomBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Name = "frmRoomDetailsDelete"
+        Me.Text = "frmRoomDetailsDelete"
+        CType(Me.DrywallDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DrywallDataSet1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
-    Friend WithEvents RoomBindingSource As BindingSource
+    Friend WithEvents DrywallDataSet1BindingSource As BindingSource
+    Friend WithEvents DrywallDataSet1 As drywallDataSet1
 End Class

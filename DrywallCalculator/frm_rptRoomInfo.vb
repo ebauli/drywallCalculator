@@ -27,4 +27,8 @@
 
         Me.ReportViewer1.RefreshReport()
     End Sub
+
+    Private Sub RoomBindingSource_CurrentChanged(sender As Object, e As EventArgs) Handles RoomBindingSource.CurrentChanged
+
+    End Sub
 End Class

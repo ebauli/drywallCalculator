@@ -4,10 +4,10 @@
     Public Property myRoomList As New List(Of Room)
     Public Property MyCornerList As New List(Of Corner)
     Public Property MyWallList As New List(Of Wall)
+
     Public Property myDataAccessClass As New DataAccessClass
-
-
     Public Property projectID As Integer
+
     Private Sub frmParent_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
@@ -47,5 +47,13 @@
         frm_rptRoomInfo.MdiParent = Me
         frm_rptRoomInfo.myRoomList = myRoomList
         frm_rptRoomInfo.Show()
+    End Sub
+
+    Private Sub RoomDetailsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RoomDetailsToolStripMenuItem.Click
+        Dim frm_rptRoomDetails As New frmRoomDetails
+        frm_rptRoomDetails.MdiParent = Me
+        frm_rptRoomDetails.projectID = projectID
+        MsgBox(projectID)
+        frm_rptRoomDetails.Show()
     End Sub
 End Class

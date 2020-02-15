@@ -240,7 +240,7 @@ WHERE        (project_id = @project_id)</CommandText>
               <DbSource ConnectionRef="drywallConnectionString2 (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        rooms.room_name, walls.*
+                    <CommandText>SELECT        rooms.room_name,walls.wall_id, walls.project_id, walls.room_id, walls.wall_name, walls.wall_description, walls.lc_id, walls.rc_id, walls.width, walls.has_reveal, walls.bb_height, walls.reveal_height, walls.strip_size
 FROM            rooms INNER JOIN
                          walls ON rooms.room_id = walls.room_id
 WHERE        (walls.project_id = @project_id)</CommandText>
@@ -306,7 +306,7 @@ WHERE        (corners.project_id = @projectID)</CommandText>
   <xs:element name="drywallDataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="drywallDataSet1" msprop:Generator_UserDSName="drywallDataSet1">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="walls" msprop:Generator_TableClassName="wallsDataTable" msprop:Generator_TableVarName="tablewalls" msprop:Generator_TablePropName="walls" msprop:Generator_RowDeletingName="wallsRowDeleting" msprop:Generator_RowChangingName="wallsRowChanging" msprop:Generator_RowEvHandlerName="wallsRowChangeEventHandler" msprop:Generator_RowDeletedName="wallsRowDeleted" msprop:Generator_UserTableName="walls" msprop:Generator_RowChangedName="wallsRowChanged" msprop:Generator_RowEvArgName="wallsRowChangeEvent" msprop:Generator_RowClassName="wallsRow">
+        <xs:element name="walls" msprop:Generator_TableClassName="wallsDataTable" msprop:Generator_TableVarName="tablewalls" msprop:Generator_RowChangedName="wallsRowChanged" msprop:Generator_TablePropName="walls" msprop:Generator_RowDeletingName="wallsRowDeleting" msprop:Generator_RowChangingName="wallsRowChanging" msprop:Generator_RowEvHandlerName="wallsRowChangeEventHandler" msprop:Generator_RowDeletedName="wallsRowDeleted" msprop:Generator_RowClassName="wallsRow" msprop:Generator_UserTableName="walls" msprop:Generator_RowEvArgName="wallsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="wall_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnwall_id" msprop:Generator_ColumnPropNameInRow="wall_id" msprop:Generator_ColumnPropNameInTable="wall_idColumn" msprop:Generator_UserColumnName="wall_id" type="xs:int" />
@@ -336,7 +336,7 @@ WHERE        (corners.project_id = @projectID)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="rooms" msprop:Generator_TableClassName="roomsDataTable" msprop:Generator_TableVarName="tablerooms" msprop:Generator_TablePropName="rooms" msprop:Generator_RowDeletingName="roomsRowDeleting" msprop:Generator_RowChangingName="roomsRowChanging" msprop:Generator_RowEvHandlerName="roomsRowChangeEventHandler" msprop:Generator_RowDeletedName="roomsRowDeleted" msprop:Generator_UserTableName="rooms" msprop:Generator_RowChangedName="roomsRowChanged" msprop:Generator_RowEvArgName="roomsRowChangeEvent" msprop:Generator_RowClassName="roomsRow">
+        <xs:element name="rooms" msprop:Generator_TableClassName="roomsDataTable" msprop:Generator_TableVarName="tablerooms" msprop:Generator_RowChangedName="roomsRowChanged" msprop:Generator_TablePropName="rooms" msprop:Generator_RowDeletingName="roomsRowDeleting" msprop:Generator_RowChangingName="roomsRowChanging" msprop:Generator_RowEvHandlerName="roomsRowChangeEventHandler" msprop:Generator_RowDeletedName="roomsRowDeleted" msprop:Generator_RowClassName="roomsRow" msprop:Generator_UserTableName="rooms" msprop:Generator_RowEvArgName="roomsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="room_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnroom_id" msprop:Generator_ColumnPropNameInRow="room_id" msprop:Generator_ColumnPropNameInTable="room_idColumn" msprop:Generator_UserColumnName="room_id" type="xs:int" />
@@ -382,7 +382,7 @@ WHERE        (corners.project_id = @projectID)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DataTable2" msprop:Generator_TableClassName="DataTable2DataTable" msprop:Generator_TableVarName="tableDataTable2" msprop:Generator_TablePropName="DataTable2" msprop:Generator_RowDeletingName="DataTable2RowDeleting" msprop:Generator_RowChangingName="DataTable2RowChanging" msprop:Generator_RowEvHandlerName="DataTable2RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable2RowDeleted" msprop:Generator_UserTableName="DataTable2" msprop:Generator_RowChangedName="DataTable2RowChanged" msprop:Generator_RowEvArgName="DataTable2RowChangeEvent" msprop:Generator_RowClassName="DataTable2Row">
+        <xs:element name="DataTable2" msprop:Generator_TableClassName="DataTable2DataTable" msprop:Generator_TableVarName="tableDataTable2" msprop:Generator_RowChangedName="DataTable2RowChanged" msprop:Generator_TablePropName="DataTable2" msprop:Generator_RowDeletingName="DataTable2RowDeleting" msprop:Generator_RowChangingName="DataTable2RowChanging" msprop:Generator_RowEvHandlerName="DataTable2RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable2RowDeleted" msprop:Generator_RowClassName="DataTable2Row" msprop:Generator_UserTableName="DataTable2" msprop:Generator_RowEvArgName="DataTable2RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="room_name" msprop:Generator_ColumnVarNameInTable="columnroom_name" msprop:Generator_ColumnPropNameInRow="room_name" msprop:Generator_ColumnPropNameInTable="room_nameColumn" msprop:Generator_UserColumnName="room_name">
@@ -395,8 +395,6 @@ WHERE        (corners.project_id = @projectID)</CommandText>
               <xs:element name="wall_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnwall_id" msprop:Generator_ColumnPropNameInRow="wall_id" msprop:Generator_ColumnPropNameInTable="wall_idColumn" msprop:Generator_UserColumnName="wall_id" type="xs:int" />
               <xs:element name="project_id" msprop:Generator_ColumnVarNameInTable="columnproject_id" msprop:Generator_ColumnPropNameInRow="project_id" msprop:Generator_ColumnPropNameInTable="project_idColumn" msprop:Generator_UserColumnName="project_id" type="xs:int" />
               <xs:element name="room_id" msprop:Generator_ColumnVarNameInTable="columnroom_id" msprop:Generator_ColumnPropNameInRow="room_id" msprop:Generator_ColumnPropNameInTable="room_idColumn" msprop:Generator_UserColumnName="room_id" type="xs:int" />
-              <xs:element name="rc_name" msprop:Generator_ColumnVarNameInTable="columnrc_name" msprop:Generator_ColumnPropNameInRow="rc_name" msprop:Generator_ColumnPropNameInTable="rc_nameColumn" msprop:Generator_UserColumnName="rc_name" type="xs:string" minOccurs="0" />
-              <xs:element name="lc_name" msprop:Generator_ColumnVarNameInTable="columnlc_name" msprop:Generator_ColumnPropNameInRow="lc_name" msprop:Generator_ColumnPropNameInTable="lc_nameColumn" msprop:Generator_UserColumnName="lc_name" type="xs:string" minOccurs="0" />
               <xs:element name="wall_name" msprop:Generator_ColumnVarNameInTable="columnwall_name" msprop:Generator_ColumnPropNameInRow="wall_name" msprop:Generator_ColumnPropNameInTable="wall_nameColumn" msprop:Generator_UserColumnName="wall_name" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -421,7 +419,7 @@ WHERE        (corners.project_id = @projectID)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="corner_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columncorner_id" msprop:Generator_ColumnPropNameInRow="corner_id" msprop:Generator_ColumnPropNameInTable="corner_idColumn" msprop:Generator_UserColumnName="corner_id" type="xs:int" />

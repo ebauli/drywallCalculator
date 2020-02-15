@@ -251,6 +251,11 @@
     <Compile Include="Room.vb" />
     <Compile Include="SQLControl.vb" />
     <Compile Include="Wall.vb" />
+    <Compile Include="wallDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>wallDataSet.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
@@ -330,6 +335,17 @@
     </None>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="wallDataSet.xsc">
+      <DependentUpon>wallDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="wallDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>wallDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="wallDataSet.xss">
+      <DependentUpon>wallDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

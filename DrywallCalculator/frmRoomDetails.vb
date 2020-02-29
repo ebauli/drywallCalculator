@@ -26,13 +26,25 @@ WHERE        (walls.project_id = @project_id) ")
 
 
 
+
         Me.DrywallDataSet1.EnforceConstraints = False
         Me.DataTable1TableAdapter.Fill(DrywallDataSet1.DataTable1, projectID)
         'Me.DataTable1TableAdapter.Fill(sql.sqlDS.Tables(0), projectID)
         DataTable2BindingSource.DataSource = sql.sqlDS.Tables(0)
         Me.DataTable2TableAdapter.Fill(DrywallDataSet1.DataTable2, projectID)
+        ' Me.ReportViewer1.LocalReport.Render.("Word Doc (*.doc)")
+        'Me.ReportViewer1.ExportDialog(* .doc)
+        'Me.ReportViewer1.RefreshReport()
+        'Me.ReportViewer1.RefreshReport()
 
-        Me.ReportViewer1.RefreshReport()
-        Me.ReportViewer1.RefreshReport()
+        'Dim SaveFileDialog As New SaveFileDialog()
+
+        'SaveFileDialog.RestoreDirectory = True
+        'SaveFileDialog.Title = “Browse Text Files”
+        'SaveFileDialog.DefaultExt = “doc”
+
+        'SaveFileDialog.Filter = “Word Doc (*.doc)|*.doc|PDF (*.pdf)| *.pdf”
+
+
     End Sub
 End Class

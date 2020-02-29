@@ -67,6 +67,8 @@ Partial Class frmRooms
         Me.Label12 = New System.Windows.Forms.Label()
         Me.chbCeilingLeveled = New System.Windows.Forms.CheckBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.txtLD_centerStud = New System.Windows.Forms.TextBox()
+        Me.Label18 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupCorner.SuspendLayout()
@@ -293,7 +295,7 @@ Partial Class frmRooms
         '
         'txtWallWidth
         '
-        Me.txtWallWidth.Location = New System.Drawing.Point(229, 520)
+        Me.txtWallWidth.Location = New System.Drawing.Point(209, 154)
         Me.txtWallWidth.Name = "txtWallWidth"
         Me.txtWallWidth.Size = New System.Drawing.Size(150, 20)
         Me.txtWallWidth.TabIndex = 28
@@ -337,7 +339,7 @@ Partial Class frmRooms
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(48, 520)
+        Me.Label17.Location = New System.Drawing.Point(28, 154)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(59, 13)
         Me.Label17.TabIndex = 36
@@ -383,9 +385,13 @@ Partial Class frmRooms
         '
         'GroupWall
         '
+        Me.GroupWall.Controls.Add(Me.Label18)
+        Me.GroupWall.Controls.Add(Me.txtLD_centerStud)
         Me.GroupWall.Controls.Add(Me.Button6)
         Me.GroupWall.Controls.Add(Me.Button4)
         Me.GroupWall.Controls.Add(Me.Button5)
+        Me.GroupWall.Controls.Add(Me.Label17)
+        Me.GroupWall.Controls.Add(Me.txtWallWidth)
         Me.GroupWall.Location = New System.Drawing.Point(20, 392)
         Me.GroupWall.Name = "GroupWall"
         Me.GroupWall.Size = New System.Drawing.Size(389, 255)
@@ -490,6 +496,22 @@ Partial Class frmRooms
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Additional Information"
         '
+        'txtLD_centerStud
+        '
+        Me.txtLD_centerStud.Location = New System.Drawing.Point(210, 128)
+        Me.txtLD_centerStud.Name = "txtLD_centerStud"
+        Me.txtLD_centerStud.Size = New System.Drawing.Size(149, 20)
+        Me.txtLD_centerStud.TabIndex = 48
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(31, 128)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(129, 13)
+        Me.Label18.TabIndex = 49
+        Me.Label18.Text = "Left Distance Center Stud"
+        '
         'frmRooms
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -501,12 +523,10 @@ Partial Class frmRooms
         Me.Controls.Add(Me.Label24)
         Me.Controls.Add(Me.Label23)
         Me.Controls.Add(Me.btnCalculate)
-        Me.Controls.Add(Me.Label17)
         Me.Controls.Add(Me.Label16)
         Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.Label13)
-        Me.Controls.Add(Me.txtWallWidth)
         Me.Controls.Add(Me.txtRightCorner)
         Me.Controls.Add(Me.txtLeftCorner)
         Me.Controls.Add(Me.txtWallDesc)
@@ -526,12 +546,12 @@ Partial Class frmRooms
         Me.Controls.Add(Me.GroupCorner)
         Me.Controls.Add(Me.GroupWall)
         Me.Name = "frmRooms"
-        Me.Text = "Room Building Form"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupCorner.ResumeLayout(False)
         Me.GroupCorner.PerformLayout()
         Me.GroupWall.ResumeLayout(False)
+        Me.GroupWall.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
@@ -584,4 +604,6 @@ Partial Class frmRooms
     Friend WithEvents Label12 As Label
     Friend WithEvents chbCeilingLeveled As CheckBox
     Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents Label18 As Label
+    Friend WithEvents txtLD_centerStud As TextBox
 End Class

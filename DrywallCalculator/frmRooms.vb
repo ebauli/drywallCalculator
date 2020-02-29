@@ -106,6 +106,7 @@
         sql.addParam("@left_corner", txtLeftCorner.Text)
         sql.addParam("@right_corner", txtRightCorner.Text)
         sql.addParam("@wall_width", txtWallWidth.Text)
+        sql.addParam("@LDCS", txtLD_centerStud.Text)
         ' sql.addParam("@hasReveal", cmbHasReveal.Text)
         ' sql.addParam("@bbHeight", txtBaseboardHeight.Text)
         ' sql.addParam("@reveal_height", txtRevealHeight.Text)
@@ -116,7 +117,7 @@
         ' If Not (txtCornerName.Text = String.Empty And txtCornerDesc.Text = String.Empty And txtLsDistance.Text = String.Empty And txtRsDistance.Text = String.Empty) Then
         ' sql.ExecQuery("UPDATE WALLS SET wall_name = @wallName, wall_description = @wallDescription, lc_id = @left_corner , rc_id = @right_corner , width = @wall_width, has_reveal = @hasReveal , bb_height = @bbHeight , reveal_height = @reveal_height , strip_size = @stripHeight where wall_id=  @wallID")
 
-        sql.ExecQuery("UPDATE WALLS SET wall_name = @wallName, wall_description = @wallDescription, lc_id = @left_corner , rc_id = @right_corner , width = @wall_width where wall_id=  @wallID")
+        sql.ExecQuery("UPDATE WALLS SET wall_name = @wallName, wall_description = @wallDescription, lc_id = @left_corner , rc_id = @right_corner ,ld_center_stud =@LDCS , width = @wall_width where wall_id=  @wallID")
 
 
         loadGrid2(projectID, roomID)
@@ -137,6 +138,7 @@
         sql.addParam("@height_ff", txtHeightFF.Text)
         sql.addParam("@cornerID", cornerIDSelected)
         sql.addParam("@cornerType", cbxCornerType.Text)
+
 
 
         ' If Not (txtCornerName.Text = String.Empty And txtCornerDesc.Text = String.Empty And txtLsDistance.Text = String.Empty And txtRsDistance.Text = String.Empty) Then
@@ -325,6 +327,7 @@
         sql.addParam("@lc_id", txtLeftCorner.Text)
         sql.addParam("@rc_id", txtRightCorner.Text)
         sql.addParam("@wallWidth", txtWallWidth.Text)
+        sql.addParam("@LDCS", txtLD_centerStud.Text)
         'sql.addParam("@hasReveal", cmbHasReveal.Text)
         'sql.addParam("@baseboardHeight", txtBaseboardHeight.Text)
         'sql.addParam("@revealHeight", txtRevealHeight.Text)
@@ -340,7 +343,7 @@
             Try
                 'sql.ExecQuery("INSERT INTO WALLS ( project_id, room_id ,wall_name , wall_description , lc_id , rc_id , width ,has_reveal, bb_height , reveal_height,strip_size ) values (@projectID,@roomID,@wallName,@wallDescription,@lc_id,@rc_id,@wallWidth,@hasReveal,@baseboardHeight,@revealHeight,@stripHeight )")
 
-                sql.ExecQuery("INSERT INTO WALLS ( project_id, room_id ,wall_name , wall_description , lc_id , rc_id , width  ) values (@projectID,@roomID,@wallName,@wallDescription,@lc_id,@rc_id,@wallWidth )")
+                sql.ExecQuery("INSERT INTO WALLS ( project_id, room_id ,wall_name , wall_description , lc_id , rc_id , width, ld_center_stud  ) values (@projectID,@roomID,@wallName,@wallDescription,@lc_id,@rc_id,@wallWidth,@LDCS )")
 
 
             Catch ex As Exception
@@ -426,5 +429,7 @@
 
     End Sub
 
+    Private Sub Label18_Click(sender As Object, e As EventArgs) Handles Label18.Click
 
+    End Sub
 End Class

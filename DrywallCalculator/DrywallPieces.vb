@@ -16,8 +16,6 @@
     Private leftStudRight_distance As Double
     Private rightstudleft_distance As Double
 
-
-
     Public Sub New(newProjectID As Integer, newroomID As Integer, newRoomName As String, newWallName As String, newInCorner As String, newPieceType As String, newDrywallThickness As Double, newW1 As Double, newW2 As Double, newH1 As Double, newH2 As Double, newUniquename As String)
 
         ProjectID = newProjectID
@@ -150,6 +148,8 @@
         ' Compare sizes.
         Return Me.get_PieceType.CompareTo(other.get_PieceType())
     End Function
+
+
 
 
 End Class

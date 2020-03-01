@@ -410,7 +410,7 @@ Public Class Form5
                 If Not corner.get_cornerType = "Flat" Then 'if the corner is flat do not added it to the pieces needed
                     If Room.get_hasReveal = "TRUE" Then
 
-                        drywallPiece1 = New DrywallPieces(projectid, Room.get_RoomID, Room.get_name, corner.get_Name, corner.get_cornerType, "C3", Room.get_RoomDrywallThickness, w1, w2, 11.375, 11.375, uniqueName)
+                        drywallPiece1 = New DrywallPieces(projectid, Room.get_RoomID, Room.get_name, corner.get_Name, corner.get_cornerType, "C3", Room.get_RoomDrywallThickness, w1, w2, 11.375, h2, uniqueName)
                         DrywallPieceList.Add(drywallPiece1)
 
 

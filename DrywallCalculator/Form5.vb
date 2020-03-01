@@ -282,7 +282,7 @@ Public Class Form5
         Dim DrywallPieceList As New List(Of DrywallPieces)()
 
 
-        Dim w1, w2, h1, h2 As Double
+        Dim w1, w2, h1, h2, h1_c2 As Double
 
         For Each Room In myRoomList
 
@@ -365,15 +365,16 @@ Public Class Form5
                     w2 = corner.get_RightStudDistance - Room.get_RoomDrywallThickness
                     If w1 > w2 Or w1 = w2 Then
                         h1 = w1
-                        h2 = 0
+                        h2 = 11.375
                     ElseIf w1 < w2 Then
                         h1 = w2
-                        h2 = 0
+                        h2 = 11.375
                     End If
 
                 ElseIf corner.get_cornerType = "Exterior corner" Then
                     w1 = corner.get_LeftStudDistance + Room.get_RoomDrywallThickness
                     w2 = corner.get_RightStudDistance + Room.get_RoomDrywallThickness
+                    h1 = 11.375
                     h2 = 0
                     'not using flpas wit exterior corners
 
@@ -388,11 +389,11 @@ Public Class Form5
                     'End If
                 End If
                 If Room.get_hasReveal = "TRUE" Then
-                    h1 = Room.get_RoomHeight - Room.get_strip_height - Room.get_reveal_height - Room.get_baseboard_height - Room.get_RoomDrywallThickness - 12
+                    h1_c2 = Room.get_RoomHeight - Room.get_strip_height - Room.get_reveal_height - Room.get_baseboard_height - Room.get_RoomDrywallThickness - 12
                     ' h2 = 16
                     'nothing
                 Else
-                    h1 = Room.get_RoomHeight - Room.get_RoomDrywallThickness - 12
+                    h1_c2 = Room.get_RoomHeight - Room.get_RoomDrywallThickness - 12
                     ' h2 = 16
 
                 End If
@@ -414,7 +415,7 @@ Public Class Form5
                         DrywallPieceList.Add(drywallPiece1)
 
 
-                        drywallPiece3 = New DrywallPieces(projectid, Room.get_RoomID, Room.get_name, Room.get_name, "N/A", "C2", Room.get_RoomDrywallThickness, 11.375, 11.375, h1, h2, uniqueName)
+                        drywallPiece3 = New DrywallPieces(projectid, Room.get_RoomID, Room.get_name, Room.get_name, "N/A", "C2", Room.get_RoomDrywallThickness, 11.375, 11.375, h1_c2, h2, uniqueName)
                         DrywallPieceList.Add(drywallPiece3)
 
 
@@ -424,6 +425,9 @@ Public Class Form5
 
                         drywallPiece1 = New DrywallPieces(projectid, Room.get_RoomID, Room.get_name, corner.get_Name, corner.get_cornerType, "C3", Room.get_RoomDrywallThickness, w1, w2, h1, h2, uniqueName)
                         DrywallPieceList.Add(drywallPiece1)
+
+                        drywallPiece3 = New DrywallPieces(projectid, Room.get_RoomID, Room.get_name, Room.get_name, "N/A", "C2", Room.get_RoomDrywallThickness, 11.375, 11.375, h1_c2, h2, uniqueName)
+                        DrywallPieceList.Add(drywallPiece3)
                     End If
                 End If
 

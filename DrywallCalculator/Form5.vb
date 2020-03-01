@@ -415,7 +415,7 @@ Public Class Form5
                         DrywallPieceList.Add(drywallPiece1)
 
 
-                        drywallPiece3 = New DrywallPieces(projectid, Room.get_RoomID, Room.get_name, Room.get_name, "N/A", "C2", Room.get_RoomDrywallThickness, 11.375, 11.375, h1_c2, h2, uniqueName)
+                        drywallPiece3 = New DrywallPieces(projectid, Room.get_RoomID, Room.get_name, Room.get_name, "N/A", "C2", Room.get_RoomDrywallThickness, 11.375, 11.375, h1_c2, 0, uniqueName)
                         DrywallPieceList.Add(drywallPiece3)
 
 

@@ -365,16 +365,16 @@ Public Class Form5
                     w2 = corner.get_RightStudDistance - Room.get_RoomDrywallThickness
                     If w1 > w2 Or w1 = w2 Then
                         h1 = w1
-                        h2 = w1
+                        h2 = 0
                     ElseIf w1 < w2 Then
                         h1 = w2
-                        h2 = w2
+                        h2 = 0
                     End If
 
                 ElseIf corner.get_cornerType = "Exterior corner" Then
                     w1 = corner.get_LeftStudDistance + Room.get_RoomDrywallThickness
                     w2 = corner.get_RightStudDistance + Room.get_RoomDrywallThickness
-
+                    h2 = 0
                     'not using flpas wit exterior corners
 
                     '    'If w1 > w2 Or w1 = w2 Then
